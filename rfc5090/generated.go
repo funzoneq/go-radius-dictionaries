@@ -61,7 +61,11 @@ func DigestResponse_GetString(p *radius.Packet) (value string) {
 
 func DigestResponse_Gets(p *radius.Packet) (values [][]byte, err error) {
 	var i []byte
-	for _, attr := range p.Attributes[DigestResponse_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != DigestResponse_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.Bytes(attr)
 		if err != nil {
 			return
@@ -73,7 +77,11 @@ func DigestResponse_Gets(p *radius.Packet) (values [][]byte, err error) {
 
 func DigestResponse_GetStrings(p *radius.Packet) (values []string, err error) {
 	var i string
-	for _, attr := range p.Attributes[DigestResponse_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != DigestResponse_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.String(attr)
 		if err != nil {
 			return
@@ -159,7 +167,11 @@ func DigestRealm_GetString(p *radius.Packet) (value string) {
 
 func DigestRealm_Gets(p *radius.Packet) (values [][]byte, err error) {
 	var i []byte
-	for _, attr := range p.Attributes[DigestRealm_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != DigestRealm_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.Bytes(attr)
 		if err != nil {
 			return
@@ -171,7 +183,11 @@ func DigestRealm_Gets(p *radius.Packet) (values [][]byte, err error) {
 
 func DigestRealm_GetStrings(p *radius.Packet) (values []string, err error) {
 	var i string
-	for _, attr := range p.Attributes[DigestRealm_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != DigestRealm_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.String(attr)
 		if err != nil {
 			return
@@ -257,7 +273,11 @@ func DigestNonce_GetString(p *radius.Packet) (value string) {
 
 func DigestNonce_Gets(p *radius.Packet) (values [][]byte, err error) {
 	var i []byte
-	for _, attr := range p.Attributes[DigestNonce_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != DigestNonce_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.Bytes(attr)
 		if err != nil {
 			return
@@ -269,7 +289,11 @@ func DigestNonce_Gets(p *radius.Packet) (values [][]byte, err error) {
 
 func DigestNonce_GetStrings(p *radius.Packet) (values []string, err error) {
 	var i string
-	for _, attr := range p.Attributes[DigestNonce_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != DigestNonce_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.String(attr)
 		if err != nil {
 			return
@@ -355,7 +379,11 @@ func DigestResponseAuth_GetString(p *radius.Packet) (value string) {
 
 func DigestResponseAuth_Gets(p *radius.Packet) (values [][]byte, err error) {
 	var i []byte
-	for _, attr := range p.Attributes[DigestResponseAuth_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != DigestResponseAuth_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.Bytes(attr)
 		if err != nil {
 			return
@@ -367,7 +395,11 @@ func DigestResponseAuth_Gets(p *radius.Packet) (values [][]byte, err error) {
 
 func DigestResponseAuth_GetStrings(p *radius.Packet) (values []string, err error) {
 	var i string
-	for _, attr := range p.Attributes[DigestResponseAuth_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != DigestResponseAuth_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.String(attr)
 		if err != nil {
 			return
@@ -453,7 +485,11 @@ func DigestNextnonce_GetString(p *radius.Packet) (value string) {
 
 func DigestNextnonce_Gets(p *radius.Packet) (values [][]byte, err error) {
 	var i []byte
-	for _, attr := range p.Attributes[DigestNextnonce_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != DigestNextnonce_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.Bytes(attr)
 		if err != nil {
 			return
@@ -465,7 +501,11 @@ func DigestNextnonce_Gets(p *radius.Packet) (values [][]byte, err error) {
 
 func DigestNextnonce_GetStrings(p *radius.Packet) (values []string, err error) {
 	var i string
-	for _, attr := range p.Attributes[DigestNextnonce_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != DigestNextnonce_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.String(attr)
 		if err != nil {
 			return
@@ -551,7 +591,11 @@ func DigestMethod_GetString(p *radius.Packet) (value string) {
 
 func DigestMethod_Gets(p *radius.Packet) (values [][]byte, err error) {
 	var i []byte
-	for _, attr := range p.Attributes[DigestMethod_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != DigestMethod_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.Bytes(attr)
 		if err != nil {
 			return
@@ -563,7 +607,11 @@ func DigestMethod_Gets(p *radius.Packet) (values [][]byte, err error) {
 
 func DigestMethod_GetStrings(p *radius.Packet) (values []string, err error) {
 	var i string
-	for _, attr := range p.Attributes[DigestMethod_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != DigestMethod_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.String(attr)
 		if err != nil {
 			return
@@ -649,7 +697,11 @@ func DigestURI_GetString(p *radius.Packet) (value string) {
 
 func DigestURI_Gets(p *radius.Packet) (values [][]byte, err error) {
 	var i []byte
-	for _, attr := range p.Attributes[DigestURI_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != DigestURI_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.Bytes(attr)
 		if err != nil {
 			return
@@ -661,7 +713,11 @@ func DigestURI_Gets(p *radius.Packet) (values [][]byte, err error) {
 
 func DigestURI_GetStrings(p *radius.Packet) (values []string, err error) {
 	var i string
-	for _, attr := range p.Attributes[DigestURI_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != DigestURI_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.String(attr)
 		if err != nil {
 			return
@@ -747,7 +803,11 @@ func DigestQop_GetString(p *radius.Packet) (value string) {
 
 func DigestQop_Gets(p *radius.Packet) (values [][]byte, err error) {
 	var i []byte
-	for _, attr := range p.Attributes[DigestQop_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != DigestQop_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.Bytes(attr)
 		if err != nil {
 			return
@@ -759,7 +819,11 @@ func DigestQop_Gets(p *radius.Packet) (values [][]byte, err error) {
 
 func DigestQop_GetStrings(p *radius.Packet) (values []string, err error) {
 	var i string
-	for _, attr := range p.Attributes[DigestQop_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != DigestQop_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.String(attr)
 		if err != nil {
 			return
@@ -845,7 +909,11 @@ func DigestAlgorithm_GetString(p *radius.Packet) (value string) {
 
 func DigestAlgorithm_Gets(p *radius.Packet) (values [][]byte, err error) {
 	var i []byte
-	for _, attr := range p.Attributes[DigestAlgorithm_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != DigestAlgorithm_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.Bytes(attr)
 		if err != nil {
 			return
@@ -857,7 +925,11 @@ func DigestAlgorithm_Gets(p *radius.Packet) (values [][]byte, err error) {
 
 func DigestAlgorithm_GetStrings(p *radius.Packet) (values []string, err error) {
 	var i string
-	for _, attr := range p.Attributes[DigestAlgorithm_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != DigestAlgorithm_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.String(attr)
 		if err != nil {
 			return
@@ -943,7 +1015,11 @@ func DigestEntityBodyHash_GetString(p *radius.Packet) (value string) {
 
 func DigestEntityBodyHash_Gets(p *radius.Packet) (values [][]byte, err error) {
 	var i []byte
-	for _, attr := range p.Attributes[DigestEntityBodyHash_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != DigestEntityBodyHash_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.Bytes(attr)
 		if err != nil {
 			return
@@ -955,7 +1031,11 @@ func DigestEntityBodyHash_Gets(p *radius.Packet) (values [][]byte, err error) {
 
 func DigestEntityBodyHash_GetStrings(p *radius.Packet) (values []string, err error) {
 	var i string
-	for _, attr := range p.Attributes[DigestEntityBodyHash_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != DigestEntityBodyHash_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.String(attr)
 		if err != nil {
 			return
@@ -1041,7 +1121,11 @@ func DigestCNonce_GetString(p *radius.Packet) (value string) {
 
 func DigestCNonce_Gets(p *radius.Packet) (values [][]byte, err error) {
 	var i []byte
-	for _, attr := range p.Attributes[DigestCNonce_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != DigestCNonce_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.Bytes(attr)
 		if err != nil {
 			return
@@ -1053,7 +1137,11 @@ func DigestCNonce_Gets(p *radius.Packet) (values [][]byte, err error) {
 
 func DigestCNonce_GetStrings(p *radius.Packet) (values []string, err error) {
 	var i string
-	for _, attr := range p.Attributes[DigestCNonce_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != DigestCNonce_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.String(attr)
 		if err != nil {
 			return
@@ -1139,7 +1227,11 @@ func DigestNonceCount_GetString(p *radius.Packet) (value string) {
 
 func DigestNonceCount_Gets(p *radius.Packet) (values [][]byte, err error) {
 	var i []byte
-	for _, attr := range p.Attributes[DigestNonceCount_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != DigestNonceCount_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.Bytes(attr)
 		if err != nil {
 			return
@@ -1151,7 +1243,11 @@ func DigestNonceCount_Gets(p *radius.Packet) (values [][]byte, err error) {
 
 func DigestNonceCount_GetStrings(p *radius.Packet) (values []string, err error) {
 	var i string
-	for _, attr := range p.Attributes[DigestNonceCount_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != DigestNonceCount_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.String(attr)
 		if err != nil {
 			return
@@ -1237,7 +1333,11 @@ func DigestUsername_GetString(p *radius.Packet) (value string) {
 
 func DigestUsername_Gets(p *radius.Packet) (values [][]byte, err error) {
 	var i []byte
-	for _, attr := range p.Attributes[DigestUsername_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != DigestUsername_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.Bytes(attr)
 		if err != nil {
 			return
@@ -1249,7 +1349,11 @@ func DigestUsername_Gets(p *radius.Packet) (values [][]byte, err error) {
 
 func DigestUsername_GetStrings(p *radius.Packet) (values []string, err error) {
 	var i string
-	for _, attr := range p.Attributes[DigestUsername_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != DigestUsername_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.String(attr)
 		if err != nil {
 			return
@@ -1335,7 +1439,11 @@ func DigestOpaque_GetString(p *radius.Packet) (value string) {
 
 func DigestOpaque_Gets(p *radius.Packet) (values [][]byte, err error) {
 	var i []byte
-	for _, attr := range p.Attributes[DigestOpaque_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != DigestOpaque_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.Bytes(attr)
 		if err != nil {
 			return
@@ -1347,7 +1455,11 @@ func DigestOpaque_Gets(p *radius.Packet) (values [][]byte, err error) {
 
 func DigestOpaque_GetStrings(p *radius.Packet) (values []string, err error) {
 	var i string
-	for _, attr := range p.Attributes[DigestOpaque_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != DigestOpaque_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.String(attr)
 		if err != nil {
 			return
@@ -1433,7 +1545,11 @@ func DigestAuthParam_GetString(p *radius.Packet) (value string) {
 
 func DigestAuthParam_Gets(p *radius.Packet) (values [][]byte, err error) {
 	var i []byte
-	for _, attr := range p.Attributes[DigestAuthParam_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != DigestAuthParam_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.Bytes(attr)
 		if err != nil {
 			return
@@ -1445,7 +1561,11 @@ func DigestAuthParam_Gets(p *radius.Packet) (values [][]byte, err error) {
 
 func DigestAuthParam_GetStrings(p *radius.Packet) (values []string, err error) {
 	var i string
-	for _, attr := range p.Attributes[DigestAuthParam_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != DigestAuthParam_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.String(attr)
 		if err != nil {
 			return
@@ -1531,7 +1651,11 @@ func DigestAKAAuts_GetString(p *radius.Packet) (value string) {
 
 func DigestAKAAuts_Gets(p *radius.Packet) (values [][]byte, err error) {
 	var i []byte
-	for _, attr := range p.Attributes[DigestAKAAuts_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != DigestAKAAuts_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.Bytes(attr)
 		if err != nil {
 			return
@@ -1543,7 +1667,11 @@ func DigestAKAAuts_Gets(p *radius.Packet) (values [][]byte, err error) {
 
 func DigestAKAAuts_GetStrings(p *radius.Packet) (values []string, err error) {
 	var i string
-	for _, attr := range p.Attributes[DigestAKAAuts_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != DigestAKAAuts_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.String(attr)
 		if err != nil {
 			return
@@ -1629,7 +1757,11 @@ func DigestDomain_GetString(p *radius.Packet) (value string) {
 
 func DigestDomain_Gets(p *radius.Packet) (values [][]byte, err error) {
 	var i []byte
-	for _, attr := range p.Attributes[DigestDomain_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != DigestDomain_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.Bytes(attr)
 		if err != nil {
 			return
@@ -1641,7 +1773,11 @@ func DigestDomain_Gets(p *radius.Packet) (values [][]byte, err error) {
 
 func DigestDomain_GetStrings(p *radius.Packet) (values []string, err error) {
 	var i string
-	for _, attr := range p.Attributes[DigestDomain_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != DigestDomain_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.String(attr)
 		if err != nil {
 			return
@@ -1727,7 +1863,11 @@ func DigestStale_GetString(p *radius.Packet) (value string) {
 
 func DigestStale_Gets(p *radius.Packet) (values [][]byte, err error) {
 	var i []byte
-	for _, attr := range p.Attributes[DigestStale_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != DigestStale_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.Bytes(attr)
 		if err != nil {
 			return
@@ -1739,7 +1879,11 @@ func DigestStale_Gets(p *radius.Packet) (values [][]byte, err error) {
 
 func DigestStale_GetStrings(p *radius.Packet) (values []string, err error) {
 	var i string
-	for _, attr := range p.Attributes[DigestStale_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != DigestStale_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.String(attr)
 		if err != nil {
 			return
@@ -1825,7 +1969,11 @@ func DigestHA1_GetString(p *radius.Packet) (value string) {
 
 func DigestHA1_Gets(p *radius.Packet) (values [][]byte, err error) {
 	var i []byte
-	for _, attr := range p.Attributes[DigestHA1_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != DigestHA1_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.Bytes(attr)
 		if err != nil {
 			return
@@ -1837,7 +1985,11 @@ func DigestHA1_Gets(p *radius.Packet) (values [][]byte, err error) {
 
 func DigestHA1_GetStrings(p *radius.Packet) (values []string, err error) {
 	var i string
-	for _, attr := range p.Attributes[DigestHA1_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != DigestHA1_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.String(attr)
 		if err != nil {
 			return
@@ -1923,7 +2075,11 @@ func SIPAOR_GetString(p *radius.Packet) (value string) {
 
 func SIPAOR_Gets(p *radius.Packet) (values [][]byte, err error) {
 	var i []byte
-	for _, attr := range p.Attributes[SIPAOR_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != SIPAOR_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.Bytes(attr)
 		if err != nil {
 			return
@@ -1935,7 +2091,11 @@ func SIPAOR_Gets(p *radius.Packet) (values [][]byte, err error) {
 
 func SIPAOR_GetStrings(p *radius.Packet) (values []string, err error) {
 	var i string
-	for _, attr := range p.Attributes[SIPAOR_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != SIPAOR_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.String(attr)
 		if err != nil {
 			return

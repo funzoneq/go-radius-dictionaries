@@ -1,1 +1,1 @@
-radius-dict-gen: dictionarygen: cannot generate code for Starent vendor attribute SN1-Assigned-VLAN-ID
+radius-dict-gen: 3:16: expected ';', found '.'

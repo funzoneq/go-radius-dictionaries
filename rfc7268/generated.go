@@ -61,7 +61,11 @@ func AllowedCalledStationID_GetString(p *radius.Packet) (value string) {
 
 func AllowedCalledStationID_Gets(p *radius.Packet) (values [][]byte, err error) {
 	var i []byte
-	for _, attr := range p.Attributes[AllowedCalledStationID_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != AllowedCalledStationID_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.Bytes(attr)
 		if err != nil {
 			return
@@ -73,7 +77,11 @@ func AllowedCalledStationID_Gets(p *radius.Packet) (values [][]byte, err error) 
 
 func AllowedCalledStationID_GetStrings(p *radius.Packet) (values []string, err error) {
 	var i string
-	for _, attr := range p.Attributes[AllowedCalledStationID_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != AllowedCalledStationID_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.String(attr)
 		if err != nil {
 			return
@@ -159,7 +167,11 @@ func EAPPeerID_GetString(p *radius.Packet) (value string) {
 
 func EAPPeerID_Gets(p *radius.Packet) (values [][]byte, err error) {
 	var i []byte
-	for _, attr := range p.Attributes[EAPPeerID_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != EAPPeerID_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.Bytes(attr)
 		if err != nil {
 			return
@@ -171,7 +183,11 @@ func EAPPeerID_Gets(p *radius.Packet) (values [][]byte, err error) {
 
 func EAPPeerID_GetStrings(p *radius.Packet) (values []string, err error) {
 	var i string
-	for _, attr := range p.Attributes[EAPPeerID_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != EAPPeerID_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.String(attr)
 		if err != nil {
 			return
@@ -257,7 +273,11 @@ func EAPServerID_GetString(p *radius.Packet) (value string) {
 
 func EAPServerID_Gets(p *radius.Packet) (values [][]byte, err error) {
 	var i []byte
-	for _, attr := range p.Attributes[EAPServerID_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != EAPServerID_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.Bytes(attr)
 		if err != nil {
 			return
@@ -269,7 +289,11 @@ func EAPServerID_Gets(p *radius.Packet) (values [][]byte, err error) {
 
 func EAPServerID_GetStrings(p *radius.Packet) (values []string, err error) {
 	var i string
-	for _, attr := range p.Attributes[EAPServerID_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != EAPServerID_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.String(attr)
 		if err != nil {
 			return
@@ -347,7 +371,11 @@ func MobilityDomainID_Get(p *radius.Packet) (value MobilityDomainID) {
 
 func MobilityDomainID_Gets(p *radius.Packet) (values []MobilityDomainID, err error) {
 	var i uint32
-	for _, attr := range p.Attributes[MobilityDomainID_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != MobilityDomainID_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i, err = radius.Integer(attr)
 		if err != nil {
 			return
@@ -406,7 +434,11 @@ func PreauthTimeout_Get(p *radius.Packet) (value PreauthTimeout) {
 
 func PreauthTimeout_Gets(p *radius.Packet) (values []PreauthTimeout, err error) {
 	var i uint32
-	for _, attr := range p.Attributes[PreauthTimeout_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != PreauthTimeout_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i, err = radius.Integer(attr)
 		if err != nil {
 			return
@@ -473,7 +505,11 @@ func NetworkIDName_GetString(p *radius.Packet) (value string) {
 
 func NetworkIDName_Gets(p *radius.Packet) (values [][]byte, err error) {
 	var i []byte
-	for _, attr := range p.Attributes[NetworkIDName_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != NetworkIDName_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.Bytes(attr)
 		if err != nil {
 			return
@@ -485,7 +521,11 @@ func NetworkIDName_Gets(p *radius.Packet) (values [][]byte, err error) {
 
 func NetworkIDName_GetStrings(p *radius.Packet) (values []string, err error) {
 	var i string
-	for _, attr := range p.Attributes[NetworkIDName_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != NetworkIDName_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.String(attr)
 		if err != nil {
 			return
@@ -552,7 +592,11 @@ func EAPoLAnnouncement_GetString(p *radius.Packet) (value string) {
 func EAPoLAnnouncement_Lookup(p *radius.Packet) (value []byte, err error) {
 	var i []byte
 	var valid bool
-	for _, attr := range p.Attributes[EAPoLAnnouncement_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != EAPoLAnnouncement_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.Bytes(attr)
 		if err != nil {
 			return
@@ -569,7 +613,11 @@ func EAPoLAnnouncement_Lookup(p *radius.Packet) (value []byte, err error) {
 func EAPoLAnnouncement_LookupString(p *radius.Packet) (value string, err error) {
 	var i string
 	var valid bool
-	for _, attr := range p.Attributes[EAPoLAnnouncement_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != EAPoLAnnouncement_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.String(attr)
 		if err != nil {
 			return
@@ -585,7 +633,7 @@ func EAPoLAnnouncement_LookupString(p *radius.Packet) (value string, err error) 
 
 func EAPoLAnnouncement_Set(p *radius.Packet, value []byte) (err error) {
 	const maximumChunkSize = 253
-	var attrs []radius.Attribute
+	var attrs []*radius.AVP
 	for len(value) > 0 {
 		var a radius.Attribute
 		n := len(value)
@@ -596,16 +644,19 @@ func EAPoLAnnouncement_Set(p *radius.Packet, value []byte) (err error) {
 		if err != nil {
 			return
 		}
-		attrs = append(attrs, a)
+		attrs = append(attrs, &radius.AVP{
+			Type:      EAPoLAnnouncement_Type,
+			Attribute: a,
+		})
 		value = value[n:]
 	}
-	p.Attributes[EAPoLAnnouncement_Type] = attrs
+	p.Attributes = append(p.Attributes, attrs...)
 	return
 }
 
 func EAPoLAnnouncement_SetString(p *radius.Packet, value string) (err error) {
 	const maximumChunkSize = 253
-	var attrs []radius.Attribute
+	var attrs []*radius.AVP
 	for len(value) > 0 {
 		var a radius.Attribute
 		n := len(value)
@@ -616,10 +667,13 @@ func EAPoLAnnouncement_SetString(p *radius.Packet, value string) (err error) {
 		if err != nil {
 			return
 		}
-		attrs = append(attrs, a)
+		attrs = append(attrs, &radius.AVP{
+			Type:      EAPoLAnnouncement_Type,
+			Attribute: a,
+		})
 		value = value[n:]
 	}
-	p.Attributes[EAPoLAnnouncement_Type] = attrs
+	p.Attributes = append(p.Attributes, attrs...)
 	return
 }
 
@@ -659,7 +713,11 @@ func WLANHESSID_GetString(p *radius.Packet) (value string) {
 
 func WLANHESSID_Gets(p *radius.Packet) (values [][]byte, err error) {
 	var i []byte
-	for _, attr := range p.Attributes[WLANHESSID_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != WLANHESSID_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.Bytes(attr)
 		if err != nil {
 			return
@@ -671,7 +729,11 @@ func WLANHESSID_Gets(p *radius.Packet) (values [][]byte, err error) {
 
 func WLANHESSID_GetStrings(p *radius.Packet) (values []string, err error) {
 	var i string
-	for _, attr := range p.Attributes[WLANHESSID_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != WLANHESSID_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.String(attr)
 		if err != nil {
 			return
@@ -749,7 +811,11 @@ func WLANVenueInfo_Get(p *radius.Packet) (value WLANVenueInfo) {
 
 func WLANVenueInfo_Gets(p *radius.Packet) (values []WLANVenueInfo, err error) {
 	var i uint32
-	for _, attr := range p.Attributes[WLANVenueInfo_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != WLANVenueInfo_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i, err = radius.Integer(attr)
 		if err != nil {
 			return
@@ -824,7 +890,11 @@ func WLANVenueLanguage_GetString(p *radius.Packet) (value string) {
 
 func WLANVenueLanguage_Gets(p *radius.Packet) (values [][]byte, err error) {
 	var i []byte
-	for _, attr := range p.Attributes[WLANVenueLanguage_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != WLANVenueLanguage_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.Bytes(attr)
 		if err == nil && len(i) != 3 {
 			err = errors.New("invalid value length")
@@ -839,7 +909,11 @@ func WLANVenueLanguage_Gets(p *radius.Packet) (values [][]byte, err error) {
 
 func WLANVenueLanguage_GetStrings(p *radius.Packet) (values []string, err error) {
 	var i string
-	for _, attr := range p.Attributes[WLANVenueLanguage_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != WLANVenueLanguage_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.String(attr)
 		if err == nil && len(i) != 3 {
 			err = errors.New("invalid value length")
@@ -942,7 +1016,11 @@ func WLANVenueName_GetString(p *radius.Packet) (value string) {
 
 func WLANVenueName_Gets(p *radius.Packet) (values [][]byte, err error) {
 	var i []byte
-	for _, attr := range p.Attributes[WLANVenueName_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != WLANVenueName_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.Bytes(attr)
 		if err != nil {
 			return
@@ -954,7 +1032,11 @@ func WLANVenueName_Gets(p *radius.Packet) (values [][]byte, err error) {
 
 func WLANVenueName_GetStrings(p *radius.Packet) (values []string, err error) {
 	var i string
-	for _, attr := range p.Attributes[WLANVenueName_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != WLANVenueName_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.String(attr)
 		if err != nil {
 			return
@@ -1032,7 +1114,11 @@ func WLANReasonCode_Get(p *radius.Packet) (value WLANReasonCode) {
 
 func WLANReasonCode_Gets(p *radius.Packet) (values []WLANReasonCode, err error) {
 	var i uint32
-	for _, attr := range p.Attributes[WLANReasonCode_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != WLANReasonCode_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i, err = radius.Integer(attr)
 		if err != nil {
 			return
@@ -1091,7 +1177,11 @@ func WLANPairwiseCipher_Get(p *radius.Packet) (value WLANPairwiseCipher) {
 
 func WLANPairwiseCipher_Gets(p *radius.Packet) (values []WLANPairwiseCipher, err error) {
 	var i uint32
-	for _, attr := range p.Attributes[WLANPairwiseCipher_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != WLANPairwiseCipher_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i, err = radius.Integer(attr)
 		if err != nil {
 			return
@@ -1150,7 +1240,11 @@ func WLANGroupCipher_Get(p *radius.Packet) (value WLANGroupCipher) {
 
 func WLANGroupCipher_Gets(p *radius.Packet) (values []WLANGroupCipher, err error) {
 	var i uint32
-	for _, attr := range p.Attributes[WLANGroupCipher_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != WLANGroupCipher_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i, err = radius.Integer(attr)
 		if err != nil {
 			return
@@ -1209,7 +1303,11 @@ func WLANAKMSuite_Get(p *radius.Packet) (value WLANAKMSuite) {
 
 func WLANAKMSuite_Gets(p *radius.Packet) (values []WLANAKMSuite, err error) {
 	var i uint32
-	for _, attr := range p.Attributes[WLANAKMSuite_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != WLANAKMSuite_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i, err = radius.Integer(attr)
 		if err != nil {
 			return
@@ -1268,7 +1366,11 @@ func WLANGroupMgmtCipher_Get(p *radius.Packet) (value WLANGroupMgmtCipher) {
 
 func WLANGroupMgmtCipher_Gets(p *radius.Packet) (values []WLANGroupMgmtCipher, err error) {
 	var i uint32
-	for _, attr := range p.Attributes[WLANGroupMgmtCipher_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != WLANGroupMgmtCipher_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i, err = radius.Integer(attr)
 		if err != nil {
 			return
@@ -1327,7 +1429,11 @@ func WLANRFBand_Get(p *radius.Packet) (value WLANRFBand) {
 
 func WLANRFBand_Gets(p *radius.Packet) (values []WLANRFBand, err error) {
 	var i uint32
-	for _, attr := range p.Attributes[WLANRFBand_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != WLANRFBand_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i, err = radius.Integer(attr)
 		if err != nil {
 			return

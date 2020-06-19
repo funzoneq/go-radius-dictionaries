@@ -45,7 +45,11 @@ func GSSAcceptorServiceName_GetString(p *radius.Packet) (value string) {
 
 func GSSAcceptorServiceName_Gets(p *radius.Packet) (values [][]byte, err error) {
 	var i []byte
-	for _, attr := range p.Attributes[GSSAcceptorServiceName_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != GSSAcceptorServiceName_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.Bytes(attr)
 		if err != nil {
 			return
@@ -57,7 +61,11 @@ func GSSAcceptorServiceName_Gets(p *radius.Packet) (values [][]byte, err error) 
 
 func GSSAcceptorServiceName_GetStrings(p *radius.Packet) (values []string, err error) {
 	var i string
-	for _, attr := range p.Attributes[GSSAcceptorServiceName_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != GSSAcceptorServiceName_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.String(attr)
 		if err != nil {
 			return
@@ -143,7 +151,11 @@ func GSSAcceptorHostName_GetString(p *radius.Packet) (value string) {
 
 func GSSAcceptorHostName_Gets(p *radius.Packet) (values [][]byte, err error) {
 	var i []byte
-	for _, attr := range p.Attributes[GSSAcceptorHostName_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != GSSAcceptorHostName_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.Bytes(attr)
 		if err != nil {
 			return
@@ -155,7 +167,11 @@ func GSSAcceptorHostName_Gets(p *radius.Packet) (values [][]byte, err error) {
 
 func GSSAcceptorHostName_GetStrings(p *radius.Packet) (values []string, err error) {
 	var i string
-	for _, attr := range p.Attributes[GSSAcceptorHostName_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != GSSAcceptorHostName_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.String(attr)
 		if err != nil {
 			return
@@ -241,7 +257,11 @@ func GSSAcceptorServiceSpecifics_GetString(p *radius.Packet) (value string) {
 
 func GSSAcceptorServiceSpecifics_Gets(p *radius.Packet) (values [][]byte, err error) {
 	var i []byte
-	for _, attr := range p.Attributes[GSSAcceptorServiceSpecifics_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != GSSAcceptorServiceSpecifics_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.Bytes(attr)
 		if err != nil {
 			return
@@ -253,7 +273,11 @@ func GSSAcceptorServiceSpecifics_Gets(p *radius.Packet) (values [][]byte, err er
 
 func GSSAcceptorServiceSpecifics_GetStrings(p *radius.Packet) (values []string, err error) {
 	var i string
-	for _, attr := range p.Attributes[GSSAcceptorServiceSpecifics_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != GSSAcceptorServiceSpecifics_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.String(attr)
 		if err != nil {
 			return
@@ -339,7 +363,11 @@ func GSSAcceptorRealmName_GetString(p *radius.Packet) (value string) {
 
 func GSSAcceptorRealmName_Gets(p *radius.Packet) (values [][]byte, err error) {
 	var i []byte
-	for _, attr := range p.Attributes[GSSAcceptorRealmName_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != GSSAcceptorRealmName_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.Bytes(attr)
 		if err != nil {
 			return
@@ -351,7 +379,11 @@ func GSSAcceptorRealmName_Gets(p *radius.Packet) (values [][]byte, err error) {
 
 func GSSAcceptorRealmName_GetStrings(p *radius.Packet) (values []string, err error) {
 	var i string
-	for _, attr := range p.Attributes[GSSAcceptorRealmName_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != GSSAcceptorRealmName_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.String(attr)
 		if err != nil {
 			return

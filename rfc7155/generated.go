@@ -52,7 +52,11 @@ func OriginatingLineInfo_GetString(p *radius.Packet) (value string) {
 
 func OriginatingLineInfo_Gets(p *radius.Packet) (values [][]byte, err error) {
 	var i []byte
-	for _, attr := range p.Attributes[OriginatingLineInfo_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != OriginatingLineInfo_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.Bytes(attr)
 		if err == nil && len(i) != 2 {
 			err = errors.New("invalid value length")
@@ -67,7 +71,11 @@ func OriginatingLineInfo_Gets(p *radius.Packet) (values [][]byte, err error) {
 
 func OriginatingLineInfo_GetStrings(p *radius.Packet) (values []string, err error) {
 	var i string
-	for _, attr := range p.Attributes[OriginatingLineInfo_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != OriginatingLineInfo_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.String(attr)
 		if err == nil && len(i) != 2 {
 			err = errors.New("invalid value length")

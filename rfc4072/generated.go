@@ -42,7 +42,11 @@ func EAPKeyName_GetString(p *radius.Packet) (value string) {
 
 func EAPKeyName_Gets(p *radius.Packet) (values [][]byte, err error) {
 	var i []byte
-	for _, attr := range p.Attributes[EAPKeyName_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != EAPKeyName_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.Bytes(attr)
 		if err != nil {
 			return
@@ -54,7 +58,11 @@ func EAPKeyName_Gets(p *radius.Packet) (values [][]byte, err error) {
 
 func EAPKeyName_GetStrings(p *radius.Packet) (values []string, err error) {
 	var i string
-	for _, attr := range p.Attributes[EAPKeyName_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != EAPKeyName_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.String(attr)
 		if err != nil {
 			return

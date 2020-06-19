@@ -58,7 +58,11 @@ func EAPLowerLayer_Get(p *radius.Packet) (value EAPLowerLayer) {
 
 func EAPLowerLayer_Gets(p *radius.Packet) (values []EAPLowerLayer, err error) {
 	var i uint32
-	for _, attr := range p.Attributes[EAPLowerLayer_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != EAPLowerLayer_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i, err = radius.Integer(attr)
 		if err != nil {
 			return

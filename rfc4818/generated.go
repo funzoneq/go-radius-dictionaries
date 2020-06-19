@@ -29,7 +29,11 @@ func DelegatedIPv6Prefix_Get(p *radius.Packet) (value *net.IPNet) {
 
 func DelegatedIPv6Prefix_Gets(p *radius.Packet) (values []*net.IPNet, err error) {
 	var i *net.IPNet
-	for _, attr := range p.Attributes[DelegatedIPv6Prefix_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != DelegatedIPv6Prefix_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i, err = radius.IPv6Prefix(attr)
 		if err != nil {
 			return

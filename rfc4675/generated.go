@@ -39,7 +39,11 @@ func EgressVLANID_Get(p *radius.Packet) (value EgressVLANID) {
 
 func EgressVLANID_Gets(p *radius.Packet) (values []EgressVLANID, err error) {
 	var i uint32
-	for _, attr := range p.Attributes[EgressVLANID_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != EgressVLANID_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i, err = radius.Integer(attr)
 		if err != nil {
 			return
@@ -106,7 +110,11 @@ func IngressFilters_Get(p *radius.Packet) (value IngressFilters) {
 
 func IngressFilters_Gets(p *radius.Packet) (values []IngressFilters, err error) {
 	var i uint32
-	for _, attr := range p.Attributes[IngressFilters_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != IngressFilters_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i, err = radius.Integer(attr)
 		if err != nil {
 			return
@@ -173,7 +181,11 @@ func EgressVLANName_GetString(p *radius.Packet) (value string) {
 
 func EgressVLANName_Gets(p *radius.Packet) (values [][]byte, err error) {
 	var i []byte
-	for _, attr := range p.Attributes[EgressVLANName_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != EgressVLANName_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.Bytes(attr)
 		if err != nil {
 			return
@@ -185,7 +197,11 @@ func EgressVLANName_Gets(p *radius.Packet) (values [][]byte, err error) {
 
 func EgressVLANName_GetStrings(p *radius.Packet) (values []string, err error) {
 	var i string
-	for _, attr := range p.Attributes[EgressVLANName_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != EgressVLANName_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.String(attr)
 		if err != nil {
 			return
@@ -271,7 +287,11 @@ func UserPriorityTable_GetString(p *radius.Packet) (value string) {
 
 func UserPriorityTable_Gets(p *radius.Packet) (values [][]byte, err error) {
 	var i []byte
-	for _, attr := range p.Attributes[UserPriorityTable_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != UserPriorityTable_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.Bytes(attr)
 		if err != nil {
 			return
@@ -283,7 +303,11 @@ func UserPriorityTable_Gets(p *radius.Packet) (values [][]byte, err error) {
 
 func UserPriorityTable_GetStrings(p *radius.Packet) (values []string, err error) {
 	var i string
-	for _, attr := range p.Attributes[UserPriorityTable_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != UserPriorityTable_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.String(attr)
 		if err != nil {
 			return

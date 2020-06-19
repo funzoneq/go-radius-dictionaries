@@ -50,7 +50,11 @@ func OperatorName_GetString(p *radius.Packet) (value string) {
 
 func OperatorName_Gets(p *radius.Packet) (values [][]byte, err error) {
 	var i []byte
-	for _, attr := range p.Attributes[OperatorName_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != OperatorName_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.Bytes(attr)
 		if err != nil {
 			return
@@ -62,7 +66,11 @@ func OperatorName_Gets(p *radius.Packet) (values [][]byte, err error) {
 
 func OperatorName_GetStrings(p *radius.Packet) (values []string, err error) {
 	var i string
-	for _, attr := range p.Attributes[OperatorName_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != OperatorName_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.String(attr)
 		if err != nil {
 			return
@@ -148,7 +156,11 @@ func LocationInformation_GetString(p *radius.Packet) (value string) {
 
 func LocationInformation_Gets(p *radius.Packet) (values [][]byte, err error) {
 	var i []byte
-	for _, attr := range p.Attributes[LocationInformation_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != LocationInformation_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.Bytes(attr)
 		if err != nil {
 			return
@@ -160,7 +172,11 @@ func LocationInformation_Gets(p *radius.Packet) (values [][]byte, err error) {
 
 func LocationInformation_GetStrings(p *radius.Packet) (values []string, err error) {
 	var i string
-	for _, attr := range p.Attributes[LocationInformation_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != LocationInformation_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.String(attr)
 		if err != nil {
 			return
@@ -246,7 +262,11 @@ func LocationData_GetString(p *radius.Packet) (value string) {
 
 func LocationData_Gets(p *radius.Packet) (values [][]byte, err error) {
 	var i []byte
-	for _, attr := range p.Attributes[LocationData_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != LocationData_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.Bytes(attr)
 		if err != nil {
 			return
@@ -258,7 +278,11 @@ func LocationData_Gets(p *radius.Packet) (values [][]byte, err error) {
 
 func LocationData_GetStrings(p *radius.Packet) (values []string, err error) {
 	var i string
-	for _, attr := range p.Attributes[LocationData_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != LocationData_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.String(attr)
 		if err != nil {
 			return
@@ -344,7 +368,11 @@ func BasicLocationPolicyRules_GetString(p *radius.Packet) (value string) {
 
 func BasicLocationPolicyRules_Gets(p *radius.Packet) (values [][]byte, err error) {
 	var i []byte
-	for _, attr := range p.Attributes[BasicLocationPolicyRules_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != BasicLocationPolicyRules_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.Bytes(attr)
 		if err != nil {
 			return
@@ -356,7 +384,11 @@ func BasicLocationPolicyRules_Gets(p *radius.Packet) (values [][]byte, err error
 
 func BasicLocationPolicyRules_GetStrings(p *radius.Packet) (values []string, err error) {
 	var i string
-	for _, attr := range p.Attributes[BasicLocationPolicyRules_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != BasicLocationPolicyRules_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.String(attr)
 		if err != nil {
 			return
@@ -442,7 +474,11 @@ func ExtendedLocationPolicyRules_GetString(p *radius.Packet) (value string) {
 
 func ExtendedLocationPolicyRules_Gets(p *radius.Packet) (values [][]byte, err error) {
 	var i []byte
-	for _, attr := range p.Attributes[ExtendedLocationPolicyRules_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != ExtendedLocationPolicyRules_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.Bytes(attr)
 		if err != nil {
 			return
@@ -454,7 +490,11 @@ func ExtendedLocationPolicyRules_Gets(p *radius.Packet) (values [][]byte, err er
 
 func ExtendedLocationPolicyRules_GetStrings(p *radius.Packet) (values []string, err error) {
 	var i string
-	for _, attr := range p.Attributes[ExtendedLocationPolicyRules_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != ExtendedLocationPolicyRules_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.String(attr)
 		if err != nil {
 			return
@@ -544,7 +584,11 @@ func LocationCapable_Get(p *radius.Packet) (value LocationCapable) {
 
 func LocationCapable_Gets(p *radius.Packet) (values []LocationCapable, err error) {
 	var i uint32
-	for _, attr := range p.Attributes[LocationCapable_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != LocationCapable_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i, err = radius.Integer(attr)
 		if err != nil {
 			return
@@ -619,7 +663,11 @@ func RequestedLocationInfo_Get(p *radius.Packet) (value RequestedLocationInfo) {
 
 func RequestedLocationInfo_Gets(p *radius.Packet) (values []RequestedLocationInfo, err error) {
 	var i uint32
-	for _, attr := range p.Attributes[RequestedLocationInfo_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != RequestedLocationInfo_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i, err = radius.Integer(attr)
 		if err != nil {
 			return

@@ -45,7 +45,11 @@ func MIP6FeatureVector_GetString(p *radius.Packet) (value string) {
 
 func MIP6FeatureVector_Gets(p *radius.Packet) (values [][]byte, err error) {
 	var i []byte
-	for _, attr := range p.Attributes[MIP6FeatureVector_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != MIP6FeatureVector_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.Bytes(attr)
 		if err != nil {
 			return
@@ -57,7 +61,11 @@ func MIP6FeatureVector_Gets(p *radius.Packet) (values [][]byte, err error) {
 
 func MIP6FeatureVector_GetStrings(p *radius.Packet) (values []string, err error) {
 	var i string
-	for _, attr := range p.Attributes[MIP6FeatureVector_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != MIP6FeatureVector_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i = radius.String(attr)
 		if err != nil {
 			return
@@ -128,7 +136,11 @@ func MIP6HomeLinkPrefix_Get(p *radius.Packet) (value *net.IPNet) {
 
 func MIP6HomeLinkPrefix_Gets(p *radius.Packet) (values []*net.IPNet, err error) {
 	var i *net.IPNet
-	for _, attr := range p.Attributes[MIP6HomeLinkPrefix_Type] {
+	for _, avp := range p.Attributes {
+		if avp.Type != MIP6HomeLinkPrefix_Type {
+			continue
+		}
+		attr := avp.Attribute
 		i, err = radius.IPv6Prefix(attr)
 		if err != nil {
 			return

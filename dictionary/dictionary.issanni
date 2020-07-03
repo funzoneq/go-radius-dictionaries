@@ -1,10 +1,12 @@
 # -*- text -*-
-# Copyright (C) 2015 The FreeRADIUS Server project and contributors
+# Copyright (C) 2020 The FreeRADIUS Server project and contributors
+# This work is licensed under CC-BY version 4.0 https://creativecommons.org/licenses/by/4.0
+# Version $Id: 05341a40e35ee7180d50057f5ea9ed8d15a38dbb $
 ##############################################################################
 #
 #	UTStarcom Issanni DSL router.
 #
-#	$Id: a7813e48ee3ccd7825a06f0a84f03ac7c6890adc $
+#	$Id: 05341a40e35ee7180d50057f5ea9ed8d15a38dbb $
 #
 ##############################################################################
 

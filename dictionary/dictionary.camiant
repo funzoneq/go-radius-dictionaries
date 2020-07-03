@@ -1,4 +1,7 @@
 # -*- text -*-
+# Copyright (C) 2020 The FreeRADIUS Server project and contributors
+# This work is licensed under CC-BY version 4.0 https://creativecommons.org/licenses/by/4.0
+# Version $Id: 03417c5b5e7c1394bef19fa8bf4a9be95d111525 $
 ##############################################################################
 #
 #	Tekelec (Formerly Camiant) MSR dictionary

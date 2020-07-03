@@ -1,12 +1,14 @@
 # -*- text -*-
-# Copyright (C) 2015 The FreeRADIUS Server project and contributors
+# Copyright (C) 2020 The FreeRADIUS Server project and contributors
+# This work is licensed under CC-BY version 4.0 https://creativecommons.org/licenses/by/4.0
+# Version $Id: d2785017ce309d73d49767f4057ce8c4f5abf315 $
 ##############################################################################
 #
 #	ChilliSpot (and CoovaChilli) captive portal
 #	http://www.chillispot.org
 #	http://coova.org/wiki/index.php/CoovaChilli
 #
-#	$Id: e1e96effc16f678bd939dca7d779285fdc3cd126 $
+#	$Id: d2785017ce309d73d49767f4057ce8c4f5abf315 $
 #
 ##############################################################################
 

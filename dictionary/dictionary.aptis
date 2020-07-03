@@ -1,7 +1,9 @@
 # -*- text -*-
-# Copyright (C) 2015 The FreeRADIUS Server project and contributors
+# Copyright (C) 2020 The FreeRADIUS Server project and contributors
+# This work is licensed under CC-BY version 4.0 https://creativecommons.org/licenses/by/4.0
+# Version $Id: 2980aec81a229dcf4a0896bfd7ab4b8c177ad7b3 $
 #
-#	$Id: 9dcc25f87309aea44c8bd06b5755cd3db4811c76 $
+#	$Id: 2980aec81a229dcf4a0896bfd7ab4b8c177ad7b3 $
 #
 
 VENDOR		Aptis				2637

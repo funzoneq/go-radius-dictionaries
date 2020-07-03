@@ -1,3 +1,7 @@
+# -*- text -*-
+# Copyright (C) 2020 The FreeRADIUS Server project and contributors
+# This work is licensed under CC-BY version 4.0 https://creativecommons.org/licenses/by/4.0
+# Version $Id: 545c0f5ac1a889531c525b4670ce924d8b039de7 $
 #
 # dictionary.ericsson.packet.core.networks
 #

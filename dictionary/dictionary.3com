@@ -1,10 +1,14 @@
 # -*- text -*-
-# Copyright (C) 2015 The FreeRADIUS Server project and contributors
+# Copyright (C) 2020 The FreeRADIUS Server project and contributors
+# This work is licensed under CC-BY version 4.0 https://creativecommons.org/licenses/by/4.0
+# Version $Id: 20c347b9a78e6c78c5350cd35f487bb32ac96570 $
 #
 #	3com SuperStack Firewall dictionary
 #	Bought from Sonicwall, apparently, from Enterprise number 8741.
-#
-#		$Id: 2898ff656afb26c302ec2c613f29223689f03859 $
+# HP bought 3Com in 2009
+# http://h20628.www2.hp.com/km-ext/kmcsdirect/emr_na-c02584082-1.pdf
+# (page 557)
+#		$Id: 20c347b9a78e6c78c5350cd35f487bb32ac96570 $
 #
 
 VENDOR		3com				43

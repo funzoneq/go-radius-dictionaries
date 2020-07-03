@@ -1,10 +1,12 @@
 # -*- text -*-
-# Copyright (C) 2015 The FreeRADIUS Server project and contributors
+# Copyright (C) 2020 The FreeRADIUS Server project and contributors
+# This work is licensed under CC-BY version 4.0 https://creativecommons.org/licenses/by/4.0
+# Version $Id: 6d9963aa5535b10b53bb3a62523c2373bed9b426 $
 ##############################################################################
 #
 #	T-Systems-Nova
 #
-#	$Id: e78c33d89264af9b9c459e40343025b4e5c483ed $
+#	$Id: 6d9963aa5535b10b53bb3a62523c2373bed9b426 $
 #
 ##############################################################################
 VENDOR		T-Systems-Nova			16787

@@ -1,12 +1,14 @@
 # -*- text -*-
-# Copyright (C) 2015 The FreeRADIUS Server project and contributors
+# Copyright (C) 2020 The FreeRADIUS Server project and contributors
+# This work is licensed under CC-BY version 4.0 https://creativecommons.org/licenses/by/4.0
+# Version $Id: e984eac563ebc71084c86011ebfa78ff932b4ac6 $
 ##############################################################################
 #
 #	Audiocodes
 #
 #	http://www.audiocodes.com/filehandler.ashx?fileid=36358
 #
-#	$Id: 1a651576ff0e71c020ff1deb19b14a01f51f88b8 $
+#	$Id: e984eac563ebc71084c86011ebfa78ff932b4ac6 $
 #
 ##############################################################################
 

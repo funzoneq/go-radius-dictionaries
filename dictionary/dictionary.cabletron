@@ -1,8 +1,10 @@
 # -*- text -*-
-# Copyright (C) 2015 The FreeRADIUS Server project and contributors
+# Copyright (C) 2020 The FreeRADIUS Server project and contributors
+# This work is licensed under CC-BY version 4.0 https://creativecommons.org/licenses/by/4.0
+# Version $Id: 77f9a3117e7d59ca33828508a8bd11f7fc6ec50e $
 #
 #	http://www.cabletron.com (now http://www.enterasys.com)
-#	$Id: 8acb8109cd1fb4bd0da4cbc075160c1470c66046 $
+#	$Id: 77f9a3117e7d59ca33828508a8bd11f7fc6ec50e $
 #
 
 VENDOR		Cabletron			52

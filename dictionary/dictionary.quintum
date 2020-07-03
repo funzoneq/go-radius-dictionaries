@@ -1,12 +1,14 @@
 # -*- text -*-
-# Copyright (C) 2015 The FreeRADIUS Server project and contributors
+# Copyright (C) 2020 The FreeRADIUS Server project and contributors
+# This work is licensed under CC-BY version 4.0 https://creativecommons.org/licenses/by/4.0
+# Version $Id: 8b6b24a26adef99db72e9c282f62e62689180e09 $
 #
 # dictionary.quintum
 #
 #		Copied mostly from the Cisco dictionary, by
 #		Jeremy McNamara <jj@indie.org>
 #
-# Version:	$Id: 1e919243f377939a5523c7c9e28cc98bed30217f $
+# Version:	$Id: 8b6b24a26adef99db72e9c282f62e62689180e09 $
 #
 
 VENDOR		Quintum				6618

@@ -1,12 +1,14 @@
 # -*- text -*-
-# Copyright (C) 2015 The FreeRADIUS Server project and contributors
+# Copyright (C) 2020 The FreeRADIUS Server project and contributors
+# This work is licensed under CC-BY version 4.0 https://creativecommons.org/licenses/by/4.0
+# Version $Id: 7cc15a14cd24e3386b80b11a894bd80cfad1db3e $
 ##############################################################################
 #
 #	Dictionary for Huawei-3Com.  See also dictionary.huawei
 #
 #	http://www.h3c.com
 #
-#	$Id: aa7e2b286a612af70bf8e086357d9c8ef602eb89 $
+#	$Id: 7cc15a14cd24e3386b80b11a894bd80cfad1db3e $
 #
 ##############################################################################
 
@@ -35,7 +37,7 @@ ATTRIBUTE	H3C-Exec-Privilege			29	integer
 VALUE	H3C-Exec-Privilege		Visit			0
 VALUE	H3C-Exec-Privilege		Monitor			1
 VALUE	H3C-Exec-Privilege		System			2
-VALUE	H3C-Exec-Privilege		Manage			33
+VALUE	H3C-Exec-Privilege		Manage			3
 
 ATTRIBUTE	H3C-NAS-Startup-Timestamp		59	integer
 ATTRIBUTE	H3C-Ip-Host-Addr			60	string

@@ -1,11 +1,15 @@
 # -*- text -*-
-# Copyright (C) 2015 The FreeRADIUS Server project and contributors
+# Copyright (C) 2020 The FreeRADIUS Server project and contributors
+# This work is licensed under CC-BY version 4.0 https://creativecommons.org/licenses/by/4.0
+# Version $Id: f9b5a14aef68da02a7576e7d3c5971bb28059f13 $
 ##############################################################################
 #
 #	ipUnplugged
-#	http://www.ipunplugged.com/
+#	Purchased by RadioIP in 2009.
 #
-#	$Id: 978bbba43480739a2d716fd526fbcf50b0539f21 $
+#	http://www.radioip.com/
+#
+#	$Id: f9b5a14aef68da02a7576e7d3c5971bb28059f13 $
 #
 ##############################################################################
 

@@ -1,10 +1,12 @@
 # -*- text -*-
-# Copyright (C) 2015 The FreeRADIUS Server project and contributors
+# Copyright (C) 2020 The FreeRADIUS Server project and contributors
+# This work is licensed under CC-BY version 4.0 https://creativecommons.org/licenses/by/4.0
+# Version $Id: 4577e3590751f177c4bd715489e1c73520f7cbf2 $
 ##############################################################################
 #
 #	Ascend dictionary.
 #
-#	$Id: 3ca2c535cb2a9bc7fcc321fae4cbcc4c3a70b746 $
+#	$Id: 4577e3590751f177c4bd715489e1c73520f7cbf2 $
 #
 ##############################################################################
 

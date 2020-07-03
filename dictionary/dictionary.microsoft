@@ -1,9 +1,11 @@
 # -*- text -*-
-# Copyright (C) 2015 The FreeRADIUS Server project and contributors
+# Copyright (C) 2020 The FreeRADIUS Server project and contributors
+# This work is licensed under CC-BY version 4.0 https://creativecommons.org/licenses/by/4.0
+# Version $Id: 865d5e5db7e13ed0fb3dc122bd8e66c8eff5cb9e $
 #
 #	Microsoft's VSA's, from RFC 2548
 #
-#	$Id: 18d3abc307cc1baa533ad87fe999d99a47a94eba $
+#	$Id: 865d5e5db7e13ed0fb3dc122bd8e66c8eff5cb9e $
 #
 
 VENDOR		Microsoft			311

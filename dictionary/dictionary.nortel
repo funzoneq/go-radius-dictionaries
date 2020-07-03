@@ -1,12 +1,14 @@
 # -*- text -*-
-# Copyright (C) 2015 The FreeRADIUS Server project and contributors
+# Copyright (C) 2020 The FreeRADIUS Server project and contributors
+# This work is licensed under CC-BY version 4.0 https://creativecommons.org/licenses/by/4.0
+# Version $Id: 19aa07439e3885a3376ce6825e311f80ad172e9c $
 ##############################################################################
 #
 #	Nortel Passport 8600 VSA's.
 #
 #	http://www142.nortelnetworks.com/bvdoc/setips/july04/engineeringtipstricksv12.pdf
 #
-#	$Id: 922991260cb7c3fc61b0f41b59503c05fc2cf370 $
+#	$Id: 19aa07439e3885a3376ce6825e311f80ad172e9c $
 #
 ##############################################################################
 
@@ -56,5 +58,60 @@ VALUE	Nortel-Privilege-Level		ApplicationIVR		28
 VALUE	Nortel-Privilege-Level		ISDN-Dial-in		30
 VALUE	Nortel-Privilege-Level		WAN-Dial-in		32
 VALUE	Nortel-Privilege-Level		System-SerialPort	36
+
+##############################################################################
+#
+#	Nortel / Avaya / Extreme ERS 4900/5900 (7.6)
+#	ERS 4800 (5.12) / 3600 (6.2) / 3500 (5.3)
+#	Fabric Attach Radius Attributes
+#	Some series support a subset of the attributes
+#
+##############################################################################
+
+ATTRIBUTE	Fabric-Attach-VLAN-Create		170	integer
+ATTRIBUTE	Fabric-Attach-VLAN-ISID			171	string
+ATTRIBUTE	Fabric-Attach-VLAN-PVID			172	integer
+
+ATTRIBUTE	Fabric-Attach-Switch-Mode		180	integer
+ATTRIBUTE	Fabric-Attach-Client-Id			181	string
+ATTRIBUTE	Fabric-Attach-Client-Type		182	string
+
+VALUE	Fabric-Attach-VLAN-Create	No			0
+VALUE	Fabric-Attach-VLAN-Create	Yes			1
+
+VALUE	Fabric-Attach-Switch-Mode	Fabric-Attach-Server-VLAN-Mode 1
+VALUE	Fabric-Attach-Switch-Mode	Fabric-Attach-Server-SPBM-Mode 2
+VALUE	Fabric-Attach-Switch-Mode	Fabric-Attach-Proxy-Server-VLAN-Mode 3
+VALUE	Fabric-Attach-Switch-Mode	Fabric-Attach-Proxy-Server-SPBM-Mode 4
+VALUE	Fabric-Attach-Switch-Mode	Fabric-Attach-Standalone-Proxy 5
+
+##############################################################################
+#
+#	Nortel / Avaya / Extreme ERS 4900/5900 (7.6)
+#	ERS 4800 (5.12) / 3600 (6.2)
+#
+##############################################################################
+
+ATTRIBUTE	Fabric-Attach-Client-PSK		183	integer
+ATTRIBUTE	Fabric-Attach-Service-Request		186	string
+
+VALUE	Fabric-Attach-Client-PSK	NO-Fabric-Attach-Message-Authentication 0
+VALUE	Fabric-Attach-Client-PSK	Default-Secret-Key-Auth-Failed 10
+VALUE	Fabric-Attach-Client-PSK	Default-Secret-Key-Auth-Succes 11
+VALUE	Fabric-Attach-Client-PSK	User-Defined-Key-Auth-Failed 100
+VALUE	Fabric-Attach-Client-PSK	User-Defined-Key-Auth-Succes 101
+
+##############################################################################
+#
+#	Nortel / Avaya / Extreme ERS 4900/5900 (7.6)
+#
+##############################################################################
+
+ATTRIBUTE	Fabric-Attach-Client-Trust		184	integer
+ATTRIBUTE	Fabric-Attach-Client-Trusted-Binding	185	string
+
+VALUE	Fabric-Attach-Client-Trust	Fabric-Attach-Switch-Trust-None 0
+VALUE	Fabric-Attach-Client-Trust	Fabric-Attach-Switch-Trust-All 1
+VALUE	Fabric-Attach-Client-Trust	Fabric-Attach-Switch-Trust-Restricted 2
 
 END-VENDOR	Nortel

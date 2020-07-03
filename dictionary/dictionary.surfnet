@@ -1,10 +1,12 @@
 # -*- text -*-
-# Copyright (C) 2015 The FreeRADIUS Server project and contributors
+# Copyright (C) 2020 The FreeRADIUS Server project and contributors
+# This work is licensed under CC-BY version 4.0 https://creativecommons.org/licenses/by/4.0
+# Version $Id: 389006b0c84f914f866f52787095923e8289e198 $
 ##############################################################################
 #
 #	Surfnet
 #
-#	$Id: a6c0e4f9c83b588adec2998cb80513594abecada $
+#	$Id: 389006b0c84f914f866f52787095923e8289e198 $
 #
 ##############################################################################
 

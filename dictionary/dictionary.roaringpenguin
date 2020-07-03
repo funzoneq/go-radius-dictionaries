@@ -1,10 +1,12 @@
 # -*- text -*-
-# Copyright (C) 2015 The FreeRADIUS Server project and contributors
+# Copyright (C) 2020 The FreeRADIUS Server project and contributors
+# This work is licensed under CC-BY version 4.0 https://creativecommons.org/licenses/by/4.0
+# Version $Id: 1cf487220d2867a28c8654a781e3b09d88ea8243 $
 ##############################################################################
 #
 #	Roaring Penguin attributes
 #
-#	$Id: 294a4573a69d7a09272a91141c8af4bf17d8db59 $
+#	$Id: 1cf487220d2867a28c8654a781e3b09d88ea8243 $
 #
 ##############################################################################
 

@@ -1,10 +1,12 @@
 # -*- text -*-
-# Copyright (C) 2015 The FreeRADIUS Server project and contributors
+# Copyright (C) 2020 The FreeRADIUS Server project and contributors
+# This work is licensed under CC-BY version 4.0 https://creativecommons.org/licenses/by/4.0
+# Version $Id: d38a237ef00431e8d80b8c456dd79698099447f5 $
 ##############################################################################
 #
 #	Citrix VSAs
 #
-#	$Id: 868b203ab45b47533d9b53862cfc271251aa7f17 $
+#	$Id: d38a237ef00431e8d80b8c456dd79698099447f5 $
 #
 ##############################################################################
 

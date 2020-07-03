@@ -1,5 +1,7 @@
 # -*- text -*-
-# Copyright (C) 2015 The FreeRADIUS Server project and contributors
+# Copyright (C) 2020 The FreeRADIUS Server project and contributors
+# This work is licensed under CC-BY version 4.0 https://creativecommons.org/licenses/by/4.0
+# Version $Id: b0c2a06435ee6dac2664608a61dd9123dbb5c8cc $
 #
 ##############################################################################
 # Boingo Wi-Fi - http://www.boingo.com/

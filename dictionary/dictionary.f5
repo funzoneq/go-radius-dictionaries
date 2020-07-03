@@ -1,10 +1,14 @@
 # -*- text -*-
-# Copyright (C) 2015 The FreeRADIUS Server project and contributors
+# Copyright (C) 2020 The FreeRADIUS Server project and contributors
+# This work is licensed under CC-BY version 4.0 https://creativecommons.org/licenses/by/4.0
+# Version $Id: 66d18fa41e7d70ead3d1e33165dca77e759c1ff4 $
 ##############################################################################
 #
 #	F5 VSAs
 #
-#	$Id: 2425a40216fda54fdeb57dfa5037ff63569a229f $
+#	https://support.f5.com/csp/article/K14324
+#
+#	$Id: 66d18fa41e7d70ead3d1e33165dca77e759c1ff4 $
 #
 ##############################################################################
 

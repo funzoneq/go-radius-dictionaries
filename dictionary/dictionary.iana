@@ -1,21 +1,31 @@
 # -*- text -*-
-# Copyright (C) 2015 The FreeRADIUS Server project and contributors
+# Copyright (C) 2020 The FreeRADIUS Server project and contributors
+# This work is licensed under CC-BY version 4.0 https://creativecommons.org/licenses/by/4.0
+# Version $Id: 575227a647c94f1afdb18292d7a931e921bbd5c6 $
 #
 #	Mostly values which have been allocated by IANA under
 #	"expert review", but which don't have an RFC associated with them.
 #
-#	$Id: 989cd0b75728ba5e00e0fd53143c584bb54186cd $
+#	$Id: 575227a647c94f1afdb18292d7a931e921bbd5c6 $
 #
-
-#	RFC 4005
-ATTRIBUTE	Originating-Line-Info			94	string
 
 #	draft-sterman-aaa-sip-00.txt
 #
 #	This is bad... at some point the IETF will allocate these.
 #
 ATTRIBUTE	Digest-Response				206	string
-ATTRIBUTE	Digest-Attributes			207	octets	# stupid format
+ATTRIBUTE	Digest-Attributes			207	tlv	# stupid format
+ATTRIBUTE	Digest-Realm				.1	string
+ATTRIBUTE	Digest-Nonce				.2	string
+ATTRIBUTE	Digest-Method				.3	string
+ATTRIBUTE	Digest-URI				.4	string
+ATTRIBUTE	Digest-QOP				.5	string
+ATTRIBUTE	Digest-Algorithm			.6	string
+ATTRIBUTE	Digest-Body-Digest			.7	string
+ATTRIBUTE	Digest-CNonce				.8	string
+ATTRIBUTE	Digest-Nonce-Count			.9	string
+ATTRIBUTE	Digest-User-Name			.10	string
+ATTRIBUTE	Digest-HA1				.11	string
 
 #
 #	Integer Translations

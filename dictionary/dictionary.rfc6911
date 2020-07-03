@@ -1,5 +1,7 @@
 # -*- text -*-
-# Copyright (C) 2015 The FreeRADIUS Server project and contributors
+# Copyright (C) 2020 The FreeRADIUS Server project and contributors
+# This work is licensed under CC-BY version 4.0 https://creativecommons.org/licenses/by/4.0
+# Version $Id: 20a50ed522045825d0597170d2a8c1443e61cf6f $
 #
 #	Attributes and values defined in RFC 6911
 #	http://www.ietf.org/rfc/rfc6911.txt

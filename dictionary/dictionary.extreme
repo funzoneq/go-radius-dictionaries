@@ -1,10 +1,12 @@
 # -*- text -*-
-# Copyright (C) 2015 The FreeRADIUS Server project and contributors
+# Copyright (C) 2020 The FreeRADIUS Server project and contributors
+# This work is licensed under CC-BY version 4.0 https://creativecommons.org/licenses/by/4.0
+# Version $Id: 1048ddd5a11a58a17f792f5c6ed7ad86f8d687ac $
 #
 #	Dictionary for Extreme Networks VSA's.
 #	http://www.extremenetworks.com/
 #
-#	$Id: 896860cd614f277baf7e79e38a7f53c1b3865868 $
+#	$Id: 1048ddd5a11a58a17f792f5c6ed7ad86f8d687ac $
 #
 VENDOR		Extreme				1916
 

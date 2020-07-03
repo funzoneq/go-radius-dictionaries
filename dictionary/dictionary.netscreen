@@ -1,8 +1,12 @@
 # -*- text -*-
-# Copyright (C) 2015 The FreeRADIUS Server project and contributors
+# Copyright (C) 2020 The FreeRADIUS Server project and contributors
+# This work is licensed under CC-BY version 4.0 https://creativecommons.org/licenses/by/4.0
+# Version $Id: 341cb0433f34cdc07caa1575e335fd30c1452046 $
 #
+#	Netscreen VSAs
+#	Netscreen purchased by Juniper in 2004
 #	From:
-#	http://www.netscreen.com/support/downloads/4.0_configuring_screenOS_for_NTdomain_v11.pdf
+#	https://kb.juniper.net/InfoCenter/index?page=content&id=kb6392&actp=METADATA
 #
 
 VENDOR		Netscreen			3224

@@ -1,8 +1,10 @@
 # -*- text -*-
-# Copyright (C) 2015 The FreeRADIUS Server project and contributors
+# Copyright (C) 2020 The FreeRADIUS Server project and contributors
+# This work is licensed under CC-BY version 4.0 https://creativecommons.org/licenses/by/4.0
+# Version $Id: 65911a7b295b826f96db0e8ba67d6949f15324e6 $
 #
 #	http://www.waverider.com/
-#	$Id: e56d7426b8cbef976d3b6afff85a0c6276634821 $
+#	$Id: 65911a7b295b826f96db0e8ba67d6949f15324e6 $
 #
 
 VENDOR		Waverider			2979

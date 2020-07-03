@@ -1,10 +1,12 @@
 # -*- text -*-
-# Copyright (C) 2015 The FreeRADIUS Server project and contributors
+# Copyright (C) 2020 The FreeRADIUS Server project and contributors
+# This work is licensed under CC-BY version 4.0 https://creativecommons.org/licenses/by/4.0
+# Version $Id: 5497f3ad38a328014839dceb5c1bd3200825d358 $
 #
 #	Attributes and values defined in RFC 3576.
 #	http://www.ietf.org/rfc/rfc3576.txt
 #
-#	$Id: 6ac7c4c110d6e4fd80cf22e415494d34f8b2308a $
+#	$Id: 5497f3ad38a328014839dceb5c1bd3200825d358 $
 #
 ATTRIBUTE	Error-Cause				101	integer
 

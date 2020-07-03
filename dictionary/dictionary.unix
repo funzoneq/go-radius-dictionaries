@@ -1,9 +1,11 @@
 # -*- text -*-
-# Copyright (C) 2015 The FreeRADIUS Server project and contributors
+# Copyright (C) 2020 The FreeRADIUS Server project and contributors
+# This work is licensed under CC-BY version 4.0 https://creativecommons.org/licenses/by/4.0
+# Version $Id: 8c7472d76a7d1ec253d11e67eaec765fc9864692 $
 #
 #	Allegedly for ProFTPd.
 #
-#	$Id: 06d3634eba2d4830db1597c193c7b804852ef1be $
+#	$Id: 8c7472d76a7d1ec253d11e67eaec765fc9864692 $
 #
 
 VENDOR		Unix				4

@@ -1,10 +1,12 @@
 # -*- text -*-
-# Copyright (C) 2015 The FreeRADIUS Server project and contributors
+# Copyright (C) 2020 The FreeRADIUS Server project and contributors
+# This work is licensed under CC-BY version 4.0 https://creativecommons.org/licenses/by/4.0
+# Version $Id: 9e2f94ad581b6d2823f319b88c1a92508980055c $
 ##############################################################################
 #
 #	Cosine IPSX Dictionary
 #
-#	$Id: 1843c5b3061c56a36420cdffeba2d0a8aa1e2e73 $
+#	$Id: 9e2f94ad581b6d2823f319b88c1a92508980055c $
 #
 ##############################################################################
 

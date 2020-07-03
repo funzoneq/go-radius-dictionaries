@@ -1,11 +1,13 @@
 # -*- text -*-
-# Copyright (C) 2015 The FreeRADIUS Server project and contributors
+# Copyright (C) 2020 The FreeRADIUS Server project and contributors
+# This work is licensed under CC-BY version 4.0 https://creativecommons.org/licenses/by/4.0
+# Version $Id: c79e7f67b8855cd8cf58586369a854b3900ebf9b $
 #
 #  dictionary.alteon
 #
 #	Alteon Webswitch
 #
-#	$Id: ff540379922b9551f8a4c63dc82cd1b2ed926ac4 $
+#	$Id: c79e7f67b8855cd8cf58586369a854b3900ebf9b $
 #
 VENDOR		Alteon				1872
 

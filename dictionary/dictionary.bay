@@ -1,11 +1,13 @@
 # -*- text -*-
-# Copyright (C) 2015 The FreeRADIUS Server project and contributors
+# Copyright (C) 2020 The FreeRADIUS Server project and contributors
+# This work is licensed under CC-BY version 4.0 https://creativecommons.org/licenses/by/4.0
+# Version $Id: 9fffa64c93e8d71b90ccf5f690234d725c913ed6 $
 #
 #	Bay Networks
-#	http://www.baynetworks.com/
+#	http://www.baynetworks.com/ (dead)
 #
 #	From MegaZone <megazone@megazone.org>, as posted to the bay-isp list.
-#	Modified for libradius by Alan DeKok <aland@ox.org>
+#	Modified for libradius by Alan DeKok <aland@freeradius.org>
 #
 #   Bay Networks was acquired by Nortel in 1998. Some Avaya products continue
 #   to use attributes from this dictionary as result of the Nortel acquisitions.

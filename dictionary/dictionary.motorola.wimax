@@ -1,10 +1,12 @@
 # -*- text -*-
-# Copyright (C) 2015 The FreeRADIUS Server project and contributors
+# Copyright (C) 2020 The FreeRADIUS Server project and contributors
+# This work is licensed under CC-BY version 4.0 https://creativecommons.org/licenses/by/4.0
+# Version $Id: ed0b40b6d78fee0ae5bb7ab397b8f0cd841b7cfd $
 ##############################################################################
 #
 #	Motorola WiMAX attributes.
 #
-#	$Id: 9948cdc1d706b3683b149b30835753e60dd010f4 $
+#	$Id: ed0b40b6d78fee0ae5bb7ab397b8f0cd841b7cfd $
 #
 ##############################################################################
 

@@ -1,11 +1,13 @@
 # -*- text -*-
-# Copyright (C) 2015 The FreeRADIUS Server project and contributors
+# Copyright (C) 2020 The FreeRADIUS Server project and contributors
+# This work is licensed under CC-BY version 4.0 https://creativecommons.org/licenses/by/4.0
+# Version $Id: b3251876d18b4993296a15e565cee3af8c4500ca $
 #
 #	 Cisco VPN 5000 Concentrator Dictionary
 #
 #	http://www.cisco.com/univercd/cc/td/doc/product/access/acs_soft/csacs4nt/csnt30/user/ad.htm
 #
-#	$Id: ab66f89ac217483352d144d69885c7383c4e9b89 $
+#	$Id: b3251876d18b4993296a15e565cee3af8c4500ca $
 #
 VENDOR		Cisco-VPN5000			255
 

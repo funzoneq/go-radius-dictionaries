@@ -1,9 +1,11 @@
 # -*- text -*-
-# Copyright (C) 2015 The FreeRADIUS Server project and contributors
+# Copyright (C) 2020 The FreeRADIUS Server project and contributors
+# This work is licensed under CC-BY version 4.0 https://creativecommons.org/licenses/by/4.0
+# Version $Id: 33256e6ee5b645a37efeb02ad268dc3e3e98fde6 $
 #
 #       For ZTE.
 #
-#       $Id: df5eb024d616d68f45ddef1842194b6416887955 $
+#       $Id: 33256e6ee5b645a37efeb02ad268dc3e3e98fde6 $
 #
 # QoS attributes Mostly derived from:
 # http://wwwen.zte.com.cn/en/products/bearer/201308/P020130828522349526032.pdf
@@ -11,8 +13,8 @@
 VENDOR		ZTE				3902
 BEGIN-VENDOR	ZTE
 
-ATTRIBUTE	ZTE-Client-DNS-Pri			1	integer
-ATTRIBUTE	ZTE-Client-DNS-Sec			2	integer
+ATTRIBUTE	ZTE-Client-DNS-Pri			1	string
+ATTRIBUTE	ZTE-Client-DNS-Sec			2	string
 ATTRIBUTE	ZTE-Context-Name			4	string
 ATTRIBUTE	ZTE-Tunnel-Max-Sessions			21	integer
 ATTRIBUTE	ZTE-Tunnel-Max-Tunnels			22	integer
@@ -45,6 +47,7 @@ ATTRIBUTE	ZTE-TCP-Limit-Num			95	integer
 ATTRIBUTE	ZTE-TCP-Limit-Mode			96	integer
 ATTRIBUTE	ZTE-IGMP-Service-Profile-Num		97	integer
 ATTRIBUTE	ZTE-PPP-Sservice-Type			101	integer
+ATTRIBUTE	ZTE-SW-Privilege			104	integer
 ATTRIBUTE	ZTE-Access-Domain			151	string
 ATTRIBUTE	ZTE-VPN-ID				190	string
 

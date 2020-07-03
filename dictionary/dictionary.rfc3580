@@ -1,10 +1,12 @@
 # -*- text -*-
-# Copyright (C) 2015 The FreeRADIUS Server project and contributors
+# Copyright (C) 2020 The FreeRADIUS Server project and contributors
+# This work is licensed under CC-BY version 4.0 https://creativecommons.org/licenses/by/4.0
+# Version $Id: bb5c307102d2ab4265a701390e9ea67e3e3d9af8 $
 #
 #	Attributes and values defined in RFC 3580.
 #	http://www.ietf.org/rfc/rfc3580.txt
 #
-#	$Id: e20df23cf3c81662ed2a0dbf194b42170e88e742 $
+#	$Id: bb5c307102d2ab4265a701390e9ea67e3e3d9af8 $
 #
 VALUE	Acct-Terminate-Cause		Supplicant-Restart	19
 VALUE	Acct-Terminate-Cause		Reauthentication-Failure 20

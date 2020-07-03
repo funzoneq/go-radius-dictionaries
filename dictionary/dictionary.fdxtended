@@ -1,3 +1,7 @@
+# -*- text -*-
+# Copyright (C) 2020 The FreeRADIUS Server project and contributors
+# This work is licensed under CC-BY version 4.0 https://creativecommons.org/licenses/by/4.0
+# Version $Id: 26ebd38e6f5539a4f343490a7a1aa9f66998580a $
 VENDOR		fdXtended			34536
 
 BEGIN-VENDOR	fdXtended

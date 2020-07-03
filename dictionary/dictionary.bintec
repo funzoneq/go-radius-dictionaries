@@ -1,8 +1,10 @@
 # -*- text -*-
-# Copyright (C) 2015 The FreeRADIUS Server project and contributors
+# Copyright (C) 2020 The FreeRADIUS Server project and contributors
+# This work is licensed under CC-BY version 4.0 https://creativecommons.org/licenses/by/4.0
+# Version $Id: f2fe18ea8918e36537acfcbce6d24e158aa9ff17 $
 #
 #	Bintec dictionary
-#	$Id: 1263c31096accc65ffc28c66ae755b2f8980bbbe $
+#	$Id: f2fe18ea8918e36537acfcbce6d24e158aa9ff17 $
 #
 #
 #

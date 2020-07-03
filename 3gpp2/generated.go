@@ -1,1 +1,1 @@
-radius-dict-gen: dictionarygen: cannot generate code for 3GPP2 vendor attribute 3GPP2-Prepaid-Acct-Quota
+radius-dict-gen: dictionary: parse error in /Users/avermeer/Documents/go-radius-dictionaries/dictionary/dictionary.3gpp2:85: invalid OID ".1"

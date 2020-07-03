@@ -2146,3 +2146,191 @@ func LCSIKEv2IPv6Route_SetString(p *radius.Packet, value string) (err error) {
 func LCSIKEv2IPv6Route_Del(p *radius.Packet) {
 	_Lancom_DelVendor(p, 26)
 }
+
+func LCSIKEv2DNSDomain_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Lancom_AddVendor(p, 27, a)
+}
+
+func LCSIKEv2DNSDomain_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Lancom_AddVendor(p, 27, a)
+}
+
+func LCSIKEv2DNSDomain_Get(p *radius.Packet) (value []byte) {
+	value, _ = LCSIKEv2DNSDomain_Lookup(p)
+	return
+}
+
+func LCSIKEv2DNSDomain_GetString(p *radius.Packet) (value string) {
+	value, _ = LCSIKEv2DNSDomain_LookupString(p)
+	return
+}
+
+func LCSIKEv2DNSDomain_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Lancom_GetsVendor(p, 27) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func LCSIKEv2DNSDomain_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Lancom_GetsVendor(p, 27) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func LCSIKEv2DNSDomain_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Lancom_LookupVendor(p, 27)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func LCSIKEv2DNSDomain_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Lancom_LookupVendor(p, 27)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func LCSIKEv2DNSDomain_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Lancom_SetVendor(p, 27, a)
+}
+
+func LCSIKEv2DNSDomain_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Lancom_SetVendor(p, 27, a)
+}
+
+func LCSIKEv2DNSDomain_Del(p *radius.Packet) {
+	_Lancom_DelVendor(p, 27)
+}
+
+func LCSLoadBalancer_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Lancom_AddVendor(p, 28, a)
+}
+
+func LCSLoadBalancer_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Lancom_AddVendor(p, 28, a)
+}
+
+func LCSLoadBalancer_Get(p *radius.Packet) (value []byte) {
+	value, _ = LCSLoadBalancer_Lookup(p)
+	return
+}
+
+func LCSLoadBalancer_GetString(p *radius.Packet) (value string) {
+	value, _ = LCSLoadBalancer_LookupString(p)
+	return
+}
+
+func LCSLoadBalancer_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Lancom_GetsVendor(p, 28) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func LCSLoadBalancer_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Lancom_GetsVendor(p, 28) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func LCSLoadBalancer_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Lancom_LookupVendor(p, 28)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func LCSLoadBalancer_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Lancom_LookupVendor(p, 28)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func LCSLoadBalancer_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Lancom_SetVendor(p, 28, a)
+}
+
+func LCSLoadBalancer_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Lancom_SetVendor(p, 28, a)
+}
+
+func LCSLoadBalancer_Del(p *radius.Packet) {
+	_Lancom_DelVendor(p, 28)
+}

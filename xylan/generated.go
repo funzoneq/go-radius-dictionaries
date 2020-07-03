@@ -928,6 +928,382 @@ func XylanEndUserProfile_Del(p *radius.Packet) {
 	_Xylan_DelVendor(p, 10)
 }
 
+func XylanPrimaryHomeAgent_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Xylan_AddVendor(p, 12, a)
+}
+
+func XylanPrimaryHomeAgent_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Xylan_AddVendor(p, 12, a)
+}
+
+func XylanPrimaryHomeAgent_Get(p *radius.Packet) (value []byte) {
+	value, _ = XylanPrimaryHomeAgent_Lookup(p)
+	return
+}
+
+func XylanPrimaryHomeAgent_GetString(p *radius.Packet) (value string) {
+	value, _ = XylanPrimaryHomeAgent_LookupString(p)
+	return
+}
+
+func XylanPrimaryHomeAgent_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Xylan_GetsVendor(p, 12) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func XylanPrimaryHomeAgent_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Xylan_GetsVendor(p, 12) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func XylanPrimaryHomeAgent_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Xylan_LookupVendor(p, 12)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func XylanPrimaryHomeAgent_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Xylan_LookupVendor(p, 12)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func XylanPrimaryHomeAgent_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Xylan_SetVendor(p, 12, a)
+}
+
+func XylanPrimaryHomeAgent_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Xylan_SetVendor(p, 12, a)
+}
+
+func XylanPrimaryHomeAgent_Del(p *radius.Packet) {
+	_Xylan_DelVendor(p, 12)
+}
+
+func XylanSecondaryHomeAgent_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Xylan_AddVendor(p, 13, a)
+}
+
+func XylanSecondaryHomeAgent_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Xylan_AddVendor(p, 13, a)
+}
+
+func XylanSecondaryHomeAgent_Get(p *radius.Packet) (value []byte) {
+	value, _ = XylanSecondaryHomeAgent_Lookup(p)
+	return
+}
+
+func XylanSecondaryHomeAgent_GetString(p *radius.Packet) (value string) {
+	value, _ = XylanSecondaryHomeAgent_LookupString(p)
+	return
+}
+
+func XylanSecondaryHomeAgent_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Xylan_GetsVendor(p, 13) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func XylanSecondaryHomeAgent_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Xylan_GetsVendor(p, 13) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func XylanSecondaryHomeAgent_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Xylan_LookupVendor(p, 13)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func XylanSecondaryHomeAgent_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Xylan_LookupVendor(p, 13)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func XylanSecondaryHomeAgent_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Xylan_SetVendor(p, 13, a)
+}
+
+func XylanSecondaryHomeAgent_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Xylan_SetVendor(p, 13, a)
+}
+
+func XylanSecondaryHomeAgent_Del(p *radius.Packet) {
+	_Xylan_DelVendor(p, 13)
+}
+
+func XylanHomeAgentPassword_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Xylan_AddVendor(p, 14, a)
+}
+
+func XylanHomeAgentPassword_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Xylan_AddVendor(p, 14, a)
+}
+
+func XylanHomeAgentPassword_Get(p *radius.Packet) (value []byte) {
+	value, _ = XylanHomeAgentPassword_Lookup(p)
+	return
+}
+
+func XylanHomeAgentPassword_GetString(p *radius.Packet) (value string) {
+	value, _ = XylanHomeAgentPassword_LookupString(p)
+	return
+}
+
+func XylanHomeAgentPassword_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Xylan_GetsVendor(p, 14) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func XylanHomeAgentPassword_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Xylan_GetsVendor(p, 14) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func XylanHomeAgentPassword_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Xylan_LookupVendor(p, 14)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func XylanHomeAgentPassword_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Xylan_LookupVendor(p, 14)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func XylanHomeAgentPassword_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Xylan_SetVendor(p, 14, a)
+}
+
+func XylanHomeAgentPassword_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Xylan_SetVendor(p, 14, a)
+}
+
+func XylanHomeAgentPassword_Del(p *radius.Packet) {
+	_Xylan_DelVendor(p, 14)
+}
+
+func XylanHomeNetworkName_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Xylan_AddVendor(p, 15, a)
+}
+
+func XylanHomeNetworkName_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Xylan_AddVendor(p, 15, a)
+}
+
+func XylanHomeNetworkName_Get(p *radius.Packet) (value []byte) {
+	value, _ = XylanHomeNetworkName_Lookup(p)
+	return
+}
+
+func XylanHomeNetworkName_GetString(p *radius.Packet) (value string) {
+	value, _ = XylanHomeNetworkName_LookupString(p)
+	return
+}
+
+func XylanHomeNetworkName_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Xylan_GetsVendor(p, 15) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func XylanHomeNetworkName_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Xylan_GetsVendor(p, 15) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func XylanHomeNetworkName_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Xylan_LookupVendor(p, 15)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func XylanHomeNetworkName_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Xylan_LookupVendor(p, 15)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func XylanHomeNetworkName_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Xylan_SetVendor(p, 15, a)
+}
+
+func XylanHomeNetworkName_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Xylan_SetVendor(p, 15, a)
+}
+
+func XylanHomeNetworkName_Del(p *radius.Packet) {
+	_Xylan_DelVendor(p, 15)
+}
+
 type XylanAccessPriv uint32
 
 const (
@@ -2309,4 +2685,380 @@ func XylanAccePrivFW2_SetString(p *radius.Packet, value string) (err error) {
 
 func XylanAccePrivFW2_Del(p *radius.Packet) {
 	_Xylan_DelVendor(p, 42)
+}
+
+func XylanPolicyList_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Xylan_AddVendor(p, 100, a)
+}
+
+func XylanPolicyList_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Xylan_AddVendor(p, 100, a)
+}
+
+func XylanPolicyList_Get(p *radius.Packet) (value []byte) {
+	value, _ = XylanPolicyList_Lookup(p)
+	return
+}
+
+func XylanPolicyList_GetString(p *radius.Packet) (value string) {
+	value, _ = XylanPolicyList_LookupString(p)
+	return
+}
+
+func XylanPolicyList_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Xylan_GetsVendor(p, 100) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func XylanPolicyList_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Xylan_GetsVendor(p, 100) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func XylanPolicyList_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Xylan_LookupVendor(p, 100)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func XylanPolicyList_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Xylan_LookupVendor(p, 100)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func XylanPolicyList_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Xylan_SetVendor(p, 100, a)
+}
+
+func XylanPolicyList_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Xylan_SetVendor(p, 100, a)
+}
+
+func XylanPolicyList_Del(p *radius.Packet) {
+	_Xylan_DelVendor(p, 100)
+}
+
+func XylanRedirectURL_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Xylan_AddVendor(p, 101, a)
+}
+
+func XylanRedirectURL_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Xylan_AddVendor(p, 101, a)
+}
+
+func XylanRedirectURL_Get(p *radius.Packet) (value []byte) {
+	value, _ = XylanRedirectURL_Lookup(p)
+	return
+}
+
+func XylanRedirectURL_GetString(p *radius.Packet) (value string) {
+	value, _ = XylanRedirectURL_LookupString(p)
+	return
+}
+
+func XylanRedirectURL_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Xylan_GetsVendor(p, 101) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func XylanRedirectURL_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Xylan_GetsVendor(p, 101) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func XylanRedirectURL_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Xylan_LookupVendor(p, 101)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func XylanRedirectURL_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Xylan_LookupVendor(p, 101)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func XylanRedirectURL_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Xylan_SetVendor(p, 101, a)
+}
+
+func XylanRedirectURL_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Xylan_SetVendor(p, 101, a)
+}
+
+func XylanRedirectURL_Del(p *radius.Packet) {
+	_Xylan_DelVendor(p, 101)
+}
+
+func XylanDeviceName_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Xylan_AddVendor(p, 152, a)
+}
+
+func XylanDeviceName_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Xylan_AddVendor(p, 152, a)
+}
+
+func XylanDeviceName_Get(p *radius.Packet) (value []byte) {
+	value, _ = XylanDeviceName_Lookup(p)
+	return
+}
+
+func XylanDeviceName_GetString(p *radius.Packet) (value string) {
+	value, _ = XylanDeviceName_LookupString(p)
+	return
+}
+
+func XylanDeviceName_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Xylan_GetsVendor(p, 152) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func XylanDeviceName_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Xylan_GetsVendor(p, 152) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func XylanDeviceName_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Xylan_LookupVendor(p, 152)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func XylanDeviceName_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Xylan_LookupVendor(p, 152)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func XylanDeviceName_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Xylan_SetVendor(p, 152, a)
+}
+
+func XylanDeviceName_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Xylan_SetVendor(p, 152, a)
+}
+
+func XylanDeviceName_Del(p *radius.Packet) {
+	_Xylan_DelVendor(p, 152)
+}
+
+func XylanDeviceLocation_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Xylan_AddVendor(p, 153, a)
+}
+
+func XylanDeviceLocation_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Xylan_AddVendor(p, 153, a)
+}
+
+func XylanDeviceLocation_Get(p *radius.Packet) (value []byte) {
+	value, _ = XylanDeviceLocation_Lookup(p)
+	return
+}
+
+func XylanDeviceLocation_GetString(p *radius.Packet) (value string) {
+	value, _ = XylanDeviceLocation_LookupString(p)
+	return
+}
+
+func XylanDeviceLocation_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Xylan_GetsVendor(p, 153) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func XylanDeviceLocation_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Xylan_GetsVendor(p, 153) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func XylanDeviceLocation_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Xylan_LookupVendor(p, 153)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func XylanDeviceLocation_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Xylan_LookupVendor(p, 153)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func XylanDeviceLocation_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Xylan_SetVendor(p, 153, a)
+}
+
+func XylanDeviceLocation_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Xylan_SetVendor(p, 153, a)
+}
+
+func XylanDeviceLocation_Del(p *radius.Packet) {
+	_Xylan_DelVendor(p, 153)
 }

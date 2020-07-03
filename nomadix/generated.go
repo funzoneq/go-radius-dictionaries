@@ -775,6 +775,63 @@ func NomadixEndofSession_Del(p *radius.Packet) {
 	_Nomadix_DelVendor(p, 9)
 }
 
+type NomadixSessionTerminateEndOfDay uint32
+
+var NomadixSessionTerminateEndOfDay_Strings = map[NomadixSessionTerminateEndOfDay]string{}
+
+func (a NomadixSessionTerminateEndOfDay) String() string {
+	if str, ok := NomadixSessionTerminateEndOfDay_Strings[a]; ok {
+		return str
+	}
+	return "NomadixSessionTerminateEndOfDay(" + strconv.FormatUint(uint64(a), 10) + ")"
+}
+
+func NomadixSessionTerminateEndOfDay_Add(p *radius.Packet, value NomadixSessionTerminateEndOfDay) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Nomadix_AddVendor(p, 9, a)
+}
+
+func NomadixSessionTerminateEndOfDay_Get(p *radius.Packet) (value NomadixSessionTerminateEndOfDay) {
+	value, _ = NomadixSessionTerminateEndOfDay_Lookup(p)
+	return
+}
+
+func NomadixSessionTerminateEndOfDay_Gets(p *radius.Packet) (values []NomadixSessionTerminateEndOfDay, err error) {
+	var i uint32
+	for _, attr := range _Nomadix_GetsVendor(p, 9) {
+		i, err = radius.Integer(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, NomadixSessionTerminateEndOfDay(i))
+	}
+	return
+}
+
+func NomadixSessionTerminateEndOfDay_Lookup(p *radius.Packet) (value NomadixSessionTerminateEndOfDay, err error) {
+	a, ok := _Nomadix_LookupVendor(p, 9)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	var i uint32
+	i, err = radius.Integer(a)
+	if err != nil {
+		return
+	}
+	value = NomadixSessionTerminateEndOfDay(i)
+	return
+}
+
+func NomadixSessionTerminateEndOfDay_Set(p *radius.Packet, value NomadixSessionTerminateEndOfDay) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Nomadix_SetVendor(p, 9, a)
+}
+
+func NomadixSessionTerminateEndOfDay_Del(p *radius.Packet) {
+	_Nomadix_DelVendor(p, 9)
+}
+
 func NomadixLogoffURL_Add(p *radius.Packet, value []byte) (err error) {
 	var a radius.Attribute
 	a, err = radius.NewBytes(value)
@@ -1528,4 +1585,420 @@ func NomadixGroupBwMaxDown_Set(p *radius.Packet, value NomadixGroupBwMaxDown) (e
 
 func NomadixGroupBwMaxDown_Del(p *radius.Packet) {
 	_Nomadix_DelVendor(p, 21)
+}
+
+type NomadixMaxGigaWordsUp uint32
+
+var NomadixMaxGigaWordsUp_Strings = map[NomadixMaxGigaWordsUp]string{}
+
+func (a NomadixMaxGigaWordsUp) String() string {
+	if str, ok := NomadixMaxGigaWordsUp_Strings[a]; ok {
+		return str
+	}
+	return "NomadixMaxGigaWordsUp(" + strconv.FormatUint(uint64(a), 10) + ")"
+}
+
+func NomadixMaxGigaWordsUp_Add(p *radius.Packet, value NomadixMaxGigaWordsUp) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Nomadix_AddVendor(p, 22, a)
+}
+
+func NomadixMaxGigaWordsUp_Get(p *radius.Packet) (value NomadixMaxGigaWordsUp) {
+	value, _ = NomadixMaxGigaWordsUp_Lookup(p)
+	return
+}
+
+func NomadixMaxGigaWordsUp_Gets(p *radius.Packet) (values []NomadixMaxGigaWordsUp, err error) {
+	var i uint32
+	for _, attr := range _Nomadix_GetsVendor(p, 22) {
+		i, err = radius.Integer(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, NomadixMaxGigaWordsUp(i))
+	}
+	return
+}
+
+func NomadixMaxGigaWordsUp_Lookup(p *radius.Packet) (value NomadixMaxGigaWordsUp, err error) {
+	a, ok := _Nomadix_LookupVendor(p, 22)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	var i uint32
+	i, err = radius.Integer(a)
+	if err != nil {
+		return
+	}
+	value = NomadixMaxGigaWordsUp(i)
+	return
+}
+
+func NomadixMaxGigaWordsUp_Set(p *radius.Packet, value NomadixMaxGigaWordsUp) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Nomadix_SetVendor(p, 22, a)
+}
+
+func NomadixMaxGigaWordsUp_Del(p *radius.Packet) {
+	_Nomadix_DelVendor(p, 22)
+}
+
+type NomadixMaxGigaWordsDown uint32
+
+var NomadixMaxGigaWordsDown_Strings = map[NomadixMaxGigaWordsDown]string{}
+
+func (a NomadixMaxGigaWordsDown) String() string {
+	if str, ok := NomadixMaxGigaWordsDown_Strings[a]; ok {
+		return str
+	}
+	return "NomadixMaxGigaWordsDown(" + strconv.FormatUint(uint64(a), 10) + ")"
+}
+
+func NomadixMaxGigaWordsDown_Add(p *radius.Packet, value NomadixMaxGigaWordsDown) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Nomadix_AddVendor(p, 23, a)
+}
+
+func NomadixMaxGigaWordsDown_Get(p *radius.Packet) (value NomadixMaxGigaWordsDown) {
+	value, _ = NomadixMaxGigaWordsDown_Lookup(p)
+	return
+}
+
+func NomadixMaxGigaWordsDown_Gets(p *radius.Packet) (values []NomadixMaxGigaWordsDown, err error) {
+	var i uint32
+	for _, attr := range _Nomadix_GetsVendor(p, 23) {
+		i, err = radius.Integer(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, NomadixMaxGigaWordsDown(i))
+	}
+	return
+}
+
+func NomadixMaxGigaWordsDown_Lookup(p *radius.Packet) (value NomadixMaxGigaWordsDown, err error) {
+	a, ok := _Nomadix_LookupVendor(p, 23)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	var i uint32
+	i, err = radius.Integer(a)
+	if err != nil {
+		return
+	}
+	value = NomadixMaxGigaWordsDown(i)
+	return
+}
+
+func NomadixMaxGigaWordsDown_Set(p *radius.Packet, value NomadixMaxGigaWordsDown) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Nomadix_SetVendor(p, 23, a)
+}
+
+func NomadixMaxGigaWordsDown_Del(p *radius.Packet) {
+	_Nomadix_DelVendor(p, 23)
+}
+
+func NomadixPreferredWAN_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Nomadix_AddVendor(p, 24, a)
+}
+
+func NomadixPreferredWAN_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Nomadix_AddVendor(p, 24, a)
+}
+
+func NomadixPreferredWAN_Get(p *radius.Packet) (value []byte) {
+	value, _ = NomadixPreferredWAN_Lookup(p)
+	return
+}
+
+func NomadixPreferredWAN_GetString(p *radius.Packet) (value string) {
+	value, _ = NomadixPreferredWAN_LookupString(p)
+	return
+}
+
+func NomadixPreferredWAN_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Nomadix_GetsVendor(p, 24) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func NomadixPreferredWAN_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Nomadix_GetsVendor(p, 24) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func NomadixPreferredWAN_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Nomadix_LookupVendor(p, 24)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func NomadixPreferredWAN_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Nomadix_LookupVendor(p, 24)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func NomadixPreferredWAN_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Nomadix_SetVendor(p, 24, a)
+}
+
+func NomadixPreferredWAN_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Nomadix_SetVendor(p, 24, a)
+}
+
+func NomadixPreferredWAN_Del(p *radius.Packet) {
+	_Nomadix_DelVendor(p, 24)
+}
+
+func NomadixBwClassName_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Nomadix_AddVendor(p, 27, a)
+}
+
+func NomadixBwClassName_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Nomadix_AddVendor(p, 27, a)
+}
+
+func NomadixBwClassName_Get(p *radius.Packet) (value []byte) {
+	value, _ = NomadixBwClassName_Lookup(p)
+	return
+}
+
+func NomadixBwClassName_GetString(p *radius.Packet) (value string) {
+	value, _ = NomadixBwClassName_LookupString(p)
+	return
+}
+
+func NomadixBwClassName_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Nomadix_GetsVendor(p, 27) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func NomadixBwClassName_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Nomadix_GetsVendor(p, 27) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func NomadixBwClassName_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Nomadix_LookupVendor(p, 27)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func NomadixBwClassName_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Nomadix_LookupVendor(p, 27)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func NomadixBwClassName_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Nomadix_SetVendor(p, 27, a)
+}
+
+func NomadixBwClassName_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Nomadix_SetVendor(p, 27, a)
+}
+
+func NomadixBwClassName_Del(p *radius.Packet) {
+	_Nomadix_DelVendor(p, 27)
+}
+
+type NomadixMaxBytesTotal uint32
+
+var NomadixMaxBytesTotal_Strings = map[NomadixMaxBytesTotal]string{}
+
+func (a NomadixMaxBytesTotal) String() string {
+	if str, ok := NomadixMaxBytesTotal_Strings[a]; ok {
+		return str
+	}
+	return "NomadixMaxBytesTotal(" + strconv.FormatUint(uint64(a), 10) + ")"
+}
+
+func NomadixMaxBytesTotal_Add(p *radius.Packet, value NomadixMaxBytesTotal) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Nomadix_AddVendor(p, 28, a)
+}
+
+func NomadixMaxBytesTotal_Get(p *radius.Packet) (value NomadixMaxBytesTotal) {
+	value, _ = NomadixMaxBytesTotal_Lookup(p)
+	return
+}
+
+func NomadixMaxBytesTotal_Gets(p *radius.Packet) (values []NomadixMaxBytesTotal, err error) {
+	var i uint32
+	for _, attr := range _Nomadix_GetsVendor(p, 28) {
+		i, err = radius.Integer(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, NomadixMaxBytesTotal(i))
+	}
+	return
+}
+
+func NomadixMaxBytesTotal_Lookup(p *radius.Packet) (value NomadixMaxBytesTotal, err error) {
+	a, ok := _Nomadix_LookupVendor(p, 28)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	var i uint32
+	i, err = radius.Integer(a)
+	if err != nil {
+		return
+	}
+	value = NomadixMaxBytesTotal(i)
+	return
+}
+
+func NomadixMaxBytesTotal_Set(p *radius.Packet, value NomadixMaxBytesTotal) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Nomadix_SetVendor(p, 28, a)
+}
+
+func NomadixMaxBytesTotal_Del(p *radius.Packet) {
+	_Nomadix_DelVendor(p, 28)
+}
+
+type NomadixMaxGigawordsTotal uint32
+
+var NomadixMaxGigawordsTotal_Strings = map[NomadixMaxGigawordsTotal]string{}
+
+func (a NomadixMaxGigawordsTotal) String() string {
+	if str, ok := NomadixMaxGigawordsTotal_Strings[a]; ok {
+		return str
+	}
+	return "NomadixMaxGigawordsTotal(" + strconv.FormatUint(uint64(a), 10) + ")"
+}
+
+func NomadixMaxGigawordsTotal_Add(p *radius.Packet, value NomadixMaxGigawordsTotal) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Nomadix_AddVendor(p, 29, a)
+}
+
+func NomadixMaxGigawordsTotal_Get(p *radius.Packet) (value NomadixMaxGigawordsTotal) {
+	value, _ = NomadixMaxGigawordsTotal_Lookup(p)
+	return
+}
+
+func NomadixMaxGigawordsTotal_Gets(p *radius.Packet) (values []NomadixMaxGigawordsTotal, err error) {
+	var i uint32
+	for _, attr := range _Nomadix_GetsVendor(p, 29) {
+		i, err = radius.Integer(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, NomadixMaxGigawordsTotal(i))
+	}
+	return
+}
+
+func NomadixMaxGigawordsTotal_Lookup(p *radius.Packet) (value NomadixMaxGigawordsTotal, err error) {
+	a, ok := _Nomadix_LookupVendor(p, 29)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	var i uint32
+	i, err = radius.Integer(a)
+	if err != nil {
+		return
+	}
+	value = NomadixMaxGigawordsTotal(i)
+	return
+}
+
+func NomadixMaxGigawordsTotal_Set(p *radius.Packet, value NomadixMaxGigawordsTotal) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Nomadix_SetVendor(p, 29, a)
+}
+
+func NomadixMaxGigawordsTotal_Del(p *radius.Packet) {
+	_Nomadix_DelVendor(p, 29)
 }

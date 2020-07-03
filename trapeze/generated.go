@@ -1362,3 +1362,755 @@ func TrapezeAudit_SetString(p *radius.Packet, value string) (err error) {
 func TrapezeAudit_Del(p *radius.Packet) {
 	_Trapeze_DelVendor(p, 13)
 }
+
+func TrapezeNMSUserGroup_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Trapeze_AddVendor(p, 14, a)
+}
+
+func TrapezeNMSUserGroup_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Trapeze_AddVendor(p, 14, a)
+}
+
+func TrapezeNMSUserGroup_Get(p *radius.Packet) (value []byte) {
+	value, _ = TrapezeNMSUserGroup_Lookup(p)
+	return
+}
+
+func TrapezeNMSUserGroup_GetString(p *radius.Packet) (value string) {
+	value, _ = TrapezeNMSUserGroup_LookupString(p)
+	return
+}
+
+func TrapezeNMSUserGroup_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Trapeze_GetsVendor(p, 14) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func TrapezeNMSUserGroup_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Trapeze_GetsVendor(p, 14) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func TrapezeNMSUserGroup_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Trapeze_LookupVendor(p, 14)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func TrapezeNMSUserGroup_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Trapeze_LookupVendor(p, 14)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func TrapezeNMSUserGroup_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Trapeze_SetVendor(p, 14, a)
+}
+
+func TrapezeNMSUserGroup_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Trapeze_SetVendor(p, 14, a)
+}
+
+func TrapezeNMSUserGroup_Del(p *radius.Packet) {
+	_Trapeze_DelVendor(p, 14)
+}
+
+func TrapezeNMSPlatformLocalUser_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Trapeze_AddVendor(p, 15, a)
+}
+
+func TrapezeNMSPlatformLocalUser_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Trapeze_AddVendor(p, 15, a)
+}
+
+func TrapezeNMSPlatformLocalUser_Get(p *radius.Packet) (value []byte) {
+	value, _ = TrapezeNMSPlatformLocalUser_Lookup(p)
+	return
+}
+
+func TrapezeNMSPlatformLocalUser_GetString(p *radius.Packet) (value string) {
+	value, _ = TrapezeNMSPlatformLocalUser_LookupString(p)
+	return
+}
+
+func TrapezeNMSPlatformLocalUser_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Trapeze_GetsVendor(p, 15) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func TrapezeNMSPlatformLocalUser_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Trapeze_GetsVendor(p, 15) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func TrapezeNMSPlatformLocalUser_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Trapeze_LookupVendor(p, 15)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func TrapezeNMSPlatformLocalUser_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Trapeze_LookupVendor(p, 15)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func TrapezeNMSPlatformLocalUser_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Trapeze_SetVendor(p, 15, a)
+}
+
+func TrapezeNMSPlatformLocalUser_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Trapeze_SetVendor(p, 15, a)
+}
+
+func TrapezeNMSPlatformLocalUser_Del(p *radius.Packet) {
+	_Trapeze_DelVendor(p, 15)
+}
+
+func TrapezeSIPCallDetailRecord_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Trapeze_AddVendor(p, 16, a)
+}
+
+func TrapezeSIPCallDetailRecord_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Trapeze_AddVendor(p, 16, a)
+}
+
+func TrapezeSIPCallDetailRecord_Get(p *radius.Packet) (value []byte) {
+	value, _ = TrapezeSIPCallDetailRecord_Lookup(p)
+	return
+}
+
+func TrapezeSIPCallDetailRecord_GetString(p *radius.Packet) (value string) {
+	value, _ = TrapezeSIPCallDetailRecord_LookupString(p)
+	return
+}
+
+func TrapezeSIPCallDetailRecord_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Trapeze_GetsVendor(p, 16) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func TrapezeSIPCallDetailRecord_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Trapeze_GetsVendor(p, 16) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func TrapezeSIPCallDetailRecord_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Trapeze_LookupVendor(p, 16)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func TrapezeSIPCallDetailRecord_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Trapeze_LookupVendor(p, 16)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func TrapezeSIPCallDetailRecord_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Trapeze_SetVendor(p, 16, a)
+}
+
+func TrapezeSIPCallDetailRecord_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Trapeze_SetVendor(p, 16, a)
+}
+
+func TrapezeSIPCallDetailRecord_Del(p *radius.Packet) {
+	_Trapeze_DelVendor(p, 16)
+}
+
+func TrapezeSmartPassAccessControl_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Trapeze_AddVendor(p, 17, a)
+}
+
+func TrapezeSmartPassAccessControl_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Trapeze_AddVendor(p, 17, a)
+}
+
+func TrapezeSmartPassAccessControl_Get(p *radius.Packet) (value []byte) {
+	value, _ = TrapezeSmartPassAccessControl_Lookup(p)
+	return
+}
+
+func TrapezeSmartPassAccessControl_GetString(p *radius.Packet) (value string) {
+	value, _ = TrapezeSmartPassAccessControl_LookupString(p)
+	return
+}
+
+func TrapezeSmartPassAccessControl_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Trapeze_GetsVendor(p, 17) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func TrapezeSmartPassAccessControl_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Trapeze_GetsVendor(p, 17) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func TrapezeSmartPassAccessControl_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Trapeze_LookupVendor(p, 17)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func TrapezeSmartPassAccessControl_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Trapeze_LookupVendor(p, 17)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func TrapezeSmartPassAccessControl_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Trapeze_SetVendor(p, 17, a)
+}
+
+func TrapezeSmartPassAccessControl_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Trapeze_SetVendor(p, 17, a)
+}
+
+func TrapezeSmartPassAccessControl_Del(p *radius.Packet) {
+	_Trapeze_DelVendor(p, 17)
+}
+
+func TrapezeDeviceProfile_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Trapeze_AddVendor(p, 18, a)
+}
+
+func TrapezeDeviceProfile_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Trapeze_AddVendor(p, 18, a)
+}
+
+func TrapezeDeviceProfile_Get(p *radius.Packet) (value []byte) {
+	value, _ = TrapezeDeviceProfile_Lookup(p)
+	return
+}
+
+func TrapezeDeviceProfile_GetString(p *radius.Packet) (value string) {
+	value, _ = TrapezeDeviceProfile_LookupString(p)
+	return
+}
+
+func TrapezeDeviceProfile_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Trapeze_GetsVendor(p, 18) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func TrapezeDeviceProfile_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Trapeze_GetsVendor(p, 18) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func TrapezeDeviceProfile_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Trapeze_LookupVendor(p, 18)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func TrapezeDeviceProfile_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Trapeze_LookupVendor(p, 18)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func TrapezeDeviceProfile_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Trapeze_SetVendor(p, 18, a)
+}
+
+func TrapezeDeviceProfile_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Trapeze_SetVendor(p, 18, a)
+}
+
+func TrapezeDeviceProfile_Del(p *radius.Packet) {
+	_Trapeze_DelVendor(p, 18)
+}
+
+func TrapezeDeviceType_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Trapeze_AddVendor(p, 19, a)
+}
+
+func TrapezeDeviceType_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Trapeze_AddVendor(p, 19, a)
+}
+
+func TrapezeDeviceType_Get(p *radius.Packet) (value []byte) {
+	value, _ = TrapezeDeviceType_Lookup(p)
+	return
+}
+
+func TrapezeDeviceType_GetString(p *radius.Packet) (value string) {
+	value, _ = TrapezeDeviceType_LookupString(p)
+	return
+}
+
+func TrapezeDeviceType_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Trapeze_GetsVendor(p, 19) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func TrapezeDeviceType_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Trapeze_GetsVendor(p, 19) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func TrapezeDeviceType_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Trapeze_LookupVendor(p, 19)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func TrapezeDeviceType_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Trapeze_LookupVendor(p, 19)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func TrapezeDeviceType_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Trapeze_SetVendor(p, 19, a)
+}
+
+func TrapezeDeviceType_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Trapeze_SetVendor(p, 19, a)
+}
+
+func TrapezeDeviceType_Del(p *radius.Packet) {
+	_Trapeze_DelVendor(p, 19)
+}
+
+func TrapezeAllowedDevices_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Trapeze_AddVendor(p, 20, a)
+}
+
+func TrapezeAllowedDevices_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Trapeze_AddVendor(p, 20, a)
+}
+
+func TrapezeAllowedDevices_Get(p *radius.Packet) (value []byte) {
+	value, _ = TrapezeAllowedDevices_Lookup(p)
+	return
+}
+
+func TrapezeAllowedDevices_GetString(p *radius.Packet) (value string) {
+	value, _ = TrapezeAllowedDevices_LookupString(p)
+	return
+}
+
+func TrapezeAllowedDevices_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Trapeze_GetsVendor(p, 20) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func TrapezeAllowedDevices_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Trapeze_GetsVendor(p, 20) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func TrapezeAllowedDevices_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Trapeze_LookupVendor(p, 20)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func TrapezeAllowedDevices_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Trapeze_LookupVendor(p, 20)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func TrapezeAllowedDevices_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Trapeze_SetVendor(p, 20, a)
+}
+
+func TrapezeAllowedDevices_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Trapeze_SetVendor(p, 20, a)
+}
+
+func TrapezeAllowedDevices_Del(p *radius.Packet) {
+	_Trapeze_DelVendor(p, 20)
+}
+
+func TrapezeDeviceGroup_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Trapeze_AddVendor(p, 21, a)
+}
+
+func TrapezeDeviceGroup_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Trapeze_AddVendor(p, 21, a)
+}
+
+func TrapezeDeviceGroup_Get(p *radius.Packet) (value []byte) {
+	value, _ = TrapezeDeviceGroup_Lookup(p)
+	return
+}
+
+func TrapezeDeviceGroup_GetString(p *radius.Packet) (value string) {
+	value, _ = TrapezeDeviceGroup_LookupString(p)
+	return
+}
+
+func TrapezeDeviceGroup_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Trapeze_GetsVendor(p, 21) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func TrapezeDeviceGroup_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Trapeze_GetsVendor(p, 21) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func TrapezeDeviceGroup_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Trapeze_LookupVendor(p, 21)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func TrapezeDeviceGroup_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Trapeze_LookupVendor(p, 21)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func TrapezeDeviceGroup_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Trapeze_SetVendor(p, 21, a)
+}
+
+func TrapezeDeviceGroup_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Trapeze_SetVendor(p, 21, a)
+}
+
+func TrapezeDeviceGroup_Del(p *radius.Packet) {
+	_Trapeze_DelVendor(p, 21)
+}

@@ -1174,3 +1174,379 @@ func MoonshotTRCOITargetedId_SetString(p *radius.Packet, value string) (err erro
 func MoonshotTRCOITargetedId_Del(p *radius.Packet) {
 	_UKERNA_DelVendor(p, 140)
 }
+
+func MoonshotMSTIDGSSAcceptor_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _UKERNA_AddVendor(p, 141, a)
+}
+
+func MoonshotMSTIDGSSAcceptor_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _UKERNA_AddVendor(p, 141, a)
+}
+
+func MoonshotMSTIDGSSAcceptor_Get(p *radius.Packet) (value []byte) {
+	value, _ = MoonshotMSTIDGSSAcceptor_Lookup(p)
+	return
+}
+
+func MoonshotMSTIDGSSAcceptor_GetString(p *radius.Packet) (value string) {
+	value, _ = MoonshotMSTIDGSSAcceptor_LookupString(p)
+	return
+}
+
+func MoonshotMSTIDGSSAcceptor_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _UKERNA_GetsVendor(p, 141) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func MoonshotMSTIDGSSAcceptor_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _UKERNA_GetsVendor(p, 141) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func MoonshotMSTIDGSSAcceptor_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _UKERNA_LookupVendor(p, 141)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func MoonshotMSTIDGSSAcceptor_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _UKERNA_LookupVendor(p, 141)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func MoonshotMSTIDGSSAcceptor_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _UKERNA_SetVendor(p, 141, a)
+}
+
+func MoonshotMSTIDGSSAcceptor_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _UKERNA_SetVendor(p, 141, a)
+}
+
+func MoonshotMSTIDGSSAcceptor_Del(p *radius.Packet) {
+	_UKERNA_DelVendor(p, 141)
+}
+
+func MoonshotMSTIDNamespace_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _UKERNA_AddVendor(p, 142, a)
+}
+
+func MoonshotMSTIDNamespace_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _UKERNA_AddVendor(p, 142, a)
+}
+
+func MoonshotMSTIDNamespace_Get(p *radius.Packet) (value []byte) {
+	value, _ = MoonshotMSTIDNamespace_Lookup(p)
+	return
+}
+
+func MoonshotMSTIDNamespace_GetString(p *radius.Packet) (value string) {
+	value, _ = MoonshotMSTIDNamespace_LookupString(p)
+	return
+}
+
+func MoonshotMSTIDNamespace_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _UKERNA_GetsVendor(p, 142) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func MoonshotMSTIDNamespace_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _UKERNA_GetsVendor(p, 142) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func MoonshotMSTIDNamespace_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _UKERNA_LookupVendor(p, 142)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func MoonshotMSTIDNamespace_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _UKERNA_LookupVendor(p, 142)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func MoonshotMSTIDNamespace_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _UKERNA_SetVendor(p, 142, a)
+}
+
+func MoonshotMSTIDNamespace_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _UKERNA_SetVendor(p, 142, a)
+}
+
+func MoonshotMSTIDNamespace_Del(p *radius.Packet) {
+	_UKERNA_DelVendor(p, 142)
+}
+
+func MoonshotMSTIDTargetedId_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _UKERNA_AddVendor(p, 143, a)
+}
+
+func MoonshotMSTIDTargetedId_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _UKERNA_AddVendor(p, 143, a)
+}
+
+func MoonshotMSTIDTargetedId_Get(p *radius.Packet) (value []byte) {
+	value, _ = MoonshotMSTIDTargetedId_Lookup(p)
+	return
+}
+
+func MoonshotMSTIDTargetedId_GetString(p *radius.Packet) (value string) {
+	value, _ = MoonshotMSTIDTargetedId_LookupString(p)
+	return
+}
+
+func MoonshotMSTIDTargetedId_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _UKERNA_GetsVendor(p, 143) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func MoonshotMSTIDTargetedId_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _UKERNA_GetsVendor(p, 143) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func MoonshotMSTIDTargetedId_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _UKERNA_LookupVendor(p, 143)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func MoonshotMSTIDTargetedId_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _UKERNA_LookupVendor(p, 143)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func MoonshotMSTIDTargetedId_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _UKERNA_SetVendor(p, 143, a)
+}
+
+func MoonshotMSTIDTargetedId_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _UKERNA_SetVendor(p, 143, a)
+}
+
+func MoonshotMSTIDTargetedId_Del(p *radius.Packet) {
+	_UKERNA_DelVendor(p, 143)
+}
+
+func MoonshotOTPSecret_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _UKERNA_AddVendor(p, 144, a)
+}
+
+func MoonshotOTPSecret_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _UKERNA_AddVendor(p, 144, a)
+}
+
+func MoonshotOTPSecret_Get(p *radius.Packet) (value []byte) {
+	value, _ = MoonshotOTPSecret_Lookup(p)
+	return
+}
+
+func MoonshotOTPSecret_GetString(p *radius.Packet) (value string) {
+	value, _ = MoonshotOTPSecret_LookupString(p)
+	return
+}
+
+func MoonshotOTPSecret_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _UKERNA_GetsVendor(p, 144) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func MoonshotOTPSecret_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _UKERNA_GetsVendor(p, 144) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func MoonshotOTPSecret_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _UKERNA_LookupVendor(p, 144)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func MoonshotOTPSecret_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _UKERNA_LookupVendor(p, 144)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func MoonshotOTPSecret_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _UKERNA_SetVendor(p, 144, a)
+}
+
+func MoonshotOTPSecret_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _UKERNA_SetVendor(p, 144, a)
+}
+
+func MoonshotOTPSecret_Del(p *radius.Packet) {
+	_UKERNA_DelVendor(p, 144)
+}

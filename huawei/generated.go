@@ -8066,24 +8066,24 @@ func HuaweiUserMac_Del(p *radius.Packet) {
 	_Huawei_DelVendor(p, 153)
 }
 
-func HuaweiDNSServerIPv6Address_Add(p *radius.Packet, value *net.IPNet) (err error) {
+func HuaweiDNSServerIPv6Address_Add(p *radius.Packet, value net.IP) (err error) {
 	var a radius.Attribute
-	a, err = radius.NewIPv6Prefix(value)
+	a, err = radius.NewIPv6Addr(value)
 	if err != nil {
 		return
 	}
 	return _Huawei_AddVendor(p, 154, a)
 }
 
-func HuaweiDNSServerIPv6Address_Get(p *radius.Packet) (value *net.IPNet) {
+func HuaweiDNSServerIPv6Address_Get(p *radius.Packet) (value net.IP) {
 	value, _ = HuaweiDNSServerIPv6Address_Lookup(p)
 	return
 }
 
-func HuaweiDNSServerIPv6Address_Gets(p *radius.Packet) (values []*net.IPNet, err error) {
-	var i *net.IPNet
+func HuaweiDNSServerIPv6Address_Gets(p *radius.Packet) (values []net.IP, err error) {
+	var i net.IP
 	for _, attr := range _Huawei_GetsVendor(p, 154) {
-		i, err = radius.IPv6Prefix(attr)
+		i, err = radius.IPv6Addr(attr)
 		if err != nil {
 			return
 		}
@@ -8092,19 +8092,19 @@ func HuaweiDNSServerIPv6Address_Gets(p *radius.Packet) (values []*net.IPNet, err
 	return
 }
 
-func HuaweiDNSServerIPv6Address_Lookup(p *radius.Packet) (value *net.IPNet, err error) {
+func HuaweiDNSServerIPv6Address_Lookup(p *radius.Packet) (value net.IP, err error) {
 	a, ok := _Huawei_LookupVendor(p, 154)
 	if !ok {
 		err = radius.ErrNoAttribute
 		return
 	}
-	value, err = radius.IPv6Prefix(a)
+	value, err = radius.IPv6Addr(a)
 	return
 }
 
-func HuaweiDNSServerIPv6Address_Set(p *radius.Packet, value *net.IPNet) (err error) {
+func HuaweiDNSServerIPv6Address_Set(p *radius.Packet, value net.IP) (err error) {
 	var a radius.Attribute
-	a, err = radius.NewIPv6Prefix(value)
+	a, err = radius.NewIPv6Addr(value)
 	if err != nil {
 		return
 	}
@@ -8397,24 +8397,24 @@ func HuaweiFramedPoolGroup_Del(p *radius.Packet) {
 	_Huawei_DelVendor(p, 157)
 }
 
-func HuaweiFramedIPv6Address_Add(p *radius.Packet, value *net.IPNet) (err error) {
+func HuaweiFramedIPv6Address_Add(p *radius.Packet, value net.IP) (err error) {
 	var a radius.Attribute
-	a, err = radius.NewIPv6Prefix(value)
+	a, err = radius.NewIPv6Addr(value)
 	if err != nil {
 		return
 	}
 	return _Huawei_AddVendor(p, 158, a)
 }
 
-func HuaweiFramedIPv6Address_Get(p *radius.Packet) (value *net.IPNet) {
+func HuaweiFramedIPv6Address_Get(p *radius.Packet) (value net.IP) {
 	value, _ = HuaweiFramedIPv6Address_Lookup(p)
 	return
 }
 
-func HuaweiFramedIPv6Address_Gets(p *radius.Packet) (values []*net.IPNet, err error) {
-	var i *net.IPNet
+func HuaweiFramedIPv6Address_Gets(p *radius.Packet) (values []net.IP, err error) {
+	var i net.IP
 	for _, attr := range _Huawei_GetsVendor(p, 158) {
-		i, err = radius.IPv6Prefix(attr)
+		i, err = radius.IPv6Addr(attr)
 		if err != nil {
 			return
 		}
@@ -8423,19 +8423,19 @@ func HuaweiFramedIPv6Address_Gets(p *radius.Packet) (values []*net.IPNet, err er
 	return
 }
 
-func HuaweiFramedIPv6Address_Lookup(p *radius.Packet) (value *net.IPNet, err error) {
+func HuaweiFramedIPv6Address_Lookup(p *radius.Packet) (value net.IP, err error) {
 	a, ok := _Huawei_LookupVendor(p, 158)
 	if !ok {
 		err = radius.ErrNoAttribute
 		return
 	}
-	value, err = radius.IPv6Prefix(a)
+	value, err = radius.IPv6Addr(a)
 	return
 }
 
-func HuaweiFramedIPv6Address_Set(p *radius.Packet, value *net.IPNet) (err error) {
+func HuaweiFramedIPv6Address_Set(p *radius.Packet, value net.IP) (err error) {
 	var a radius.Attribute
-	a, err = radius.NewIPv6Prefix(value)
+	a, err = radius.NewIPv6Addr(value)
 	if err != nil {
 		return
 	}

@@ -144,6 +144,100 @@ vsaLoop:
 	return
 }
 
+func PattonProtocol_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Patton_AddVendor(p, 16, a)
+}
+
+func PattonProtocol_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Patton_AddVendor(p, 16, a)
+}
+
+func PattonProtocol_Get(p *radius.Packet) (value []byte) {
+	value, _ = PattonProtocol_Lookup(p)
+	return
+}
+
+func PattonProtocol_GetString(p *radius.Packet) (value string) {
+	value, _ = PattonProtocol_LookupString(p)
+	return
+}
+
+func PattonProtocol_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Patton_GetsVendor(p, 16) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func PattonProtocol_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Patton_GetsVendor(p, 16) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func PattonProtocol_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Patton_LookupVendor(p, 16)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func PattonProtocol_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Patton_LookupVendor(p, 16)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func PattonProtocol_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Patton_SetVendor(p, 16, a)
+}
+
+func PattonProtocol_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Patton_SetVendor(p, 16, a)
+}
+
+func PattonProtocol_Del(p *radius.Packet) {
+	_Patton_DelVendor(p, 16)
+}
+
 func PattonSetupTime_Add(p *radius.Packet, value []byte) (err error) {
 	var a radius.Attribute
 	a, err = radius.NewBytes(value)
@@ -747,6 +841,100 @@ func PattonDisconnectSource_Del(p *radius.Packet) {
 	_Patton_DelVendor(p, 36)
 }
 
+func PattonDisconnectReason_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Patton_AddVendor(p, 37, a)
+}
+
+func PattonDisconnectReason_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Patton_AddVendor(p, 37, a)
+}
+
+func PattonDisconnectReason_Get(p *radius.Packet) (value []byte) {
+	value, _ = PattonDisconnectReason_Lookup(p)
+	return
+}
+
+func PattonDisconnectReason_GetString(p *radius.Packet) (value string) {
+	value, _ = PattonDisconnectReason_LookupString(p)
+	return
+}
+
+func PattonDisconnectReason_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Patton_GetsVendor(p, 37) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func PattonDisconnectReason_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Patton_GetsVendor(p, 37) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func PattonDisconnectReason_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Patton_LookupVendor(p, 37)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func PattonDisconnectReason_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Patton_LookupVendor(p, 37)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func PattonDisconnectReason_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Patton_SetVendor(p, 37, a)
+}
+
+func PattonDisconnectReason_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Patton_SetVendor(p, 37, a)
+}
+
+func PattonDisconnectReason_Del(p *radius.Packet) {
+	_Patton_DelVendor(p, 37)
+}
+
 func PattonCalledUniqueID_Add(p *radius.Packet, value []byte) (err error) {
 	var a radius.Attribute
 	a, err = radius.NewBytes(value)
@@ -1170,6 +1358,100 @@ func PattonCalledName_SetString(p *radius.Packet, value string) (err error) {
 
 func PattonCalledName_Del(p *radius.Packet) {
 	_Patton_DelVendor(p, 52)
+}
+
+func PattonCalledStationID_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Patton_AddVendor(p, 53, a)
+}
+
+func PattonCalledStationID_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Patton_AddVendor(p, 53, a)
+}
+
+func PattonCalledStationID_Get(p *radius.Packet) (value []byte) {
+	value, _ = PattonCalledStationID_Lookup(p)
+	return
+}
+
+func PattonCalledStationID_GetString(p *radius.Packet) (value string) {
+	value, _ = PattonCalledStationID_LookupString(p)
+	return
+}
+
+func PattonCalledStationID_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Patton_GetsVendor(p, 53) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func PattonCalledStationID_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Patton_GetsVendor(p, 53) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func PattonCalledStationID_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Patton_LookupVendor(p, 53)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func PattonCalledStationID_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Patton_LookupVendor(p, 53)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func PattonCalledStationID_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Patton_SetVendor(p, 53, a)
+}
+
+func PattonCalledStationID_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Patton_SetVendor(p, 53, a)
+}
+
+func PattonCalledStationID_Del(p *radius.Packet) {
+	_Patton_DelVendor(p, 53)
 }
 
 type PattonCalledRxOctets uint32
@@ -1720,6 +2002,234 @@ func PattonCalledCodec_SetString(p *radius.Packet, value string) (err error) {
 
 func PattonCalledCodec_Del(p *radius.Packet) {
 	_Patton_DelVendor(p, 72)
+}
+
+type PattonCalledRemoteIP uint32
+
+var PattonCalledRemoteIP_Strings = map[PattonCalledRemoteIP]string{}
+
+func (a PattonCalledRemoteIP) String() string {
+	if str, ok := PattonCalledRemoteIP_Strings[a]; ok {
+		return str
+	}
+	return "PattonCalledRemoteIP(" + strconv.FormatUint(uint64(a), 10) + ")"
+}
+
+func PattonCalledRemoteIP_Add(p *radius.Packet, value PattonCalledRemoteIP) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Patton_AddVendor(p, 73, a)
+}
+
+func PattonCalledRemoteIP_Get(p *radius.Packet) (value PattonCalledRemoteIP) {
+	value, _ = PattonCalledRemoteIP_Lookup(p)
+	return
+}
+
+func PattonCalledRemoteIP_Gets(p *radius.Packet) (values []PattonCalledRemoteIP, err error) {
+	var i uint32
+	for _, attr := range _Patton_GetsVendor(p, 73) {
+		i, err = radius.Integer(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, PattonCalledRemoteIP(i))
+	}
+	return
+}
+
+func PattonCalledRemoteIP_Lookup(p *radius.Packet) (value PattonCalledRemoteIP, err error) {
+	a, ok := _Patton_LookupVendor(p, 73)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	var i uint32
+	i, err = radius.Integer(a)
+	if err != nil {
+		return
+	}
+	value = PattonCalledRemoteIP(i)
+	return
+}
+
+func PattonCalledRemoteIP_Set(p *radius.Packet, value PattonCalledRemoteIP) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Patton_SetVendor(p, 73, a)
+}
+
+func PattonCalledRemoteIP_Del(p *radius.Packet) {
+	_Patton_DelVendor(p, 73)
+}
+
+type PattonCalledRemoteUDPPort uint32
+
+var PattonCalledRemoteUDPPort_Strings = map[PattonCalledRemoteUDPPort]string{}
+
+func (a PattonCalledRemoteUDPPort) String() string {
+	if str, ok := PattonCalledRemoteUDPPort_Strings[a]; ok {
+		return str
+	}
+	return "PattonCalledRemoteUDPPort(" + strconv.FormatUint(uint64(a), 10) + ")"
+}
+
+func PattonCalledRemoteUDPPort_Add(p *radius.Packet, value PattonCalledRemoteUDPPort) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Patton_AddVendor(p, 74, a)
+}
+
+func PattonCalledRemoteUDPPort_Get(p *radius.Packet) (value PattonCalledRemoteUDPPort) {
+	value, _ = PattonCalledRemoteUDPPort_Lookup(p)
+	return
+}
+
+func PattonCalledRemoteUDPPort_Gets(p *radius.Packet) (values []PattonCalledRemoteUDPPort, err error) {
+	var i uint32
+	for _, attr := range _Patton_GetsVendor(p, 74) {
+		i, err = radius.Integer(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, PattonCalledRemoteUDPPort(i))
+	}
+	return
+}
+
+func PattonCalledRemoteUDPPort_Lookup(p *radius.Packet) (value PattonCalledRemoteUDPPort, err error) {
+	a, ok := _Patton_LookupVendor(p, 74)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	var i uint32
+	i, err = radius.Integer(a)
+	if err != nil {
+		return
+	}
+	value = PattonCalledRemoteUDPPort(i)
+	return
+}
+
+func PattonCalledRemoteUDPPort_Set(p *radius.Packet, value PattonCalledRemoteUDPPort) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Patton_SetVendor(p, 74, a)
+}
+
+func PattonCalledRemoteUDPPort_Del(p *radius.Packet) {
+	_Patton_DelVendor(p, 74)
+}
+
+type PattonCalledLocalUDPPort uint32
+
+var PattonCalledLocalUDPPort_Strings = map[PattonCalledLocalUDPPort]string{}
+
+func (a PattonCalledLocalUDPPort) String() string {
+	if str, ok := PattonCalledLocalUDPPort_Strings[a]; ok {
+		return str
+	}
+	return "PattonCalledLocalUDPPort(" + strconv.FormatUint(uint64(a), 10) + ")"
+}
+
+func PattonCalledLocalUDPPort_Add(p *radius.Packet, value PattonCalledLocalUDPPort) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Patton_AddVendor(p, 75, a)
+}
+
+func PattonCalledLocalUDPPort_Get(p *radius.Packet) (value PattonCalledLocalUDPPort) {
+	value, _ = PattonCalledLocalUDPPort_Lookup(p)
+	return
+}
+
+func PattonCalledLocalUDPPort_Gets(p *radius.Packet) (values []PattonCalledLocalUDPPort, err error) {
+	var i uint32
+	for _, attr := range _Patton_GetsVendor(p, 75) {
+		i, err = radius.Integer(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, PattonCalledLocalUDPPort(i))
+	}
+	return
+}
+
+func PattonCalledLocalUDPPort_Lookup(p *radius.Packet) (value PattonCalledLocalUDPPort, err error) {
+	a, ok := _Patton_LookupVendor(p, 75)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	var i uint32
+	i, err = radius.Integer(a)
+	if err != nil {
+		return
+	}
+	value = PattonCalledLocalUDPPort(i)
+	return
+}
+
+func PattonCalledLocalUDPPort_Set(p *radius.Packet, value PattonCalledLocalUDPPort) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Patton_SetVendor(p, 75, a)
+}
+
+func PattonCalledLocalUDPPort_Del(p *radius.Packet) {
+	_Patton_DelVendor(p, 75)
+}
+
+type PattonCalledQos uint32
+
+var PattonCalledQos_Strings = map[PattonCalledQos]string{}
+
+func (a PattonCalledQos) String() string {
+	if str, ok := PattonCalledQos_Strings[a]; ok {
+		return str
+	}
+	return "PattonCalledQos(" + strconv.FormatUint(uint64(a), 10) + ")"
+}
+
+func PattonCalledQos_Add(p *radius.Packet, value PattonCalledQos) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Patton_AddVendor(p, 76, a)
+}
+
+func PattonCalledQos_Get(p *radius.Packet) (value PattonCalledQos) {
+	value, _ = PattonCalledQos_Lookup(p)
+	return
+}
+
+func PattonCalledQos_Gets(p *radius.Packet) (values []PattonCalledQos, err error) {
+	var i uint32
+	for _, attr := range _Patton_GetsVendor(p, 76) {
+		i, err = radius.Integer(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, PattonCalledQos(i))
+	}
+	return
+}
+
+func PattonCalledQos_Lookup(p *radius.Packet) (value PattonCalledQos, err error) {
+	a, ok := _Patton_LookupVendor(p, 76)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	var i uint32
+	i, err = radius.Integer(a)
+	if err != nil {
+		return
+	}
+	value = PattonCalledQos(i)
+	return
+}
+
+func PattonCalledQos_Set(p *radius.Packet, value PattonCalledQos) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Patton_SetVendor(p, 76, a)
+}
+
+func PattonCalledQos_Del(p *radius.Packet) {
+	_Patton_DelVendor(p, 76)
 }
 
 type PattonCalledMOS uint32
@@ -2449,6 +2959,100 @@ func PattonCallingName_Del(p *radius.Packet) {
 	_Patton_DelVendor(p, 84)
 }
 
+func PattonCallingStationID_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Patton_AddVendor(p, 85, a)
+}
+
+func PattonCallingStationID_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Patton_AddVendor(p, 85, a)
+}
+
+func PattonCallingStationID_Get(p *radius.Packet) (value []byte) {
+	value, _ = PattonCallingStationID_Lookup(p)
+	return
+}
+
+func PattonCallingStationID_GetString(p *radius.Packet) (value string) {
+	value, _ = PattonCallingStationID_LookupString(p)
+	return
+}
+
+func PattonCallingStationID_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Patton_GetsVendor(p, 85) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func PattonCallingStationID_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Patton_GetsVendor(p, 85) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func PattonCallingStationID_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Patton_LookupVendor(p, 85)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func PattonCallingStationID_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Patton_LookupVendor(p, 85)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func PattonCallingStationID_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Patton_SetVendor(p, 85, a)
+}
+
+func PattonCallingStationID_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Patton_SetVendor(p, 85, a)
+}
+
+func PattonCallingStationID_Del(p *radius.Packet) {
+	_Patton_DelVendor(p, 85)
+}
+
 type PattonCallingRxOctets uint32
 
 var PattonCallingRxOctets_Strings = map[PattonCallingRxOctets]string{}
@@ -2997,6 +3601,234 @@ func PattonCallingCodec_SetString(p *radius.Packet, value string) (err error) {
 
 func PattonCallingCodec_Del(p *radius.Packet) {
 	_Patton_DelVendor(p, 104)
+}
+
+type PattonCallingRemoteIP uint32
+
+var PattonCallingRemoteIP_Strings = map[PattonCallingRemoteIP]string{}
+
+func (a PattonCallingRemoteIP) String() string {
+	if str, ok := PattonCallingRemoteIP_Strings[a]; ok {
+		return str
+	}
+	return "PattonCallingRemoteIP(" + strconv.FormatUint(uint64(a), 10) + ")"
+}
+
+func PattonCallingRemoteIP_Add(p *radius.Packet, value PattonCallingRemoteIP) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Patton_AddVendor(p, 105, a)
+}
+
+func PattonCallingRemoteIP_Get(p *radius.Packet) (value PattonCallingRemoteIP) {
+	value, _ = PattonCallingRemoteIP_Lookup(p)
+	return
+}
+
+func PattonCallingRemoteIP_Gets(p *radius.Packet) (values []PattonCallingRemoteIP, err error) {
+	var i uint32
+	for _, attr := range _Patton_GetsVendor(p, 105) {
+		i, err = radius.Integer(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, PattonCallingRemoteIP(i))
+	}
+	return
+}
+
+func PattonCallingRemoteIP_Lookup(p *radius.Packet) (value PattonCallingRemoteIP, err error) {
+	a, ok := _Patton_LookupVendor(p, 105)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	var i uint32
+	i, err = radius.Integer(a)
+	if err != nil {
+		return
+	}
+	value = PattonCallingRemoteIP(i)
+	return
+}
+
+func PattonCallingRemoteIP_Set(p *radius.Packet, value PattonCallingRemoteIP) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Patton_SetVendor(p, 105, a)
+}
+
+func PattonCallingRemoteIP_Del(p *radius.Packet) {
+	_Patton_DelVendor(p, 105)
+}
+
+type PattonCallingRemoteUDPPort uint32
+
+var PattonCallingRemoteUDPPort_Strings = map[PattonCallingRemoteUDPPort]string{}
+
+func (a PattonCallingRemoteUDPPort) String() string {
+	if str, ok := PattonCallingRemoteUDPPort_Strings[a]; ok {
+		return str
+	}
+	return "PattonCallingRemoteUDPPort(" + strconv.FormatUint(uint64(a), 10) + ")"
+}
+
+func PattonCallingRemoteUDPPort_Add(p *radius.Packet, value PattonCallingRemoteUDPPort) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Patton_AddVendor(p, 106, a)
+}
+
+func PattonCallingRemoteUDPPort_Get(p *radius.Packet) (value PattonCallingRemoteUDPPort) {
+	value, _ = PattonCallingRemoteUDPPort_Lookup(p)
+	return
+}
+
+func PattonCallingRemoteUDPPort_Gets(p *radius.Packet) (values []PattonCallingRemoteUDPPort, err error) {
+	var i uint32
+	for _, attr := range _Patton_GetsVendor(p, 106) {
+		i, err = radius.Integer(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, PattonCallingRemoteUDPPort(i))
+	}
+	return
+}
+
+func PattonCallingRemoteUDPPort_Lookup(p *radius.Packet) (value PattonCallingRemoteUDPPort, err error) {
+	a, ok := _Patton_LookupVendor(p, 106)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	var i uint32
+	i, err = radius.Integer(a)
+	if err != nil {
+		return
+	}
+	value = PattonCallingRemoteUDPPort(i)
+	return
+}
+
+func PattonCallingRemoteUDPPort_Set(p *radius.Packet, value PattonCallingRemoteUDPPort) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Patton_SetVendor(p, 106, a)
+}
+
+func PattonCallingRemoteUDPPort_Del(p *radius.Packet) {
+	_Patton_DelVendor(p, 106)
+}
+
+type PattonCallingLocalUDPPort uint32
+
+var PattonCallingLocalUDPPort_Strings = map[PattonCallingLocalUDPPort]string{}
+
+func (a PattonCallingLocalUDPPort) String() string {
+	if str, ok := PattonCallingLocalUDPPort_Strings[a]; ok {
+		return str
+	}
+	return "PattonCallingLocalUDPPort(" + strconv.FormatUint(uint64(a), 10) + ")"
+}
+
+func PattonCallingLocalUDPPort_Add(p *radius.Packet, value PattonCallingLocalUDPPort) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Patton_AddVendor(p, 107, a)
+}
+
+func PattonCallingLocalUDPPort_Get(p *radius.Packet) (value PattonCallingLocalUDPPort) {
+	value, _ = PattonCallingLocalUDPPort_Lookup(p)
+	return
+}
+
+func PattonCallingLocalUDPPort_Gets(p *radius.Packet) (values []PattonCallingLocalUDPPort, err error) {
+	var i uint32
+	for _, attr := range _Patton_GetsVendor(p, 107) {
+		i, err = radius.Integer(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, PattonCallingLocalUDPPort(i))
+	}
+	return
+}
+
+func PattonCallingLocalUDPPort_Lookup(p *radius.Packet) (value PattonCallingLocalUDPPort, err error) {
+	a, ok := _Patton_LookupVendor(p, 107)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	var i uint32
+	i, err = radius.Integer(a)
+	if err != nil {
+		return
+	}
+	value = PattonCallingLocalUDPPort(i)
+	return
+}
+
+func PattonCallingLocalUDPPort_Set(p *radius.Packet, value PattonCallingLocalUDPPort) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Patton_SetVendor(p, 107, a)
+}
+
+func PattonCallingLocalUDPPort_Del(p *radius.Packet) {
+	_Patton_DelVendor(p, 107)
+}
+
+type PattonCallingQos uint32
+
+var PattonCallingQos_Strings = map[PattonCallingQos]string{}
+
+func (a PattonCallingQos) String() string {
+	if str, ok := PattonCallingQos_Strings[a]; ok {
+		return str
+	}
+	return "PattonCallingQos(" + strconv.FormatUint(uint64(a), 10) + ")"
+}
+
+func PattonCallingQos_Add(p *radius.Packet, value PattonCallingQos) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Patton_AddVendor(p, 108, a)
+}
+
+func PattonCallingQos_Get(p *radius.Packet) (value PattonCallingQos) {
+	value, _ = PattonCallingQos_Lookup(p)
+	return
+}
+
+func PattonCallingQos_Gets(p *radius.Packet) (values []PattonCallingQos, err error) {
+	var i uint32
+	for _, attr := range _Patton_GetsVendor(p, 108) {
+		i, err = radius.Integer(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, PattonCallingQos(i))
+	}
+	return
+}
+
+func PattonCallingQos_Lookup(p *radius.Packet) (value PattonCallingQos, err error) {
+	a, ok := _Patton_LookupVendor(p, 108)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	var i uint32
+	i, err = radius.Integer(a)
+	if err != nil {
+		return
+	}
+	value = PattonCallingQos(i)
+	return
+}
+
+func PattonCallingQos_Set(p *radius.Packet, value PattonCallingQos) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Patton_SetVendor(p, 108, a)
+}
+
+func PattonCallingQos_Del(p *radius.Packet) {
+	_Patton_DelVendor(p, 108)
 }
 
 type PattonCallingMOS uint32

@@ -3,6 +3,7 @@
 package aerohive
 
 import (
+	"crypto/rand"
 	"strconv"
 
 	"layeh.com/radius"
@@ -208,4 +209,1568 @@ func AHHMAdminGroupID_Set(p *radius.Packet, value AHHMAdminGroupID) (err error) 
 
 func AHHMAdminGroupID_Del(p *radius.Packet) {
 	_Aerohive_DelVendor(p, 1)
+}
+
+type ExtremeUserVlan uint32
+
+var ExtremeUserVlan_Strings = map[ExtremeUserVlan]string{}
+
+func (a ExtremeUserVlan) String() string {
+	if str, ok := ExtremeUserVlan_Strings[a]; ok {
+		return str
+	}
+	return "ExtremeUserVlan(" + strconv.FormatUint(uint64(a), 10) + ")"
+}
+
+func ExtremeUserVlan_Add(p *radius.Packet, value ExtremeUserVlan) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Aerohive_AddVendor(p, 1, a)
+}
+
+func ExtremeUserVlan_Get(p *radius.Packet) (value ExtremeUserVlan) {
+	value, _ = ExtremeUserVlan_Lookup(p)
+	return
+}
+
+func ExtremeUserVlan_Gets(p *radius.Packet) (values []ExtremeUserVlan, err error) {
+	var i uint32
+	for _, attr := range _Aerohive_GetsVendor(p, 1) {
+		i, err = radius.Integer(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, ExtremeUserVlan(i))
+	}
+	return
+}
+
+func ExtremeUserVlan_Lookup(p *radius.Packet) (value ExtremeUserVlan, err error) {
+	a, ok := _Aerohive_LookupVendor(p, 1)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	var i uint32
+	i, err = radius.Integer(a)
+	if err != nil {
+		return
+	}
+	value = ExtremeUserVlan(i)
+	return
+}
+
+func ExtremeUserVlan_Set(p *radius.Packet, value ExtremeUserVlan) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Aerohive_SetVendor(p, 1, a)
+}
+
+func ExtremeUserVlan_Del(p *radius.Packet) {
+	_Aerohive_DelVendor(p, 1)
+}
+
+func ExtremeLibsipPatronInfo_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	var salt [2]byte
+	_, err = rand.Read(salt[:])
+	if err != nil {
+		return
+	}
+	a, err = radius.NewTunnelPassword(value, salt[:], p.Secret, p.Authenticator[:])
+	if err != nil {
+		return
+	}
+	return _Aerohive_AddVendor(p, 3, a)
+}
+
+func ExtremeLibsipPatronInfo_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	var salt [2]byte
+	_, err = rand.Read(salt[:])
+	if err != nil {
+		return
+	}
+	a, err = radius.NewTunnelPassword([]byte(value), salt[:], p.Secret, p.Authenticator[:])
+	if err != nil {
+		return
+	}
+	return _Aerohive_AddVendor(p, 3, a)
+}
+
+func ExtremeLibsipPatronInfo_Get(p *radius.Packet) (value []byte) {
+	value, _ = ExtremeLibsipPatronInfo_Lookup(p)
+	return
+}
+
+func ExtremeLibsipPatronInfo_GetString(p *radius.Packet) (value string) {
+	value, _ = ExtremeLibsipPatronInfo_LookupString(p)
+	return
+}
+
+func ExtremeLibsipPatronInfo_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Aerohive_GetsVendor(p, 3) {
+		i, _, err = radius.TunnelPassword(attr, p.Secret, p.Authenticator[:])
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func ExtremeLibsipPatronInfo_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Aerohive_GetsVendor(p, 3) {
+		var up []byte
+		up, _, err = radius.TunnelPassword(attr, p.Secret, p.Authenticator[:])
+		if err == nil {
+			i = string(up)
+		}
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func ExtremeLibsipPatronInfo_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Aerohive_LookupVendor(p, 3)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value, _, err = radius.TunnelPassword(a, p.Secret, p.Authenticator[:])
+	return
+}
+
+func ExtremeLibsipPatronInfo_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Aerohive_LookupVendor(p, 3)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	var b []byte
+	b, _, err = radius.TunnelPassword(a, p.Secret, p.Authenticator[:])
+	if err == nil {
+		value = string(b)
+	}
+	return
+}
+
+func ExtremeLibsipPatronInfo_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	var salt [2]byte
+	_, err = rand.Read(salt[:])
+	if err != nil {
+		return
+	}
+	a, err = radius.NewTunnelPassword(value, salt[:], p.Secret, p.Authenticator[:])
+	if err != nil {
+		return
+	}
+	return _Aerohive_SetVendor(p, 3, a)
+}
+
+func ExtremeLibsipPatronInfo_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	var salt [2]byte
+	_, err = rand.Read(salt[:])
+	if err != nil {
+		return
+	}
+	a, err = radius.NewTunnelPassword([]byte(value), salt[:], p.Secret, p.Authenticator[:])
+	if err != nil {
+		return
+	}
+	return _Aerohive_SetVendor(p, 3, a)
+}
+
+func ExtremeLibsipPatronInfo_Del(p *radius.Packet) {
+	_Aerohive_DelVendor(p, 3)
+}
+
+type ExtremeLibsipAction uint32
+
+const (
+	ExtremeLibsipAction_Value_Permit     ExtremeLibsipAction = 0
+	ExtremeLibsipAction_Value_Restricted ExtremeLibsipAction = 1
+	ExtremeLibsipAction_Value_Deny       ExtremeLibsipAction = 2
+)
+
+var ExtremeLibsipAction_Strings = map[ExtremeLibsipAction]string{
+	ExtremeLibsipAction_Value_Permit:     "Permit",
+	ExtremeLibsipAction_Value_Restricted: "Restricted",
+	ExtremeLibsipAction_Value_Deny:       "Deny",
+}
+
+func (a ExtremeLibsipAction) String() string {
+	if str, ok := ExtremeLibsipAction_Strings[a]; ok {
+		return str
+	}
+	return "ExtremeLibsipAction(" + strconv.FormatUint(uint64(a), 10) + ")"
+}
+
+func ExtremeLibsipAction_Add(p *radius.Packet, value ExtremeLibsipAction) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Aerohive_AddVendor(p, 4, a)
+}
+
+func ExtremeLibsipAction_Get(p *radius.Packet) (value ExtremeLibsipAction) {
+	value, _ = ExtremeLibsipAction_Lookup(p)
+	return
+}
+
+func ExtremeLibsipAction_Gets(p *radius.Packet) (values []ExtremeLibsipAction, err error) {
+	var i uint32
+	for _, attr := range _Aerohive_GetsVendor(p, 4) {
+		i, err = radius.Integer(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, ExtremeLibsipAction(i))
+	}
+	return
+}
+
+func ExtremeLibsipAction_Lookup(p *radius.Packet) (value ExtremeLibsipAction, err error) {
+	a, ok := _Aerohive_LookupVendor(p, 4)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	var i uint32
+	i, err = radius.Integer(a)
+	if err != nil {
+		return
+	}
+	value = ExtremeLibsipAction(i)
+	return
+}
+
+func ExtremeLibsipAction_Set(p *radius.Packet, value ExtremeLibsipAction) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Aerohive_SetVendor(p, 4, a)
+}
+
+func ExtremeLibsipAction_Del(p *radius.Packet) {
+	_Aerohive_DelVendor(p, 4)
+}
+
+func ExtremeLibsipAdditionalMessage_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Aerohive_AddVendor(p, 5, a)
+}
+
+func ExtremeLibsipAdditionalMessage_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Aerohive_AddVendor(p, 5, a)
+}
+
+func ExtremeLibsipAdditionalMessage_Get(p *radius.Packet) (value []byte) {
+	value, _ = ExtremeLibsipAdditionalMessage_Lookup(p)
+	return
+}
+
+func ExtremeLibsipAdditionalMessage_GetString(p *radius.Packet) (value string) {
+	value, _ = ExtremeLibsipAdditionalMessage_LookupString(p)
+	return
+}
+
+func ExtremeLibsipAdditionalMessage_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Aerohive_GetsVendor(p, 5) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func ExtremeLibsipAdditionalMessage_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Aerohive_GetsVendor(p, 5) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func ExtremeLibsipAdditionalMessage_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Aerohive_LookupVendor(p, 5)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func ExtremeLibsipAdditionalMessage_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Aerohive_LookupVendor(p, 5)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func ExtremeLibsipAdditionalMessage_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Aerohive_SetVendor(p, 5, a)
+}
+
+func ExtremeLibsipAdditionalMessage_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Aerohive_SetVendor(p, 5, a)
+}
+
+func ExtremeLibsipAdditionalMessage_Del(p *radius.Packet) {
+	_Aerohive_DelVendor(p, 5)
+}
+
+type ExtremeUserProfileAttribute uint32
+
+var ExtremeUserProfileAttribute_Strings = map[ExtremeUserProfileAttribute]string{}
+
+func (a ExtremeUserProfileAttribute) String() string {
+	if str, ok := ExtremeUserProfileAttribute_Strings[a]; ok {
+		return str
+	}
+	return "ExtremeUserProfileAttribute(" + strconv.FormatUint(uint64(a), 10) + ")"
+}
+
+func ExtremeUserProfileAttribute_Add(p *radius.Packet, value ExtremeUserProfileAttribute) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Aerohive_AddVendor(p, 6, a)
+}
+
+func ExtremeUserProfileAttribute_Get(p *radius.Packet) (value ExtremeUserProfileAttribute) {
+	value, _ = ExtremeUserProfileAttribute_Lookup(p)
+	return
+}
+
+func ExtremeUserProfileAttribute_Gets(p *radius.Packet) (values []ExtremeUserProfileAttribute, err error) {
+	var i uint32
+	for _, attr := range _Aerohive_GetsVendor(p, 6) {
+		i, err = radius.Integer(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, ExtremeUserProfileAttribute(i))
+	}
+	return
+}
+
+func ExtremeUserProfileAttribute_Lookup(p *radius.Packet) (value ExtremeUserProfileAttribute, err error) {
+	a, ok := _Aerohive_LookupVendor(p, 6)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	var i uint32
+	i, err = radius.Integer(a)
+	if err != nil {
+		return
+	}
+	value = ExtremeUserProfileAttribute(i)
+	return
+}
+
+func ExtremeUserProfileAttribute_Set(p *radius.Packet, value ExtremeUserProfileAttribute) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Aerohive_SetVendor(p, 6, a)
+}
+
+func ExtremeUserProfileAttribute_Del(p *radius.Packet) {
+	_Aerohive_DelVendor(p, 6)
+}
+
+func ExtremeDataUsageLimit_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Aerohive_AddVendor(p, 7, a)
+}
+
+func ExtremeDataUsageLimit_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Aerohive_AddVendor(p, 7, a)
+}
+
+func ExtremeDataUsageLimit_Get(p *radius.Packet) (value []byte) {
+	value, _ = ExtremeDataUsageLimit_Lookup(p)
+	return
+}
+
+func ExtremeDataUsageLimit_GetString(p *radius.Packet) (value string) {
+	value, _ = ExtremeDataUsageLimit_LookupString(p)
+	return
+}
+
+func ExtremeDataUsageLimit_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Aerohive_GetsVendor(p, 7) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func ExtremeDataUsageLimit_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Aerohive_GetsVendor(p, 7) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func ExtremeDataUsageLimit_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Aerohive_LookupVendor(p, 7)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func ExtremeDataUsageLimit_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Aerohive_LookupVendor(p, 7)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func ExtremeDataUsageLimit_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Aerohive_SetVendor(p, 7, a)
+}
+
+func ExtremeDataUsageLimit_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Aerohive_SetVendor(p, 7, a)
+}
+
+func ExtremeDataUsageLimit_Del(p *radius.Packet) {
+	_Aerohive_DelVendor(p, 7)
+}
+
+func ExtremeAVPair_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Aerohive_AddVendor(p, 8, a)
+}
+
+func ExtremeAVPair_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Aerohive_AddVendor(p, 8, a)
+}
+
+func ExtremeAVPair_Get(p *radius.Packet) (value []byte) {
+	value, _ = ExtremeAVPair_Lookup(p)
+	return
+}
+
+func ExtremeAVPair_GetString(p *radius.Packet) (value string) {
+	value, _ = ExtremeAVPair_LookupString(p)
+	return
+}
+
+func ExtremeAVPair_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Aerohive_GetsVendor(p, 8) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func ExtremeAVPair_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Aerohive_GetsVendor(p, 8) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func ExtremeAVPair_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Aerohive_LookupVendor(p, 8)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func ExtremeAVPair_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Aerohive_LookupVendor(p, 8)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func ExtremeAVPair_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Aerohive_SetVendor(p, 8, a)
+}
+
+func ExtremeAVPair_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Aerohive_SetVendor(p, 8, a)
+}
+
+func ExtremeAVPair_Del(p *radius.Packet) {
+	_Aerohive_DelVendor(p, 8)
+}
+
+type ExtremeRadiusCode uint32
+
+const (
+	ExtremeRadiusCode_Value_DisconnectRequest ExtremeRadiusCode = 1
+	ExtremeRadiusCode_Value_COARequest        ExtremeRadiusCode = 2
+)
+
+var ExtremeRadiusCode_Strings = map[ExtremeRadiusCode]string{
+	ExtremeRadiusCode_Value_DisconnectRequest: "Disconnect-Request",
+	ExtremeRadiusCode_Value_COARequest:        "COA-Request",
+}
+
+func (a ExtremeRadiusCode) String() string {
+	if str, ok := ExtremeRadiusCode_Strings[a]; ok {
+		return str
+	}
+	return "ExtremeRadiusCode(" + strconv.FormatUint(uint64(a), 10) + ")"
+}
+
+func ExtremeRadiusCode_Add(p *radius.Packet, value ExtremeRadiusCode) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Aerohive_AddVendor(p, 9, a)
+}
+
+func ExtremeRadiusCode_Get(p *radius.Packet) (value ExtremeRadiusCode) {
+	value, _ = ExtremeRadiusCode_Lookup(p)
+	return
+}
+
+func ExtremeRadiusCode_Gets(p *radius.Packet) (values []ExtremeRadiusCode, err error) {
+	var i uint32
+	for _, attr := range _Aerohive_GetsVendor(p, 9) {
+		i, err = radius.Integer(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, ExtremeRadiusCode(i))
+	}
+	return
+}
+
+func ExtremeRadiusCode_Lookup(p *radius.Packet) (value ExtremeRadiusCode, err error) {
+	a, ok := _Aerohive_LookupVendor(p, 9)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	var i uint32
+	i, err = radius.Integer(a)
+	if err != nil {
+		return
+	}
+	value = ExtremeRadiusCode(i)
+	return
+}
+
+func ExtremeRadiusCode_Set(p *radius.Packet, value ExtremeRadiusCode) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Aerohive_SetVendor(p, 9, a)
+}
+
+func ExtremeRadiusCode_Del(p *radius.Packet) {
+	_Aerohive_DelVendor(p, 9)
+}
+
+func ExtremePPSKRequest_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Aerohive_AddVendor(p, 201, a)
+}
+
+func ExtremePPSKRequest_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Aerohive_AddVendor(p, 201, a)
+}
+
+func ExtremePPSKRequest_Get(p *radius.Packet) (value []byte) {
+	value, _ = ExtremePPSKRequest_Lookup(p)
+	return
+}
+
+func ExtremePPSKRequest_GetString(p *radius.Packet) (value string) {
+	value, _ = ExtremePPSKRequest_LookupString(p)
+	return
+}
+
+func ExtremePPSKRequest_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Aerohive_GetsVendor(p, 201) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func ExtremePPSKRequest_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Aerohive_GetsVendor(p, 201) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func ExtremePPSKRequest_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Aerohive_LookupVendor(p, 201)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func ExtremePPSKRequest_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Aerohive_LookupVendor(p, 201)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func ExtremePPSKRequest_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Aerohive_SetVendor(p, 201, a)
+}
+
+func ExtremePPSKRequest_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Aerohive_SetVendor(p, 201, a)
+}
+
+func ExtremePPSKRequest_Del(p *radius.Packet) {
+	_Aerohive_DelVendor(p, 201)
+}
+
+func ExtremePPSKPMK_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Aerohive_AddVendor(p, 202, a)
+}
+
+func ExtremePPSKPMK_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Aerohive_AddVendor(p, 202, a)
+}
+
+func ExtremePPSKPMK_Get(p *radius.Packet) (value []byte) {
+	value, _ = ExtremePPSKPMK_Lookup(p)
+	return
+}
+
+func ExtremePPSKPMK_GetString(p *radius.Packet) (value string) {
+	value, _ = ExtremePPSKPMK_LookupString(p)
+	return
+}
+
+func ExtremePPSKPMK_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Aerohive_GetsVendor(p, 202) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func ExtremePPSKPMK_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Aerohive_GetsVendor(p, 202) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func ExtremePPSKPMK_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Aerohive_LookupVendor(p, 202)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func ExtremePPSKPMK_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Aerohive_LookupVendor(p, 202)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func ExtremePPSKPMK_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Aerohive_SetVendor(p, 202, a)
+}
+
+func ExtremePPSKPMK_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Aerohive_SetVendor(p, 202, a)
+}
+
+func ExtremePPSKPMK_Del(p *radius.Packet) {
+	_Aerohive_DelVendor(p, 202)
+}
+
+type ExtremeIDMMessage uint32
+
+var ExtremeIDMMessage_Strings = map[ExtremeIDMMessage]string{}
+
+func (a ExtremeIDMMessage) String() string {
+	if str, ok := ExtremeIDMMessage_Strings[a]; ok {
+		return str
+	}
+	return "ExtremeIDMMessage(" + strconv.FormatUint(uint64(a), 10) + ")"
+}
+
+func ExtremeIDMMessage_Add(p *radius.Packet, value ExtremeIDMMessage) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Aerohive_AddVendor(p, 203, a)
+}
+
+func ExtremeIDMMessage_Get(p *radius.Packet) (value ExtremeIDMMessage) {
+	value, _ = ExtremeIDMMessage_Lookup(p)
+	return
+}
+
+func ExtremeIDMMessage_Gets(p *radius.Packet) (values []ExtremeIDMMessage, err error) {
+	var i uint32
+	for _, attr := range _Aerohive_GetsVendor(p, 203) {
+		i, err = radius.Integer(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, ExtremeIDMMessage(i))
+	}
+	return
+}
+
+func ExtremeIDMMessage_Lookup(p *radius.Packet) (value ExtremeIDMMessage, err error) {
+	a, ok := _Aerohive_LookupVendor(p, 203)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	var i uint32
+	i, err = radius.Integer(a)
+	if err != nil {
+		return
+	}
+	value = ExtremeIDMMessage(i)
+	return
+}
+
+func ExtremeIDMMessage_Set(p *radius.Packet, value ExtremeIDMMessage) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Aerohive_SetVendor(p, 203, a)
+}
+
+func ExtremeIDMMessage_Del(p *radius.Packet) {
+	_Aerohive_DelVendor(p, 203)
+}
+
+type ExtremeNTIdentity uint32
+
+var ExtremeNTIdentity_Strings = map[ExtremeNTIdentity]string{}
+
+func (a ExtremeNTIdentity) String() string {
+	if str, ok := ExtremeNTIdentity_Strings[a]; ok {
+		return str
+	}
+	return "ExtremeNTIdentity(" + strconv.FormatUint(uint64(a), 10) + ")"
+}
+
+func ExtremeNTIdentity_Add(p *radius.Packet, value ExtremeNTIdentity) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Aerohive_AddVendor(p, 204, a)
+}
+
+func ExtremeNTIdentity_Get(p *radius.Packet) (value ExtremeNTIdentity) {
+	value, _ = ExtremeNTIdentity_Lookup(p)
+	return
+}
+
+func ExtremeNTIdentity_Gets(p *radius.Packet) (values []ExtremeNTIdentity, err error) {
+	var i uint32
+	for _, attr := range _Aerohive_GetsVendor(p, 204) {
+		i, err = radius.Integer(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, ExtremeNTIdentity(i))
+	}
+	return
+}
+
+func ExtremeNTIdentity_Lookup(p *radius.Packet) (value ExtremeNTIdentity, err error) {
+	a, ok := _Aerohive_LookupVendor(p, 204)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	var i uint32
+	i, err = radius.Integer(a)
+	if err != nil {
+		return
+	}
+	value = ExtremeNTIdentity(i)
+	return
+}
+
+func ExtremeNTIdentity_Set(p *radius.Packet, value ExtremeNTIdentity) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Aerohive_SetVendor(p, 204, a)
+}
+
+func ExtremeNTIdentity_Del(p *radius.Packet) {
+	_Aerohive_DelVendor(p, 204)
+}
+
+func ExtremeUserLanguage_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Aerohive_AddVendor(p, 205, a)
+}
+
+func ExtremeUserLanguage_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Aerohive_AddVendor(p, 205, a)
+}
+
+func ExtremeUserLanguage_Get(p *radius.Packet) (value []byte) {
+	value, _ = ExtremeUserLanguage_Lookup(p)
+	return
+}
+
+func ExtremeUserLanguage_GetString(p *radius.Packet) (value string) {
+	value, _ = ExtremeUserLanguage_LookupString(p)
+	return
+}
+
+func ExtremeUserLanguage_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Aerohive_GetsVendor(p, 205) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func ExtremeUserLanguage_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Aerohive_GetsVendor(p, 205) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func ExtremeUserLanguage_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Aerohive_LookupVendor(p, 205)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func ExtremeUserLanguage_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Aerohive_LookupVendor(p, 205)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func ExtremeUserLanguage_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Aerohive_SetVendor(p, 205, a)
+}
+
+func ExtremeUserLanguage_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Aerohive_SetVendor(p, 205, a)
+}
+
+func ExtremeUserLanguage_Del(p *radius.Packet) {
+	_Aerohive_DelVendor(p, 205)
+}
+
+type ExtremeTimeZoneOffset uint32
+
+var ExtremeTimeZoneOffset_Strings = map[ExtremeTimeZoneOffset]string{}
+
+func (a ExtremeTimeZoneOffset) String() string {
+	if str, ok := ExtremeTimeZoneOffset_Strings[a]; ok {
+		return str
+	}
+	return "ExtremeTimeZoneOffset(" + strconv.FormatUint(uint64(a), 10) + ")"
+}
+
+func ExtremeTimeZoneOffset_Add(p *radius.Packet, value ExtremeTimeZoneOffset) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Aerohive_AddVendor(p, 207, a)
+}
+
+func ExtremeTimeZoneOffset_Get(p *radius.Packet) (value ExtremeTimeZoneOffset) {
+	value, _ = ExtremeTimeZoneOffset_Lookup(p)
+	return
+}
+
+func ExtremeTimeZoneOffset_Gets(p *radius.Packet) (values []ExtremeTimeZoneOffset, err error) {
+	var i uint32
+	for _, attr := range _Aerohive_GetsVendor(p, 207) {
+		i, err = radius.Integer(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, ExtremeTimeZoneOffset(i))
+	}
+	return
+}
+
+func ExtremeTimeZoneOffset_Lookup(p *radius.Packet) (value ExtremeTimeZoneOffset, err error) {
+	a, ok := _Aerohive_LookupVendor(p, 207)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	var i uint32
+	i, err = radius.Integer(a)
+	if err != nil {
+		return
+	}
+	value = ExtremeTimeZoneOffset(i)
+	return
+}
+
+func ExtremeTimeZoneOffset_Set(p *radius.Packet, value ExtremeTimeZoneOffset) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Aerohive_SetVendor(p, 207, a)
+}
+
+func ExtremeTimeZoneOffset_Del(p *radius.Packet) {
+	_Aerohive_DelVendor(p, 207)
+}
+
+type ExtremeDaylightSavingOffset uint32
+
+var ExtremeDaylightSavingOffset_Strings = map[ExtremeDaylightSavingOffset]string{}
+
+func (a ExtremeDaylightSavingOffset) String() string {
+	if str, ok := ExtremeDaylightSavingOffset_Strings[a]; ok {
+		return str
+	}
+	return "ExtremeDaylightSavingOffset(" + strconv.FormatUint(uint64(a), 10) + ")"
+}
+
+func ExtremeDaylightSavingOffset_Add(p *radius.Packet, value ExtremeDaylightSavingOffset) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Aerohive_AddVendor(p, 208, a)
+}
+
+func ExtremeDaylightSavingOffset_Get(p *radius.Packet) (value ExtremeDaylightSavingOffset) {
+	value, _ = ExtremeDaylightSavingOffset_Lookup(p)
+	return
+}
+
+func ExtremeDaylightSavingOffset_Gets(p *radius.Packet) (values []ExtremeDaylightSavingOffset, err error) {
+	var i uint32
+	for _, attr := range _Aerohive_GetsVendor(p, 208) {
+		i, err = radius.Integer(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, ExtremeDaylightSavingOffset(i))
+	}
+	return
+}
+
+func ExtremeDaylightSavingOffset_Lookup(p *radius.Packet) (value ExtremeDaylightSavingOffset, err error) {
+	a, ok := _Aerohive_LookupVendor(p, 208)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	var i uint32
+	i, err = radius.Integer(a)
+	if err != nil {
+		return
+	}
+	value = ExtremeDaylightSavingOffset(i)
+	return
+}
+
+func ExtremeDaylightSavingOffset_Set(p *radius.Packet, value ExtremeDaylightSavingOffset) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Aerohive_SetVendor(p, 208, a)
+}
+
+func ExtremeDaylightSavingOffset_Del(p *radius.Packet) {
+	_Aerohive_DelVendor(p, 208)
+}
+
+func ExtremeClientMonitorSession_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Aerohive_AddVendor(p, 209, a)
+}
+
+func ExtremeClientMonitorSession_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Aerohive_AddVendor(p, 209, a)
+}
+
+func ExtremeClientMonitorSession_Get(p *radius.Packet) (value []byte) {
+	value, _ = ExtremeClientMonitorSession_Lookup(p)
+	return
+}
+
+func ExtremeClientMonitorSession_GetString(p *radius.Packet) (value string) {
+	value, _ = ExtremeClientMonitorSession_LookupString(p)
+	return
+}
+
+func ExtremeClientMonitorSession_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Aerohive_GetsVendor(p, 209) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func ExtremeClientMonitorSession_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Aerohive_GetsVendor(p, 209) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func ExtremeClientMonitorSession_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Aerohive_LookupVendor(p, 209)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func ExtremeClientMonitorSession_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Aerohive_LookupVendor(p, 209)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func ExtremeClientMonitorSession_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Aerohive_SetVendor(p, 209, a)
+}
+
+func ExtremeClientMonitorSession_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Aerohive_SetVendor(p, 209, a)
+}
+
+func ExtremeClientMonitorSession_Del(p *radius.Packet) {
+	_Aerohive_DelVendor(p, 209)
+}
+
+type ExtremeClientMonitorProblem uint32
+
+var ExtremeClientMonitorProblem_Strings = map[ExtremeClientMonitorProblem]string{}
+
+func (a ExtremeClientMonitorProblem) String() string {
+	if str, ok := ExtremeClientMonitorProblem_Strings[a]; ok {
+		return str
+	}
+	return "ExtremeClientMonitorProblem(" + strconv.FormatUint(uint64(a), 10) + ")"
+}
+
+func ExtremeClientMonitorProblem_Add(p *radius.Packet, value ExtremeClientMonitorProblem) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Aerohive_AddVendor(p, 210, a)
+}
+
+func ExtremeClientMonitorProblem_Get(p *radius.Packet) (value ExtremeClientMonitorProblem) {
+	value, _ = ExtremeClientMonitorProblem_Lookup(p)
+	return
+}
+
+func ExtremeClientMonitorProblem_Gets(p *radius.Packet) (values []ExtremeClientMonitorProblem, err error) {
+	var i uint32
+	for _, attr := range _Aerohive_GetsVendor(p, 210) {
+		i, err = radius.Integer(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, ExtremeClientMonitorProblem(i))
+	}
+	return
+}
+
+func ExtremeClientMonitorProblem_Lookup(p *radius.Packet) (value ExtremeClientMonitorProblem, err error) {
+	a, ok := _Aerohive_LookupVendor(p, 210)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	var i uint32
+	i, err = radius.Integer(a)
+	if err != nil {
+		return
+	}
+	value = ExtremeClientMonitorProblem(i)
+	return
+}
+
+func ExtremeClientMonitorProblem_Set(p *radius.Packet, value ExtremeClientMonitorProblem) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Aerohive_SetVendor(p, 210, a)
+}
+
+func ExtremeClientMonitorProblem_Del(p *radius.Packet) {
+	_Aerohive_DelVendor(p, 210)
+}
+
+func ExtremeIDMRedirectURL_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Aerohive_AddVendor(p, 211, a)
+}
+
+func ExtremeIDMRedirectURL_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Aerohive_AddVendor(p, 211, a)
+}
+
+func ExtremeIDMRedirectURL_Get(p *radius.Packet) (value []byte) {
+	value, _ = ExtremeIDMRedirectURL_Lookup(p)
+	return
+}
+
+func ExtremeIDMRedirectURL_GetString(p *radius.Packet) (value string) {
+	value, _ = ExtremeIDMRedirectURL_LookupString(p)
+	return
+}
+
+func ExtremeIDMRedirectURL_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Aerohive_GetsVendor(p, 211) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func ExtremeIDMRedirectURL_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Aerohive_GetsVendor(p, 211) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func ExtremeIDMRedirectURL_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Aerohive_LookupVendor(p, 211)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func ExtremeIDMRedirectURL_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Aerohive_LookupVendor(p, 211)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func ExtremeIDMRedirectURL_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Aerohive_SetVendor(p, 211, a)
+}
+
+func ExtremeIDMRedirectURL_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Aerohive_SetVendor(p, 211, a)
+}
+
+func ExtremeIDMRedirectURL_Del(p *radius.Packet) {
+	_Aerohive_DelVendor(p, 211)
+}
+
+func ExtremeMGTMACAddress_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Aerohive_AddVendor(p, 212, a)
+}
+
+func ExtremeMGTMACAddress_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Aerohive_AddVendor(p, 212, a)
+}
+
+func ExtremeMGTMACAddress_Get(p *radius.Packet) (value []byte) {
+	value, _ = ExtremeMGTMACAddress_Lookup(p)
+	return
+}
+
+func ExtremeMGTMACAddress_GetString(p *radius.Packet) (value string) {
+	value, _ = ExtremeMGTMACAddress_LookupString(p)
+	return
+}
+
+func ExtremeMGTMACAddress_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Aerohive_GetsVendor(p, 212) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func ExtremeMGTMACAddress_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Aerohive_GetsVendor(p, 212) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func ExtremeMGTMACAddress_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Aerohive_LookupVendor(p, 212)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func ExtremeMGTMACAddress_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Aerohive_LookupVendor(p, 212)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func ExtremeMGTMACAddress_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Aerohive_SetVendor(p, 212, a)
+}
+
+func ExtremeMGTMACAddress_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Aerohive_SetVendor(p, 212, a)
+}
+
+func ExtremeMGTMACAddress_Del(p *radius.Packet) {
+	_Aerohive_DelVendor(p, 212)
+}
+
+type ExtremeAuthSource uint32
+
+const (
+	ExtremeAuthSource_Value_Service    ExtremeAuthSource = 1
+	ExtremeAuthSource_Value_NonService ExtremeAuthSource = 2
+)
+
+var ExtremeAuthSource_Strings = map[ExtremeAuthSource]string{
+	ExtremeAuthSource_Value_Service:    "Service",
+	ExtremeAuthSource_Value_NonService: "Non-Service",
+}
+
+func (a ExtremeAuthSource) String() string {
+	if str, ok := ExtremeAuthSource_Strings[a]; ok {
+		return str
+	}
+	return "ExtremeAuthSource(" + strconv.FormatUint(uint64(a), 10) + ")"
+}
+
+func ExtremeAuthSource_Add(p *radius.Packet, value ExtremeAuthSource) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Aerohive_AddVendor(p, 213, a)
+}
+
+func ExtremeAuthSource_Get(p *radius.Packet) (value ExtremeAuthSource) {
+	value, _ = ExtremeAuthSource_Lookup(p)
+	return
+}
+
+func ExtremeAuthSource_Gets(p *radius.Packet) (values []ExtremeAuthSource, err error) {
+	var i uint32
+	for _, attr := range _Aerohive_GetsVendor(p, 213) {
+		i, err = radius.Integer(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, ExtremeAuthSource(i))
+	}
+	return
+}
+
+func ExtremeAuthSource_Lookup(p *radius.Packet) (value ExtremeAuthSource, err error) {
+	a, ok := _Aerohive_LookupVendor(p, 213)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	var i uint32
+	i, err = radius.Integer(a)
+	if err != nil {
+		return
+	}
+	value = ExtremeAuthSource(i)
+	return
+}
+
+func ExtremeAuthSource_Set(p *radius.Packet, value ExtremeAuthSource) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Aerohive_SetVendor(p, 213, a)
+}
+
+func ExtremeAuthSource_Del(p *radius.Packet) {
+	_Aerohive_DelVendor(p, 213)
 }

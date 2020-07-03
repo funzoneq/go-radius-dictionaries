@@ -595,3 +595,154 @@ func SkyWifiCredentials_SetString(p *radius.Packet, value string) (err error) {
 func SkyWifiCredentials_Del(p *radius.Packet) {
 	_BSkyB_DelVendor(p, 6)
 }
+
+func SkyWifiReplicatedPacket_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _BSkyB_AddVendor(p, 7, a)
+}
+
+func SkyWifiReplicatedPacket_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _BSkyB_AddVendor(p, 7, a)
+}
+
+func SkyWifiReplicatedPacket_Get(p *radius.Packet) (value []byte) {
+	value, _ = SkyWifiReplicatedPacket_Lookup(p)
+	return
+}
+
+func SkyWifiReplicatedPacket_GetString(p *radius.Packet) (value string) {
+	value, _ = SkyWifiReplicatedPacket_LookupString(p)
+	return
+}
+
+func SkyWifiReplicatedPacket_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _BSkyB_GetsVendor(p, 7) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func SkyWifiReplicatedPacket_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _BSkyB_GetsVendor(p, 7) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func SkyWifiReplicatedPacket_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _BSkyB_LookupVendor(p, 7)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func SkyWifiReplicatedPacket_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _BSkyB_LookupVendor(p, 7)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func SkyWifiReplicatedPacket_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _BSkyB_SetVendor(p, 7, a)
+}
+
+func SkyWifiReplicatedPacket_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _BSkyB_SetVendor(p, 7, a)
+}
+
+func SkyWifiReplicatedPacket_Del(p *radius.Packet) {
+	_BSkyB_DelVendor(p, 7)
+}
+
+type SkyWifiProtocolRestriction uint32
+
+var SkyWifiProtocolRestriction_Strings = map[SkyWifiProtocolRestriction]string{}
+
+func (a SkyWifiProtocolRestriction) String() string {
+	if str, ok := SkyWifiProtocolRestriction_Strings[a]; ok {
+		return str
+	}
+	return "SkyWifiProtocolRestriction(" + strconv.FormatUint(uint64(a), 10) + ")"
+}
+
+func SkyWifiProtocolRestriction_Add(p *radius.Packet, value SkyWifiProtocolRestriction) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _BSkyB_AddVendor(p, 8, a)
+}
+
+func SkyWifiProtocolRestriction_Get(p *radius.Packet) (value SkyWifiProtocolRestriction) {
+	value, _ = SkyWifiProtocolRestriction_Lookup(p)
+	return
+}
+
+func SkyWifiProtocolRestriction_Gets(p *radius.Packet) (values []SkyWifiProtocolRestriction, err error) {
+	var i uint32
+	for _, attr := range _BSkyB_GetsVendor(p, 8) {
+		i, err = radius.Integer(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, SkyWifiProtocolRestriction(i))
+	}
+	return
+}
+
+func SkyWifiProtocolRestriction_Lookup(p *radius.Packet) (value SkyWifiProtocolRestriction, err error) {
+	a, ok := _BSkyB_LookupVendor(p, 8)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	var i uint32
+	i, err = radius.Integer(a)
+	if err != nil {
+		return
+	}
+	value = SkyWifiProtocolRestriction(i)
+	return
+}
+
+func SkyWifiProtocolRestriction_Set(p *radius.Packet, value SkyWifiProtocolRestriction) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _BSkyB_SetVendor(p, 8, a)
+}
+
+func SkyWifiProtocolRestriction_Del(p *radius.Packet) {
+	_BSkyB_DelVendor(p, 8)
+}

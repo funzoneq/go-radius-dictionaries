@@ -234,3 +234,285 @@ func MerakiDeviceName_SetString(p *radius.Packet, value string) (err error) {
 func MerakiDeviceName_Del(p *radius.Packet) {
 	_Meraki_DelVendor(p, 1)
 }
+
+func MerakiNetworkName_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Meraki_AddVendor(p, 2, a)
+}
+
+func MerakiNetworkName_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Meraki_AddVendor(p, 2, a)
+}
+
+func MerakiNetworkName_Get(p *radius.Packet) (value []byte) {
+	value, _ = MerakiNetworkName_Lookup(p)
+	return
+}
+
+func MerakiNetworkName_GetString(p *radius.Packet) (value string) {
+	value, _ = MerakiNetworkName_LookupString(p)
+	return
+}
+
+func MerakiNetworkName_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Meraki_GetsVendor(p, 2) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func MerakiNetworkName_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Meraki_GetsVendor(p, 2) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func MerakiNetworkName_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Meraki_LookupVendor(p, 2)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func MerakiNetworkName_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Meraki_LookupVendor(p, 2)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func MerakiNetworkName_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Meraki_SetVendor(p, 2, a)
+}
+
+func MerakiNetworkName_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Meraki_SetVendor(p, 2, a)
+}
+
+func MerakiNetworkName_Del(p *radius.Packet) {
+	_Meraki_DelVendor(p, 2)
+}
+
+func MerakiApName_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Meraki_AddVendor(p, 3, a)
+}
+
+func MerakiApName_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Meraki_AddVendor(p, 3, a)
+}
+
+func MerakiApName_Get(p *radius.Packet) (value []byte) {
+	value, _ = MerakiApName_Lookup(p)
+	return
+}
+
+func MerakiApName_GetString(p *radius.Packet) (value string) {
+	value, _ = MerakiApName_LookupString(p)
+	return
+}
+
+func MerakiApName_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Meraki_GetsVendor(p, 3) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func MerakiApName_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Meraki_GetsVendor(p, 3) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func MerakiApName_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Meraki_LookupVendor(p, 3)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func MerakiApName_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Meraki_LookupVendor(p, 3)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func MerakiApName_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Meraki_SetVendor(p, 3, a)
+}
+
+func MerakiApName_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Meraki_SetVendor(p, 3, a)
+}
+
+func MerakiApName_Del(p *radius.Packet) {
+	_Meraki_DelVendor(p, 3)
+}
+
+func MerakiApTags_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Meraki_AddVendor(p, 4, a)
+}
+
+func MerakiApTags_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Meraki_AddVendor(p, 4, a)
+}
+
+func MerakiApTags_Get(p *radius.Packet) (value []byte) {
+	value, _ = MerakiApTags_Lookup(p)
+	return
+}
+
+func MerakiApTags_GetString(p *radius.Packet) (value string) {
+	value, _ = MerakiApTags_LookupString(p)
+	return
+}
+
+func MerakiApTags_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Meraki_GetsVendor(p, 4) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func MerakiApTags_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Meraki_GetsVendor(p, 4) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func MerakiApTags_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Meraki_LookupVendor(p, 4)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func MerakiApTags_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Meraki_LookupVendor(p, 4)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func MerakiApTags_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Meraki_SetVendor(p, 4, a)
+}
+
+func MerakiApTags_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Meraki_SetVendor(p, 4, a)
+}
+
+func MerakiApTags_Del(p *radius.Packet) {
+	_Meraki_DelVendor(p, 4)
+}

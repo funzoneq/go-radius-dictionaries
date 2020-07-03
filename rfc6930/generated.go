@@ -1,1 +1,1 @@
-radius-dict-gen: dictionarygen: cannot generate code for attribute IPv6-6rd-Configuration
+radius-dict-gen: dictionary: parse error in /Users/avermeer/Documents/go-radius-dictionaries/dictionary/dictionary.rfc6930:11: invalid OID ".1"

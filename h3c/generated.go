@@ -714,7 +714,7 @@ const (
 	H3CExecPrivilege_Value_Visit   H3CExecPrivilege = 0
 	H3CExecPrivilege_Value_Monitor H3CExecPrivilege = 1
 	H3CExecPrivilege_Value_System  H3CExecPrivilege = 2
-	H3CExecPrivilege_Value_Manage  H3CExecPrivilege = 33
+	H3CExecPrivilege_Value_Manage  H3CExecPrivilege = 3
 )
 
 var H3CExecPrivilege_Strings = map[H3CExecPrivilege]string{

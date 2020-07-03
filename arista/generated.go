@@ -481,3 +481,407 @@ func AristaCVPRole_SetString(p *radius.Packet, value string) (err error) {
 func AristaCVPRole_Del(p *radius.Packet) {
 	_Arista_DelVendor(p, 4)
 }
+
+func AristaCommand_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Arista_AddVendor(p, 5, a)
+}
+
+func AristaCommand_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Arista_AddVendor(p, 5, a)
+}
+
+func AristaCommand_Get(p *radius.Packet) (value []byte) {
+	value, _ = AristaCommand_Lookup(p)
+	return
+}
+
+func AristaCommand_GetString(p *radius.Packet) (value string) {
+	value, _ = AristaCommand_LookupString(p)
+	return
+}
+
+func AristaCommand_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Arista_GetsVendor(p, 5) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func AristaCommand_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Arista_GetsVendor(p, 5) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func AristaCommand_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Arista_LookupVendor(p, 5)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func AristaCommand_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Arista_LookupVendor(p, 5)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func AristaCommand_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Arista_SetVendor(p, 5, a)
+}
+
+func AristaCommand_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Arista_SetVendor(p, 5, a)
+}
+
+func AristaCommand_Del(p *radius.Packet) {
+	_Arista_DelVendor(p, 5)
+}
+
+type AristaWebAuth uint32
+
+const (
+	AristaWebAuth_Value_Start    AristaWebAuth = 0
+	AristaWebAuth_Value_Complete AristaWebAuth = 1
+)
+
+var AristaWebAuth_Strings = map[AristaWebAuth]string{
+	AristaWebAuth_Value_Start:    "start",
+	AristaWebAuth_Value_Complete: "complete",
+}
+
+func (a AristaWebAuth) String() string {
+	if str, ok := AristaWebAuth_Strings[a]; ok {
+		return str
+	}
+	return "AristaWebAuth(" + strconv.FormatUint(uint64(a), 10) + ")"
+}
+
+func AristaWebAuth_Add(p *radius.Packet, value AristaWebAuth) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Arista_AddVendor(p, 6, a)
+}
+
+func AristaWebAuth_Get(p *radius.Packet) (value AristaWebAuth) {
+	value, _ = AristaWebAuth_Lookup(p)
+	return
+}
+
+func AristaWebAuth_Gets(p *radius.Packet) (values []AristaWebAuth, err error) {
+	var i uint32
+	for _, attr := range _Arista_GetsVendor(p, 6) {
+		i, err = radius.Integer(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, AristaWebAuth(i))
+	}
+	return
+}
+
+func AristaWebAuth_Lookup(p *radius.Packet) (value AristaWebAuth, err error) {
+	a, ok := _Arista_LookupVendor(p, 6)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	var i uint32
+	i, err = radius.Integer(a)
+	if err != nil {
+		return
+	}
+	value = AristaWebAuth(i)
+	return
+}
+
+func AristaWebAuth_Set(p *radius.Packet, value AristaWebAuth) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Arista_SetVendor(p, 6, a)
+}
+
+func AristaWebAuth_Del(p *radius.Packet) {
+	_Arista_DelVendor(p, 6)
+}
+
+func AristaBlockMac_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Arista_AddVendor(p, 7, a)
+}
+
+func AristaBlockMac_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Arista_AddVendor(p, 7, a)
+}
+
+func AristaBlockMac_Get(p *radius.Packet) (value []byte) {
+	value, _ = AristaBlockMac_Lookup(p)
+	return
+}
+
+func AristaBlockMac_GetString(p *radius.Packet) (value string) {
+	value, _ = AristaBlockMac_LookupString(p)
+	return
+}
+
+func AristaBlockMac_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Arista_GetsVendor(p, 7) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func AristaBlockMac_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Arista_GetsVendor(p, 7) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func AristaBlockMac_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Arista_LookupVendor(p, 7)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func AristaBlockMac_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Arista_LookupVendor(p, 7)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func AristaBlockMac_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Arista_SetVendor(p, 7, a)
+}
+
+func AristaBlockMac_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Arista_SetVendor(p, 7, a)
+}
+
+func AristaBlockMac_Del(p *radius.Packet) {
+	_Arista_DelVendor(p, 7)
+}
+
+func AristaUnblockMac_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Arista_AddVendor(p, 8, a)
+}
+
+func AristaUnblockMac_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Arista_AddVendor(p, 8, a)
+}
+
+func AristaUnblockMac_Get(p *radius.Packet) (value []byte) {
+	value, _ = AristaUnblockMac_Lookup(p)
+	return
+}
+
+func AristaUnblockMac_GetString(p *radius.Packet) (value string) {
+	value, _ = AristaUnblockMac_LookupString(p)
+	return
+}
+
+func AristaUnblockMac_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Arista_GetsVendor(p, 8) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func AristaUnblockMac_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Arista_GetsVendor(p, 8) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func AristaUnblockMac_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Arista_LookupVendor(p, 8)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func AristaUnblockMac_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Arista_LookupVendor(p, 8)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func AristaUnblockMac_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Arista_SetVendor(p, 8, a)
+}
+
+func AristaUnblockMac_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Arista_SetVendor(p, 8, a)
+}
+
+func AristaUnblockMac_Del(p *radius.Packet) {
+	_Arista_DelVendor(p, 8)
+}
+
+type AristaPortFlap uint32
+
+var AristaPortFlap_Strings = map[AristaPortFlap]string{}
+
+func (a AristaPortFlap) String() string {
+	if str, ok := AristaPortFlap_Strings[a]; ok {
+		return str
+	}
+	return "AristaPortFlap(" + strconv.FormatUint(uint64(a), 10) + ")"
+}
+
+func AristaPortFlap_Add(p *radius.Packet, value AristaPortFlap) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Arista_AddVendor(p, 9, a)
+}
+
+func AristaPortFlap_Get(p *radius.Packet) (value AristaPortFlap) {
+	value, _ = AristaPortFlap_Lookup(p)
+	return
+}
+
+func AristaPortFlap_Gets(p *radius.Packet) (values []AristaPortFlap, err error) {
+	var i uint32
+	for _, attr := range _Arista_GetsVendor(p, 9) {
+		i, err = radius.Integer(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, AristaPortFlap(i))
+	}
+	return
+}
+
+func AristaPortFlap_Lookup(p *radius.Packet) (value AristaPortFlap, err error) {
+	a, ok := _Arista_LookupVendor(p, 9)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	var i uint32
+	i, err = radius.Integer(a)
+	if err != nil {
+		return
+	}
+	value = AristaPortFlap(i)
+	return
+}
+
+func AristaPortFlap_Set(p *radius.Packet, value AristaPortFlap) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Arista_SetVendor(p, 9, a)
+}
+
+func AristaPortFlap_Del(p *radius.Packet) {
+	_Arista_DelVendor(p, 9)
+}

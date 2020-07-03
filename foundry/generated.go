@@ -538,40 +538,40 @@ func FoundryAccessList_Del(p *radius.Packet) {
 	_Foundry_DelVendor(p, 5)
 }
 
-type FoundryMACAuthentNeeds8021x uint32
+type FoundryMACAuthentNeeds802dot1x uint32
 
-var FoundryMACAuthentNeeds8021x_Strings = map[FoundryMACAuthentNeeds8021x]string{}
+var FoundryMACAuthentNeeds802dot1x_Strings = map[FoundryMACAuthentNeeds802dot1x]string{}
 
-func (a FoundryMACAuthentNeeds8021x) String() string {
-	if str, ok := FoundryMACAuthentNeeds8021x_Strings[a]; ok {
+func (a FoundryMACAuthentNeeds802dot1x) String() string {
+	if str, ok := FoundryMACAuthentNeeds802dot1x_Strings[a]; ok {
 		return str
 	}
-	return "FoundryMACAuthentNeeds8021x(" + strconv.FormatUint(uint64(a), 10) + ")"
+	return "FoundryMACAuthentNeeds802dot1x(" + strconv.FormatUint(uint64(a), 10) + ")"
 }
 
-func FoundryMACAuthentNeeds8021x_Add(p *radius.Packet, value FoundryMACAuthentNeeds8021x) (err error) {
+func FoundryMACAuthentNeeds802dot1x_Add(p *radius.Packet, value FoundryMACAuthentNeeds802dot1x) (err error) {
 	a := radius.NewInteger(uint32(value))
 	return _Foundry_AddVendor(p, 6, a)
 }
 
-func FoundryMACAuthentNeeds8021x_Get(p *radius.Packet) (value FoundryMACAuthentNeeds8021x) {
-	value, _ = FoundryMACAuthentNeeds8021x_Lookup(p)
+func FoundryMACAuthentNeeds802dot1x_Get(p *radius.Packet) (value FoundryMACAuthentNeeds802dot1x) {
+	value, _ = FoundryMACAuthentNeeds802dot1x_Lookup(p)
 	return
 }
 
-func FoundryMACAuthentNeeds8021x_Gets(p *radius.Packet) (values []FoundryMACAuthentNeeds8021x, err error) {
+func FoundryMACAuthentNeeds802dot1x_Gets(p *radius.Packet) (values []FoundryMACAuthentNeeds802dot1x, err error) {
 	var i uint32
 	for _, attr := range _Foundry_GetsVendor(p, 6) {
 		i, err = radius.Integer(attr)
 		if err != nil {
 			return
 		}
-		values = append(values, FoundryMACAuthentNeeds8021x(i))
+		values = append(values, FoundryMACAuthentNeeds802dot1x(i))
 	}
 	return
 }
 
-func FoundryMACAuthentNeeds8021x_Lookup(p *radius.Packet) (value FoundryMACAuthentNeeds8021x, err error) {
+func FoundryMACAuthentNeeds802dot1x_Lookup(p *radius.Packet) (value FoundryMACAuthentNeeds802dot1x, err error) {
 	a, ok := _Foundry_LookupVendor(p, 6)
 	if !ok {
 		err = radius.ErrNoAttribute
@@ -582,53 +582,53 @@ func FoundryMACAuthentNeeds8021x_Lookup(p *radius.Packet) (value FoundryMACAuthe
 	if err != nil {
 		return
 	}
-	value = FoundryMACAuthentNeeds8021x(i)
+	value = FoundryMACAuthentNeeds802dot1x(i)
 	return
 }
 
-func FoundryMACAuthentNeeds8021x_Set(p *radius.Packet, value FoundryMACAuthentNeeds8021x) (err error) {
+func FoundryMACAuthentNeeds802dot1x_Set(p *radius.Packet, value FoundryMACAuthentNeeds802dot1x) (err error) {
 	a := radius.NewInteger(uint32(value))
 	return _Foundry_SetVendor(p, 6, a)
 }
 
-func FoundryMACAuthentNeeds8021x_Del(p *radius.Packet) {
+func FoundryMACAuthentNeeds802dot1x_Del(p *radius.Packet) {
 	_Foundry_DelVendor(p, 6)
 }
 
-type Foundry8021xValidLookup uint32
+type Foundry802dot1xValidLookup uint32
 
-var Foundry8021xValidLookup_Strings = map[Foundry8021xValidLookup]string{}
+var Foundry802dot1xValidLookup_Strings = map[Foundry802dot1xValidLookup]string{}
 
-func (a Foundry8021xValidLookup) String() string {
-	if str, ok := Foundry8021xValidLookup_Strings[a]; ok {
+func (a Foundry802dot1xValidLookup) String() string {
+	if str, ok := Foundry802dot1xValidLookup_Strings[a]; ok {
 		return str
 	}
-	return "Foundry8021xValidLookup(" + strconv.FormatUint(uint64(a), 10) + ")"
+	return "Foundry802dot1xValidLookup(" + strconv.FormatUint(uint64(a), 10) + ")"
 }
 
-func Foundry8021xValidLookup_Add(p *radius.Packet, value Foundry8021xValidLookup) (err error) {
+func Foundry802dot1xValidLookup_Add(p *radius.Packet, value Foundry802dot1xValidLookup) (err error) {
 	a := radius.NewInteger(uint32(value))
 	return _Foundry_AddVendor(p, 7, a)
 }
 
-func Foundry8021xValidLookup_Get(p *radius.Packet) (value Foundry8021xValidLookup) {
-	value, _ = Foundry8021xValidLookup_Lookup(p)
+func Foundry802dot1xValidLookup_Get(p *radius.Packet) (value Foundry802dot1xValidLookup) {
+	value, _ = Foundry802dot1xValidLookup_Lookup(p)
 	return
 }
 
-func Foundry8021xValidLookup_Gets(p *radius.Packet) (values []Foundry8021xValidLookup, err error) {
+func Foundry802dot1xValidLookup_Gets(p *radius.Packet) (values []Foundry802dot1xValidLookup, err error) {
 	var i uint32
 	for _, attr := range _Foundry_GetsVendor(p, 7) {
 		i, err = radius.Integer(attr)
 		if err != nil {
 			return
 		}
-		values = append(values, Foundry8021xValidLookup(i))
+		values = append(values, Foundry802dot1xValidLookup(i))
 	}
 	return
 }
 
-func Foundry8021xValidLookup_Lookup(p *radius.Packet) (value Foundry8021xValidLookup, err error) {
+func Foundry802dot1xValidLookup_Lookup(p *radius.Packet) (value Foundry802dot1xValidLookup, err error) {
 	a, ok := _Foundry_LookupVendor(p, 7)
 	if !ok {
 		err = radius.ErrNoAttribute
@@ -639,16 +639,16 @@ func Foundry8021xValidLookup_Lookup(p *radius.Packet) (value Foundry8021xValidLo
 	if err != nil {
 		return
 	}
-	value = Foundry8021xValidLookup(i)
+	value = Foundry802dot1xValidLookup(i)
 	return
 }
 
-func Foundry8021xValidLookup_Set(p *radius.Packet, value Foundry8021xValidLookup) (err error) {
+func Foundry802dot1xValidLookup_Set(p *radius.Packet, value Foundry802dot1xValidLookup) (err error) {
 	a := radius.NewInteger(uint32(value))
 	return _Foundry_SetVendor(p, 7, a)
 }
 
-func Foundry8021xValidLookup_Del(p *radius.Packet) {
+func Foundry802dot1xValidLookup_Del(p *radius.Packet) {
 	_Foundry_DelVendor(p, 7)
 }
 
@@ -917,6 +917,100 @@ func FoundrySIContextRole_Del(p *radius.Packet) {
 	_Foundry_DelVendor(p, 10)
 }
 
+func FoundryCOACommand_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Foundry_AddVendor(p, 10, a)
+}
+
+func FoundryCOACommand_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Foundry_AddVendor(p, 10, a)
+}
+
+func FoundryCOACommand_Get(p *radius.Packet) (value []byte) {
+	value, _ = FoundryCOACommand_Lookup(p)
+	return
+}
+
+func FoundryCOACommand_GetString(p *radius.Packet) (value string) {
+	value, _ = FoundryCOACommand_LookupString(p)
+	return
+}
+
+func FoundryCOACommand_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Foundry_GetsVendor(p, 10) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func FoundryCOACommand_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Foundry_GetsVendor(p, 10) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func FoundryCOACommand_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Foundry_LookupVendor(p, 10)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func FoundryCOACommand_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Foundry_LookupVendor(p, 10)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func FoundryCOACommand_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Foundry_SetVendor(p, 10, a)
+}
+
+func FoundryCOACommand_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Foundry_SetVendor(p, 10, a)
+}
+
+func FoundryCOACommand_Del(p *radius.Packet) {
+	_Foundry_DelVendor(p, 10)
+}
+
 func FoundrySIRoleTemplate_Add(p *radius.Packet, value []byte) (err error) {
 	var a radius.Attribute
 	a, err = radius.NewBytes(value)
@@ -1008,5 +1102,99 @@ func FoundrySIRoleTemplate_SetString(p *radius.Packet, value string) (err error)
 }
 
 func FoundrySIRoleTemplate_Del(p *radius.Packet) {
+	_Foundry_DelVendor(p, 11)
+}
+
+func FoundryVoicePhoneConfig_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Foundry_AddVendor(p, 11, a)
+}
+
+func FoundryVoicePhoneConfig_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Foundry_AddVendor(p, 11, a)
+}
+
+func FoundryVoicePhoneConfig_Get(p *radius.Packet) (value []byte) {
+	value, _ = FoundryVoicePhoneConfig_Lookup(p)
+	return
+}
+
+func FoundryVoicePhoneConfig_GetString(p *radius.Packet) (value string) {
+	value, _ = FoundryVoicePhoneConfig_LookupString(p)
+	return
+}
+
+func FoundryVoicePhoneConfig_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Foundry_GetsVendor(p, 11) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func FoundryVoicePhoneConfig_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Foundry_GetsVendor(p, 11) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func FoundryVoicePhoneConfig_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Foundry_LookupVendor(p, 11)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func FoundryVoicePhoneConfig_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Foundry_LookupVendor(p, 11)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func FoundryVoicePhoneConfig_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Foundry_SetVendor(p, 11, a)
+}
+
+func FoundryVoicePhoneConfig_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Foundry_SetVendor(p, 11, a)
+}
+
+func FoundryVoicePhoneConfig_Del(p *radius.Packet) {
 	_Foundry_DelVendor(p, 11)
 }

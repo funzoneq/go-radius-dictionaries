@@ -1,1 +1,1 @@
-radius-dict-gen: dictionarygen: cannot generate code for FreeRADIUS vendor attribute FreeRADIUS-EAP-FAST-TLV
+radius-dict-gen: dictionary: parse error in /Users/avermeer/Documents/go-radius-dictionaries/dictionary/dictionary.freeradius:26: invalid OID ".1"

@@ -887,3 +887,804 @@ func PassportRole_SetString(p *radius.Packet, value string) (err error) {
 func PassportRole_Del(p *radius.Packet) {
 	_Nortel_DelVendor(p, 207)
 }
+
+type FabricAttachVLANCreate uint32
+
+const (
+	FabricAttachVLANCreate_Value_No  FabricAttachVLANCreate = 0
+	FabricAttachVLANCreate_Value_Yes FabricAttachVLANCreate = 1
+)
+
+var FabricAttachVLANCreate_Strings = map[FabricAttachVLANCreate]string{
+	FabricAttachVLANCreate_Value_No:  "No",
+	FabricAttachVLANCreate_Value_Yes: "Yes",
+}
+
+func (a FabricAttachVLANCreate) String() string {
+	if str, ok := FabricAttachVLANCreate_Strings[a]; ok {
+		return str
+	}
+	return "FabricAttachVLANCreate(" + strconv.FormatUint(uint64(a), 10) + ")"
+}
+
+func FabricAttachVLANCreate_Add(p *radius.Packet, value FabricAttachVLANCreate) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Nortel_AddVendor(p, 170, a)
+}
+
+func FabricAttachVLANCreate_Get(p *radius.Packet) (value FabricAttachVLANCreate) {
+	value, _ = FabricAttachVLANCreate_Lookup(p)
+	return
+}
+
+func FabricAttachVLANCreate_Gets(p *radius.Packet) (values []FabricAttachVLANCreate, err error) {
+	var i uint32
+	for _, attr := range _Nortel_GetsVendor(p, 170) {
+		i, err = radius.Integer(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, FabricAttachVLANCreate(i))
+	}
+	return
+}
+
+func FabricAttachVLANCreate_Lookup(p *radius.Packet) (value FabricAttachVLANCreate, err error) {
+	a, ok := _Nortel_LookupVendor(p, 170)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	var i uint32
+	i, err = radius.Integer(a)
+	if err != nil {
+		return
+	}
+	value = FabricAttachVLANCreate(i)
+	return
+}
+
+func FabricAttachVLANCreate_Set(p *radius.Packet, value FabricAttachVLANCreate) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Nortel_SetVendor(p, 170, a)
+}
+
+func FabricAttachVLANCreate_Del(p *radius.Packet) {
+	_Nortel_DelVendor(p, 170)
+}
+
+func FabricAttachVLANISID_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Nortel_AddVendor(p, 171, a)
+}
+
+func FabricAttachVLANISID_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Nortel_AddVendor(p, 171, a)
+}
+
+func FabricAttachVLANISID_Get(p *radius.Packet) (value []byte) {
+	value, _ = FabricAttachVLANISID_Lookup(p)
+	return
+}
+
+func FabricAttachVLANISID_GetString(p *radius.Packet) (value string) {
+	value, _ = FabricAttachVLANISID_LookupString(p)
+	return
+}
+
+func FabricAttachVLANISID_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Nortel_GetsVendor(p, 171) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func FabricAttachVLANISID_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Nortel_GetsVendor(p, 171) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func FabricAttachVLANISID_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Nortel_LookupVendor(p, 171)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func FabricAttachVLANISID_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Nortel_LookupVendor(p, 171)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func FabricAttachVLANISID_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Nortel_SetVendor(p, 171, a)
+}
+
+func FabricAttachVLANISID_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Nortel_SetVendor(p, 171, a)
+}
+
+func FabricAttachVLANISID_Del(p *radius.Packet) {
+	_Nortel_DelVendor(p, 171)
+}
+
+type FabricAttachVLANPVID uint32
+
+var FabricAttachVLANPVID_Strings = map[FabricAttachVLANPVID]string{}
+
+func (a FabricAttachVLANPVID) String() string {
+	if str, ok := FabricAttachVLANPVID_Strings[a]; ok {
+		return str
+	}
+	return "FabricAttachVLANPVID(" + strconv.FormatUint(uint64(a), 10) + ")"
+}
+
+func FabricAttachVLANPVID_Add(p *radius.Packet, value FabricAttachVLANPVID) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Nortel_AddVendor(p, 172, a)
+}
+
+func FabricAttachVLANPVID_Get(p *radius.Packet) (value FabricAttachVLANPVID) {
+	value, _ = FabricAttachVLANPVID_Lookup(p)
+	return
+}
+
+func FabricAttachVLANPVID_Gets(p *radius.Packet) (values []FabricAttachVLANPVID, err error) {
+	var i uint32
+	for _, attr := range _Nortel_GetsVendor(p, 172) {
+		i, err = radius.Integer(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, FabricAttachVLANPVID(i))
+	}
+	return
+}
+
+func FabricAttachVLANPVID_Lookup(p *radius.Packet) (value FabricAttachVLANPVID, err error) {
+	a, ok := _Nortel_LookupVendor(p, 172)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	var i uint32
+	i, err = radius.Integer(a)
+	if err != nil {
+		return
+	}
+	value = FabricAttachVLANPVID(i)
+	return
+}
+
+func FabricAttachVLANPVID_Set(p *radius.Packet, value FabricAttachVLANPVID) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Nortel_SetVendor(p, 172, a)
+}
+
+func FabricAttachVLANPVID_Del(p *radius.Packet) {
+	_Nortel_DelVendor(p, 172)
+}
+
+type FabricAttachSwitchMode uint32
+
+const (
+	FabricAttachSwitchMode_Value_FabricAttachServerVLANMode      FabricAttachSwitchMode = 1
+	FabricAttachSwitchMode_Value_FabricAttachServerSPBMMode      FabricAttachSwitchMode = 2
+	FabricAttachSwitchMode_Value_FabricAttachProxyServerVLANMode FabricAttachSwitchMode = 3
+	FabricAttachSwitchMode_Value_FabricAttachProxyServerSPBMMode FabricAttachSwitchMode = 4
+	FabricAttachSwitchMode_Value_FabricAttachStandaloneProxy     FabricAttachSwitchMode = 5
+)
+
+var FabricAttachSwitchMode_Strings = map[FabricAttachSwitchMode]string{
+	FabricAttachSwitchMode_Value_FabricAttachServerVLANMode:      "Fabric-Attach-Server-VLAN-Mode",
+	FabricAttachSwitchMode_Value_FabricAttachServerSPBMMode:      "Fabric-Attach-Server-SPBM-Mode",
+	FabricAttachSwitchMode_Value_FabricAttachProxyServerVLANMode: "Fabric-Attach-Proxy-Server-VLAN-Mode",
+	FabricAttachSwitchMode_Value_FabricAttachProxyServerSPBMMode: "Fabric-Attach-Proxy-Server-SPBM-Mode",
+	FabricAttachSwitchMode_Value_FabricAttachStandaloneProxy:     "Fabric-Attach-Standalone-Proxy",
+}
+
+func (a FabricAttachSwitchMode) String() string {
+	if str, ok := FabricAttachSwitchMode_Strings[a]; ok {
+		return str
+	}
+	return "FabricAttachSwitchMode(" + strconv.FormatUint(uint64(a), 10) + ")"
+}
+
+func FabricAttachSwitchMode_Add(p *radius.Packet, value FabricAttachSwitchMode) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Nortel_AddVendor(p, 180, a)
+}
+
+func FabricAttachSwitchMode_Get(p *radius.Packet) (value FabricAttachSwitchMode) {
+	value, _ = FabricAttachSwitchMode_Lookup(p)
+	return
+}
+
+func FabricAttachSwitchMode_Gets(p *radius.Packet) (values []FabricAttachSwitchMode, err error) {
+	var i uint32
+	for _, attr := range _Nortel_GetsVendor(p, 180) {
+		i, err = radius.Integer(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, FabricAttachSwitchMode(i))
+	}
+	return
+}
+
+func FabricAttachSwitchMode_Lookup(p *radius.Packet) (value FabricAttachSwitchMode, err error) {
+	a, ok := _Nortel_LookupVendor(p, 180)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	var i uint32
+	i, err = radius.Integer(a)
+	if err != nil {
+		return
+	}
+	value = FabricAttachSwitchMode(i)
+	return
+}
+
+func FabricAttachSwitchMode_Set(p *radius.Packet, value FabricAttachSwitchMode) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Nortel_SetVendor(p, 180, a)
+}
+
+func FabricAttachSwitchMode_Del(p *radius.Packet) {
+	_Nortel_DelVendor(p, 180)
+}
+
+func FabricAttachClientID_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Nortel_AddVendor(p, 181, a)
+}
+
+func FabricAttachClientID_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Nortel_AddVendor(p, 181, a)
+}
+
+func FabricAttachClientID_Get(p *radius.Packet) (value []byte) {
+	value, _ = FabricAttachClientID_Lookup(p)
+	return
+}
+
+func FabricAttachClientID_GetString(p *radius.Packet) (value string) {
+	value, _ = FabricAttachClientID_LookupString(p)
+	return
+}
+
+func FabricAttachClientID_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Nortel_GetsVendor(p, 181) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func FabricAttachClientID_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Nortel_GetsVendor(p, 181) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func FabricAttachClientID_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Nortel_LookupVendor(p, 181)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func FabricAttachClientID_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Nortel_LookupVendor(p, 181)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func FabricAttachClientID_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Nortel_SetVendor(p, 181, a)
+}
+
+func FabricAttachClientID_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Nortel_SetVendor(p, 181, a)
+}
+
+func FabricAttachClientID_Del(p *radius.Packet) {
+	_Nortel_DelVendor(p, 181)
+}
+
+func FabricAttachClientType_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Nortel_AddVendor(p, 182, a)
+}
+
+func FabricAttachClientType_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Nortel_AddVendor(p, 182, a)
+}
+
+func FabricAttachClientType_Get(p *radius.Packet) (value []byte) {
+	value, _ = FabricAttachClientType_Lookup(p)
+	return
+}
+
+func FabricAttachClientType_GetString(p *radius.Packet) (value string) {
+	value, _ = FabricAttachClientType_LookupString(p)
+	return
+}
+
+func FabricAttachClientType_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Nortel_GetsVendor(p, 182) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func FabricAttachClientType_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Nortel_GetsVendor(p, 182) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func FabricAttachClientType_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Nortel_LookupVendor(p, 182)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func FabricAttachClientType_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Nortel_LookupVendor(p, 182)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func FabricAttachClientType_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Nortel_SetVendor(p, 182, a)
+}
+
+func FabricAttachClientType_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Nortel_SetVendor(p, 182, a)
+}
+
+func FabricAttachClientType_Del(p *radius.Packet) {
+	_Nortel_DelVendor(p, 182)
+}
+
+type FabricAttachClientPSK uint32
+
+const (
+	FabricAttachClientPSK_Value_NOFabricAttachMessageAuthentication FabricAttachClientPSK = 0
+	FabricAttachClientPSK_Value_DefaultSecretKeyAuthFailed          FabricAttachClientPSK = 10
+	FabricAttachClientPSK_Value_DefaultSecretKeyAuthSucces          FabricAttachClientPSK = 11
+	FabricAttachClientPSK_Value_UserDefinedKeyAuthFailed            FabricAttachClientPSK = 100
+	FabricAttachClientPSK_Value_UserDefinedKeyAuthSucces            FabricAttachClientPSK = 101
+)
+
+var FabricAttachClientPSK_Strings = map[FabricAttachClientPSK]string{
+	FabricAttachClientPSK_Value_NOFabricAttachMessageAuthentication: "NO-Fabric-Attach-Message-Authentication",
+	FabricAttachClientPSK_Value_DefaultSecretKeyAuthFailed:          "Default-Secret-Key-Auth-Failed",
+	FabricAttachClientPSK_Value_DefaultSecretKeyAuthSucces:          "Default-Secret-Key-Auth-Succes",
+	FabricAttachClientPSK_Value_UserDefinedKeyAuthFailed:            "User-Defined-Key-Auth-Failed",
+	FabricAttachClientPSK_Value_UserDefinedKeyAuthSucces:            "User-Defined-Key-Auth-Succes",
+}
+
+func (a FabricAttachClientPSK) String() string {
+	if str, ok := FabricAttachClientPSK_Strings[a]; ok {
+		return str
+	}
+	return "FabricAttachClientPSK(" + strconv.FormatUint(uint64(a), 10) + ")"
+}
+
+func FabricAttachClientPSK_Add(p *radius.Packet, value FabricAttachClientPSK) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Nortel_AddVendor(p, 183, a)
+}
+
+func FabricAttachClientPSK_Get(p *radius.Packet) (value FabricAttachClientPSK) {
+	value, _ = FabricAttachClientPSK_Lookup(p)
+	return
+}
+
+func FabricAttachClientPSK_Gets(p *radius.Packet) (values []FabricAttachClientPSK, err error) {
+	var i uint32
+	for _, attr := range _Nortel_GetsVendor(p, 183) {
+		i, err = radius.Integer(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, FabricAttachClientPSK(i))
+	}
+	return
+}
+
+func FabricAttachClientPSK_Lookup(p *radius.Packet) (value FabricAttachClientPSK, err error) {
+	a, ok := _Nortel_LookupVendor(p, 183)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	var i uint32
+	i, err = radius.Integer(a)
+	if err != nil {
+		return
+	}
+	value = FabricAttachClientPSK(i)
+	return
+}
+
+func FabricAttachClientPSK_Set(p *radius.Packet, value FabricAttachClientPSK) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Nortel_SetVendor(p, 183, a)
+}
+
+func FabricAttachClientPSK_Del(p *radius.Packet) {
+	_Nortel_DelVendor(p, 183)
+}
+
+func FabricAttachServiceRequest_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Nortel_AddVendor(p, 186, a)
+}
+
+func FabricAttachServiceRequest_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Nortel_AddVendor(p, 186, a)
+}
+
+func FabricAttachServiceRequest_Get(p *radius.Packet) (value []byte) {
+	value, _ = FabricAttachServiceRequest_Lookup(p)
+	return
+}
+
+func FabricAttachServiceRequest_GetString(p *radius.Packet) (value string) {
+	value, _ = FabricAttachServiceRequest_LookupString(p)
+	return
+}
+
+func FabricAttachServiceRequest_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Nortel_GetsVendor(p, 186) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func FabricAttachServiceRequest_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Nortel_GetsVendor(p, 186) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func FabricAttachServiceRequest_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Nortel_LookupVendor(p, 186)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func FabricAttachServiceRequest_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Nortel_LookupVendor(p, 186)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func FabricAttachServiceRequest_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Nortel_SetVendor(p, 186, a)
+}
+
+func FabricAttachServiceRequest_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Nortel_SetVendor(p, 186, a)
+}
+
+func FabricAttachServiceRequest_Del(p *radius.Packet) {
+	_Nortel_DelVendor(p, 186)
+}
+
+type FabricAttachClientTrust uint32
+
+const (
+	FabricAttachClientTrust_Value_FabricAttachSwitchTrustNone       FabricAttachClientTrust = 0
+	FabricAttachClientTrust_Value_FabricAttachSwitchTrustAll        FabricAttachClientTrust = 1
+	FabricAttachClientTrust_Value_FabricAttachSwitchTrustRestricted FabricAttachClientTrust = 2
+)
+
+var FabricAttachClientTrust_Strings = map[FabricAttachClientTrust]string{
+	FabricAttachClientTrust_Value_FabricAttachSwitchTrustNone:       "Fabric-Attach-Switch-Trust-None",
+	FabricAttachClientTrust_Value_FabricAttachSwitchTrustAll:        "Fabric-Attach-Switch-Trust-All",
+	FabricAttachClientTrust_Value_FabricAttachSwitchTrustRestricted: "Fabric-Attach-Switch-Trust-Restricted",
+}
+
+func (a FabricAttachClientTrust) String() string {
+	if str, ok := FabricAttachClientTrust_Strings[a]; ok {
+		return str
+	}
+	return "FabricAttachClientTrust(" + strconv.FormatUint(uint64(a), 10) + ")"
+}
+
+func FabricAttachClientTrust_Add(p *radius.Packet, value FabricAttachClientTrust) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Nortel_AddVendor(p, 184, a)
+}
+
+func FabricAttachClientTrust_Get(p *radius.Packet) (value FabricAttachClientTrust) {
+	value, _ = FabricAttachClientTrust_Lookup(p)
+	return
+}
+
+func FabricAttachClientTrust_Gets(p *radius.Packet) (values []FabricAttachClientTrust, err error) {
+	var i uint32
+	for _, attr := range _Nortel_GetsVendor(p, 184) {
+		i, err = radius.Integer(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, FabricAttachClientTrust(i))
+	}
+	return
+}
+
+func FabricAttachClientTrust_Lookup(p *radius.Packet) (value FabricAttachClientTrust, err error) {
+	a, ok := _Nortel_LookupVendor(p, 184)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	var i uint32
+	i, err = radius.Integer(a)
+	if err != nil {
+		return
+	}
+	value = FabricAttachClientTrust(i)
+	return
+}
+
+func FabricAttachClientTrust_Set(p *radius.Packet, value FabricAttachClientTrust) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Nortel_SetVendor(p, 184, a)
+}
+
+func FabricAttachClientTrust_Del(p *radius.Packet) {
+	_Nortel_DelVendor(p, 184)
+}
+
+func FabricAttachClientTrustedBinding_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Nortel_AddVendor(p, 185, a)
+}
+
+func FabricAttachClientTrustedBinding_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Nortel_AddVendor(p, 185, a)
+}
+
+func FabricAttachClientTrustedBinding_Get(p *radius.Packet) (value []byte) {
+	value, _ = FabricAttachClientTrustedBinding_Lookup(p)
+	return
+}
+
+func FabricAttachClientTrustedBinding_GetString(p *radius.Packet) (value string) {
+	value, _ = FabricAttachClientTrustedBinding_LookupString(p)
+	return
+}
+
+func FabricAttachClientTrustedBinding_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Nortel_GetsVendor(p, 185) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func FabricAttachClientTrustedBinding_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Nortel_GetsVendor(p, 185) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func FabricAttachClientTrustedBinding_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Nortel_LookupVendor(p, 185)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func FabricAttachClientTrustedBinding_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Nortel_LookupVendor(p, 185)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func FabricAttachClientTrustedBinding_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Nortel_SetVendor(p, 185, a)
+}
+
+func FabricAttachClientTrustedBinding_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Nortel_SetVendor(p, 185, a)
+}
+
+func FabricAttachClientTrustedBinding_Del(p *radius.Packet) {
+	_Nortel_DelVendor(p, 185)
+}

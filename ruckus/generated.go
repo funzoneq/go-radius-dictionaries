@@ -4163,3 +4163,473 @@ func RuckusWlanName_SetString(p *radius.Packet, value string) (err error) {
 func RuckusWlanName_Del(p *radius.Packet) {
 	_Ruckus_DelVendor(p, 135)
 }
+
+func RuckusReadPreference_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Ruckus_AddVendor(p, 137, a)
+}
+
+func RuckusReadPreference_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Ruckus_AddVendor(p, 137, a)
+}
+
+func RuckusReadPreference_Get(p *radius.Packet) (value []byte) {
+	value, _ = RuckusReadPreference_Lookup(p)
+	return
+}
+
+func RuckusReadPreference_GetString(p *radius.Packet) (value string) {
+	value, _ = RuckusReadPreference_LookupString(p)
+	return
+}
+
+func RuckusReadPreference_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Ruckus_GetsVendor(p, 137) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func RuckusReadPreference_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Ruckus_GetsVendor(p, 137) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func RuckusReadPreference_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Ruckus_LookupVendor(p, 137)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func RuckusReadPreference_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Ruckus_LookupVendor(p, 137)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func RuckusReadPreference_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Ruckus_SetVendor(p, 137, a)
+}
+
+func RuckusReadPreference_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Ruckus_SetVendor(p, 137, a)
+}
+
+func RuckusReadPreference_Del(p *radius.Packet) {
+	_Ruckus_DelVendor(p, 137)
+}
+
+func RuckusClientHostName_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Ruckus_AddVendor(p, 138, a)
+}
+
+func RuckusClientHostName_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Ruckus_AddVendor(p, 138, a)
+}
+
+func RuckusClientHostName_Get(p *radius.Packet) (value []byte) {
+	value, _ = RuckusClientHostName_Lookup(p)
+	return
+}
+
+func RuckusClientHostName_GetString(p *radius.Packet) (value string) {
+	value, _ = RuckusClientHostName_LookupString(p)
+	return
+}
+
+func RuckusClientHostName_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Ruckus_GetsVendor(p, 138) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func RuckusClientHostName_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Ruckus_GetsVendor(p, 138) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func RuckusClientHostName_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Ruckus_LookupVendor(p, 138)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func RuckusClientHostName_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Ruckus_LookupVendor(p, 138)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func RuckusClientHostName_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Ruckus_SetVendor(p, 138, a)
+}
+
+func RuckusClientHostName_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Ruckus_SetVendor(p, 138, a)
+}
+
+func RuckusClientHostName_Del(p *radius.Packet) {
+	_Ruckus_DelVendor(p, 138)
+}
+
+func RuckusClientOsType_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Ruckus_AddVendor(p, 139, a)
+}
+
+func RuckusClientOsType_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Ruckus_AddVendor(p, 139, a)
+}
+
+func RuckusClientOsType_Get(p *radius.Packet) (value []byte) {
+	value, _ = RuckusClientOsType_Lookup(p)
+	return
+}
+
+func RuckusClientOsType_GetString(p *radius.Packet) (value string) {
+	value, _ = RuckusClientOsType_LookupString(p)
+	return
+}
+
+func RuckusClientOsType_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Ruckus_GetsVendor(p, 139) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func RuckusClientOsType_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Ruckus_GetsVendor(p, 139) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func RuckusClientOsType_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Ruckus_LookupVendor(p, 139)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func RuckusClientOsType_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Ruckus_LookupVendor(p, 139)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func RuckusClientOsType_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Ruckus_SetVendor(p, 139, a)
+}
+
+func RuckusClientOsType_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Ruckus_SetVendor(p, 139, a)
+}
+
+func RuckusClientOsType_Del(p *radius.Packet) {
+	_Ruckus_DelVendor(p, 139)
+}
+
+func RuckusClientOsClass_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Ruckus_AddVendor(p, 140, a)
+}
+
+func RuckusClientOsClass_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Ruckus_AddVendor(p, 140, a)
+}
+
+func RuckusClientOsClass_Get(p *radius.Packet) (value []byte) {
+	value, _ = RuckusClientOsClass_Lookup(p)
+	return
+}
+
+func RuckusClientOsClass_GetString(p *radius.Packet) (value string) {
+	value, _ = RuckusClientOsClass_LookupString(p)
+	return
+}
+
+func RuckusClientOsClass_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Ruckus_GetsVendor(p, 140) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func RuckusClientOsClass_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Ruckus_GetsVendor(p, 140) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func RuckusClientOsClass_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Ruckus_LookupVendor(p, 140)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func RuckusClientOsClass_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Ruckus_LookupVendor(p, 140)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func RuckusClientOsClass_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Ruckus_SetVendor(p, 140, a)
+}
+
+func RuckusClientOsClass_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Ruckus_SetVendor(p, 140, a)
+}
+
+func RuckusClientOsClass_Del(p *radius.Packet) {
+	_Ruckus_DelVendor(p, 140)
+}
+
+func RuckusVlanPool_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Ruckus_AddVendor(p, 141, a)
+}
+
+func RuckusVlanPool_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Ruckus_AddVendor(p, 141, a)
+}
+
+func RuckusVlanPool_Get(p *radius.Packet) (value []byte) {
+	value, _ = RuckusVlanPool_Lookup(p)
+	return
+}
+
+func RuckusVlanPool_GetString(p *radius.Packet) (value string) {
+	value, _ = RuckusVlanPool_LookupString(p)
+	return
+}
+
+func RuckusVlanPool_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Ruckus_GetsVendor(p, 141) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func RuckusVlanPool_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Ruckus_GetsVendor(p, 141) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func RuckusVlanPool_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Ruckus_LookupVendor(p, 141)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func RuckusVlanPool_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Ruckus_LookupVendor(p, 141)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func RuckusVlanPool_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Ruckus_SetVendor(p, 141, a)
+}
+
+func RuckusVlanPool_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Ruckus_SetVendor(p, 141, a)
+}
+
+func RuckusVlanPool_Del(p *radius.Packet) {
+	_Ruckus_DelVendor(p, 141)
+}

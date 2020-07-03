@@ -570,3 +570,553 @@ func AirespaceACLName_SetString(p *radius.Packet, value string) (err error) {
 func AirespaceACLName_Del(p *radius.Packet) {
 	_Airespace_DelVendor(p, 6)
 }
+
+type AirespaceDataBandwidthAverageContract uint32
+
+var AirespaceDataBandwidthAverageContract_Strings = map[AirespaceDataBandwidthAverageContract]string{}
+
+func (a AirespaceDataBandwidthAverageContract) String() string {
+	if str, ok := AirespaceDataBandwidthAverageContract_Strings[a]; ok {
+		return str
+	}
+	return "AirespaceDataBandwidthAverageContract(" + strconv.FormatUint(uint64(a), 10) + ")"
+}
+
+func AirespaceDataBandwidthAverageContract_Add(p *radius.Packet, value AirespaceDataBandwidthAverageContract) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Airespace_AddVendor(p, 7, a)
+}
+
+func AirespaceDataBandwidthAverageContract_Get(p *radius.Packet) (value AirespaceDataBandwidthAverageContract) {
+	value, _ = AirespaceDataBandwidthAverageContract_Lookup(p)
+	return
+}
+
+func AirespaceDataBandwidthAverageContract_Gets(p *radius.Packet) (values []AirespaceDataBandwidthAverageContract, err error) {
+	var i uint32
+	for _, attr := range _Airespace_GetsVendor(p, 7) {
+		i, err = radius.Integer(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, AirespaceDataBandwidthAverageContract(i))
+	}
+	return
+}
+
+func AirespaceDataBandwidthAverageContract_Lookup(p *radius.Packet) (value AirespaceDataBandwidthAverageContract, err error) {
+	a, ok := _Airespace_LookupVendor(p, 7)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	var i uint32
+	i, err = radius.Integer(a)
+	if err != nil {
+		return
+	}
+	value = AirespaceDataBandwidthAverageContract(i)
+	return
+}
+
+func AirespaceDataBandwidthAverageContract_Set(p *radius.Packet, value AirespaceDataBandwidthAverageContract) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Airespace_SetVendor(p, 7, a)
+}
+
+func AirespaceDataBandwidthAverageContract_Del(p *radius.Packet) {
+	_Airespace_DelVendor(p, 7)
+}
+
+type AirespaceRealTimeBandwidthAverageContract uint32
+
+var AirespaceRealTimeBandwidthAverageContract_Strings = map[AirespaceRealTimeBandwidthAverageContract]string{}
+
+func (a AirespaceRealTimeBandwidthAverageContract) String() string {
+	if str, ok := AirespaceRealTimeBandwidthAverageContract_Strings[a]; ok {
+		return str
+	}
+	return "AirespaceRealTimeBandwidthAverageContract(" + strconv.FormatUint(uint64(a), 10) + ")"
+}
+
+func AirespaceRealTimeBandwidthAverageContract_Add(p *radius.Packet, value AirespaceRealTimeBandwidthAverageContract) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Airespace_AddVendor(p, 8, a)
+}
+
+func AirespaceRealTimeBandwidthAverageContract_Get(p *radius.Packet) (value AirespaceRealTimeBandwidthAverageContract) {
+	value, _ = AirespaceRealTimeBandwidthAverageContract_Lookup(p)
+	return
+}
+
+func AirespaceRealTimeBandwidthAverageContract_Gets(p *radius.Packet) (values []AirespaceRealTimeBandwidthAverageContract, err error) {
+	var i uint32
+	for _, attr := range _Airespace_GetsVendor(p, 8) {
+		i, err = radius.Integer(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, AirespaceRealTimeBandwidthAverageContract(i))
+	}
+	return
+}
+
+func AirespaceRealTimeBandwidthAverageContract_Lookup(p *radius.Packet) (value AirespaceRealTimeBandwidthAverageContract, err error) {
+	a, ok := _Airespace_LookupVendor(p, 8)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	var i uint32
+	i, err = radius.Integer(a)
+	if err != nil {
+		return
+	}
+	value = AirespaceRealTimeBandwidthAverageContract(i)
+	return
+}
+
+func AirespaceRealTimeBandwidthAverageContract_Set(p *radius.Packet, value AirespaceRealTimeBandwidthAverageContract) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Airespace_SetVendor(p, 8, a)
+}
+
+func AirespaceRealTimeBandwidthAverageContract_Del(p *radius.Packet) {
+	_Airespace_DelVendor(p, 8)
+}
+
+type AirespaceDataBandwidthBurstContract uint32
+
+var AirespaceDataBandwidthBurstContract_Strings = map[AirespaceDataBandwidthBurstContract]string{}
+
+func (a AirespaceDataBandwidthBurstContract) String() string {
+	if str, ok := AirespaceDataBandwidthBurstContract_Strings[a]; ok {
+		return str
+	}
+	return "AirespaceDataBandwidthBurstContract(" + strconv.FormatUint(uint64(a), 10) + ")"
+}
+
+func AirespaceDataBandwidthBurstContract_Add(p *radius.Packet, value AirespaceDataBandwidthBurstContract) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Airespace_AddVendor(p, 9, a)
+}
+
+func AirespaceDataBandwidthBurstContract_Get(p *radius.Packet) (value AirespaceDataBandwidthBurstContract) {
+	value, _ = AirespaceDataBandwidthBurstContract_Lookup(p)
+	return
+}
+
+func AirespaceDataBandwidthBurstContract_Gets(p *radius.Packet) (values []AirespaceDataBandwidthBurstContract, err error) {
+	var i uint32
+	for _, attr := range _Airespace_GetsVendor(p, 9) {
+		i, err = radius.Integer(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, AirespaceDataBandwidthBurstContract(i))
+	}
+	return
+}
+
+func AirespaceDataBandwidthBurstContract_Lookup(p *radius.Packet) (value AirespaceDataBandwidthBurstContract, err error) {
+	a, ok := _Airespace_LookupVendor(p, 9)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	var i uint32
+	i, err = radius.Integer(a)
+	if err != nil {
+		return
+	}
+	value = AirespaceDataBandwidthBurstContract(i)
+	return
+}
+
+func AirespaceDataBandwidthBurstContract_Set(p *radius.Packet, value AirespaceDataBandwidthBurstContract) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Airespace_SetVendor(p, 9, a)
+}
+
+func AirespaceDataBandwidthBurstContract_Del(p *radius.Packet) {
+	_Airespace_DelVendor(p, 9)
+}
+
+type AirespaceRealTimeBandwidthBurstContract uint32
+
+var AirespaceRealTimeBandwidthBurstContract_Strings = map[AirespaceRealTimeBandwidthBurstContract]string{}
+
+func (a AirespaceRealTimeBandwidthBurstContract) String() string {
+	if str, ok := AirespaceRealTimeBandwidthBurstContract_Strings[a]; ok {
+		return str
+	}
+	return "AirespaceRealTimeBandwidthBurstContract(" + strconv.FormatUint(uint64(a), 10) + ")"
+}
+
+func AirespaceRealTimeBandwidthBurstContract_Add(p *radius.Packet, value AirespaceRealTimeBandwidthBurstContract) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Airespace_AddVendor(p, 10, a)
+}
+
+func AirespaceRealTimeBandwidthBurstContract_Get(p *radius.Packet) (value AirespaceRealTimeBandwidthBurstContract) {
+	value, _ = AirespaceRealTimeBandwidthBurstContract_Lookup(p)
+	return
+}
+
+func AirespaceRealTimeBandwidthBurstContract_Gets(p *radius.Packet) (values []AirespaceRealTimeBandwidthBurstContract, err error) {
+	var i uint32
+	for _, attr := range _Airespace_GetsVendor(p, 10) {
+		i, err = radius.Integer(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, AirespaceRealTimeBandwidthBurstContract(i))
+	}
+	return
+}
+
+func AirespaceRealTimeBandwidthBurstContract_Lookup(p *radius.Packet) (value AirespaceRealTimeBandwidthBurstContract, err error) {
+	a, ok := _Airespace_LookupVendor(p, 10)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	var i uint32
+	i, err = radius.Integer(a)
+	if err != nil {
+		return
+	}
+	value = AirespaceRealTimeBandwidthBurstContract(i)
+	return
+}
+
+func AirespaceRealTimeBandwidthBurstContract_Set(p *radius.Packet, value AirespaceRealTimeBandwidthBurstContract) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Airespace_SetVendor(p, 10, a)
+}
+
+func AirespaceRealTimeBandwidthBurstContract_Del(p *radius.Packet) {
+	_Airespace_DelVendor(p, 10)
+}
+
+func AirespaceGuestRoleName_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Airespace_AddVendor(p, 11, a)
+}
+
+func AirespaceGuestRoleName_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Airespace_AddVendor(p, 11, a)
+}
+
+func AirespaceGuestRoleName_Get(p *radius.Packet) (value []byte) {
+	value, _ = AirespaceGuestRoleName_Lookup(p)
+	return
+}
+
+func AirespaceGuestRoleName_GetString(p *radius.Packet) (value string) {
+	value, _ = AirespaceGuestRoleName_LookupString(p)
+	return
+}
+
+func AirespaceGuestRoleName_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Airespace_GetsVendor(p, 11) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func AirespaceGuestRoleName_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Airespace_GetsVendor(p, 11) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func AirespaceGuestRoleName_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Airespace_LookupVendor(p, 11)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func AirespaceGuestRoleName_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Airespace_LookupVendor(p, 11)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func AirespaceGuestRoleName_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Airespace_SetVendor(p, 11, a)
+}
+
+func AirespaceGuestRoleName_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Airespace_SetVendor(p, 11, a)
+}
+
+func AirespaceGuestRoleName_Del(p *radius.Packet) {
+	_Airespace_DelVendor(p, 11)
+}
+
+type AirespaceDataBandwidthAverageContractUpstream uint32
+
+var AirespaceDataBandwidthAverageContractUpstream_Strings = map[AirespaceDataBandwidthAverageContractUpstream]string{}
+
+func (a AirespaceDataBandwidthAverageContractUpstream) String() string {
+	if str, ok := AirespaceDataBandwidthAverageContractUpstream_Strings[a]; ok {
+		return str
+	}
+	return "AirespaceDataBandwidthAverageContractUpstream(" + strconv.FormatUint(uint64(a), 10) + ")"
+}
+
+func AirespaceDataBandwidthAverageContractUpstream_Add(p *radius.Packet, value AirespaceDataBandwidthAverageContractUpstream) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Airespace_AddVendor(p, 13, a)
+}
+
+func AirespaceDataBandwidthAverageContractUpstream_Get(p *radius.Packet) (value AirespaceDataBandwidthAverageContractUpstream) {
+	value, _ = AirespaceDataBandwidthAverageContractUpstream_Lookup(p)
+	return
+}
+
+func AirespaceDataBandwidthAverageContractUpstream_Gets(p *radius.Packet) (values []AirespaceDataBandwidthAverageContractUpstream, err error) {
+	var i uint32
+	for _, attr := range _Airespace_GetsVendor(p, 13) {
+		i, err = radius.Integer(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, AirespaceDataBandwidthAverageContractUpstream(i))
+	}
+	return
+}
+
+func AirespaceDataBandwidthAverageContractUpstream_Lookup(p *radius.Packet) (value AirespaceDataBandwidthAverageContractUpstream, err error) {
+	a, ok := _Airespace_LookupVendor(p, 13)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	var i uint32
+	i, err = radius.Integer(a)
+	if err != nil {
+		return
+	}
+	value = AirespaceDataBandwidthAverageContractUpstream(i)
+	return
+}
+
+func AirespaceDataBandwidthAverageContractUpstream_Set(p *radius.Packet, value AirespaceDataBandwidthAverageContractUpstream) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Airespace_SetVendor(p, 13, a)
+}
+
+func AirespaceDataBandwidthAverageContractUpstream_Del(p *radius.Packet) {
+	_Airespace_DelVendor(p, 13)
+}
+
+type AirespaceRealTimeBandwidthAverageContractUpstream uint32
+
+var AirespaceRealTimeBandwidthAverageContractUpstream_Strings = map[AirespaceRealTimeBandwidthAverageContractUpstream]string{}
+
+func (a AirespaceRealTimeBandwidthAverageContractUpstream) String() string {
+	if str, ok := AirespaceRealTimeBandwidthAverageContractUpstream_Strings[a]; ok {
+		return str
+	}
+	return "AirespaceRealTimeBandwidthAverageContractUpstream(" + strconv.FormatUint(uint64(a), 10) + ")"
+}
+
+func AirespaceRealTimeBandwidthAverageContractUpstream_Add(p *radius.Packet, value AirespaceRealTimeBandwidthAverageContractUpstream) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Airespace_AddVendor(p, 14, a)
+}
+
+func AirespaceRealTimeBandwidthAverageContractUpstream_Get(p *radius.Packet) (value AirespaceRealTimeBandwidthAverageContractUpstream) {
+	value, _ = AirespaceRealTimeBandwidthAverageContractUpstream_Lookup(p)
+	return
+}
+
+func AirespaceRealTimeBandwidthAverageContractUpstream_Gets(p *radius.Packet) (values []AirespaceRealTimeBandwidthAverageContractUpstream, err error) {
+	var i uint32
+	for _, attr := range _Airespace_GetsVendor(p, 14) {
+		i, err = radius.Integer(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, AirespaceRealTimeBandwidthAverageContractUpstream(i))
+	}
+	return
+}
+
+func AirespaceRealTimeBandwidthAverageContractUpstream_Lookup(p *radius.Packet) (value AirespaceRealTimeBandwidthAverageContractUpstream, err error) {
+	a, ok := _Airespace_LookupVendor(p, 14)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	var i uint32
+	i, err = radius.Integer(a)
+	if err != nil {
+		return
+	}
+	value = AirespaceRealTimeBandwidthAverageContractUpstream(i)
+	return
+}
+
+func AirespaceRealTimeBandwidthAverageContractUpstream_Set(p *radius.Packet, value AirespaceRealTimeBandwidthAverageContractUpstream) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Airespace_SetVendor(p, 14, a)
+}
+
+func AirespaceRealTimeBandwidthAverageContractUpstream_Del(p *radius.Packet) {
+	_Airespace_DelVendor(p, 14)
+}
+
+type AirespaceDataBandwidthBurstContractUpstream uint32
+
+var AirespaceDataBandwidthBurstContractUpstream_Strings = map[AirespaceDataBandwidthBurstContractUpstream]string{}
+
+func (a AirespaceDataBandwidthBurstContractUpstream) String() string {
+	if str, ok := AirespaceDataBandwidthBurstContractUpstream_Strings[a]; ok {
+		return str
+	}
+	return "AirespaceDataBandwidthBurstContractUpstream(" + strconv.FormatUint(uint64(a), 10) + ")"
+}
+
+func AirespaceDataBandwidthBurstContractUpstream_Add(p *radius.Packet, value AirespaceDataBandwidthBurstContractUpstream) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Airespace_AddVendor(p, 15, a)
+}
+
+func AirespaceDataBandwidthBurstContractUpstream_Get(p *radius.Packet) (value AirespaceDataBandwidthBurstContractUpstream) {
+	value, _ = AirespaceDataBandwidthBurstContractUpstream_Lookup(p)
+	return
+}
+
+func AirespaceDataBandwidthBurstContractUpstream_Gets(p *radius.Packet) (values []AirespaceDataBandwidthBurstContractUpstream, err error) {
+	var i uint32
+	for _, attr := range _Airespace_GetsVendor(p, 15) {
+		i, err = radius.Integer(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, AirespaceDataBandwidthBurstContractUpstream(i))
+	}
+	return
+}
+
+func AirespaceDataBandwidthBurstContractUpstream_Lookup(p *radius.Packet) (value AirespaceDataBandwidthBurstContractUpstream, err error) {
+	a, ok := _Airespace_LookupVendor(p, 15)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	var i uint32
+	i, err = radius.Integer(a)
+	if err != nil {
+		return
+	}
+	value = AirespaceDataBandwidthBurstContractUpstream(i)
+	return
+}
+
+func AirespaceDataBandwidthBurstContractUpstream_Set(p *radius.Packet, value AirespaceDataBandwidthBurstContractUpstream) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Airespace_SetVendor(p, 15, a)
+}
+
+func AirespaceDataBandwidthBurstContractUpstream_Del(p *radius.Packet) {
+	_Airespace_DelVendor(p, 15)
+}
+
+type AirespaceRealTimeBandwidthBurstContractUpstream uint32
+
+var AirespaceRealTimeBandwidthBurstContractUpstream_Strings = map[AirespaceRealTimeBandwidthBurstContractUpstream]string{}
+
+func (a AirespaceRealTimeBandwidthBurstContractUpstream) String() string {
+	if str, ok := AirespaceRealTimeBandwidthBurstContractUpstream_Strings[a]; ok {
+		return str
+	}
+	return "AirespaceRealTimeBandwidthBurstContractUpstream(" + strconv.FormatUint(uint64(a), 10) + ")"
+}
+
+func AirespaceRealTimeBandwidthBurstContractUpstream_Add(p *radius.Packet, value AirespaceRealTimeBandwidthBurstContractUpstream) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Airespace_AddVendor(p, 16, a)
+}
+
+func AirespaceRealTimeBandwidthBurstContractUpstream_Get(p *radius.Packet) (value AirespaceRealTimeBandwidthBurstContractUpstream) {
+	value, _ = AirespaceRealTimeBandwidthBurstContractUpstream_Lookup(p)
+	return
+}
+
+func AirespaceRealTimeBandwidthBurstContractUpstream_Gets(p *radius.Packet) (values []AirespaceRealTimeBandwidthBurstContractUpstream, err error) {
+	var i uint32
+	for _, attr := range _Airespace_GetsVendor(p, 16) {
+		i, err = radius.Integer(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, AirespaceRealTimeBandwidthBurstContractUpstream(i))
+	}
+	return
+}
+
+func AirespaceRealTimeBandwidthBurstContractUpstream_Lookup(p *radius.Packet) (value AirespaceRealTimeBandwidthBurstContractUpstream, err error) {
+	a, ok := _Airespace_LookupVendor(p, 16)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	var i uint32
+	i, err = radius.Integer(a)
+	if err != nil {
+		return
+	}
+	value = AirespaceRealTimeBandwidthBurstContractUpstream(i)
+	return
+}
+
+func AirespaceRealTimeBandwidthBurstContractUpstream_Set(p *radius.Packet, value AirespaceRealTimeBandwidthBurstContractUpstream) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _Airespace_SetVendor(p, 16, a)
+}
+
+func AirespaceRealTimeBandwidthBurstContractUpstream_Del(p *radius.Packet) {
+	_Airespace_DelVendor(p, 16)
+}

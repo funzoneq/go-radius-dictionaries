@@ -3237,7 +3237,13 @@ func AptiloAuthType_Del(p *radius.Packet) {
 
 type AptiloNASCapabilities uint32
 
-var AptiloNASCapabilities_Strings = map[AptiloNASCapabilities]string{}
+const (
+	AptiloNASCapabilities_Value_CoALogin AptiloNASCapabilities = 1
+)
+
+var AptiloNASCapabilities_Strings = map[AptiloNASCapabilities]string{
+	AptiloNASCapabilities_Value_CoALogin: "CoA-Login",
+}
 
 func (a AptiloNASCapabilities) String() string {
 	if str, ok := AptiloNASCapabilities_Strings[a]; ok {
@@ -4920,6 +4926,1003 @@ func AptiloQoSIndicator_SetString(p *radius.Packet, value string) (err error) {
 
 func AptiloQoSIndicator_Del(p *radius.Packet) {
 	_Aptilo_DelVendor(p, 73)
+}
+
+func AptiloCircuitID_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Aptilo_AddVendor(p, 74, a)
+}
+
+func AptiloCircuitID_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Aptilo_AddVendor(p, 74, a)
+}
+
+func AptiloCircuitID_Get(p *radius.Packet) (value []byte) {
+	value, _ = AptiloCircuitID_Lookup(p)
+	return
+}
+
+func AptiloCircuitID_GetString(p *radius.Packet) (value string) {
+	value, _ = AptiloCircuitID_LookupString(p)
+	return
+}
+
+func AptiloCircuitID_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Aptilo_GetsVendor(p, 74) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func AptiloCircuitID_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Aptilo_GetsVendor(p, 74) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func AptiloCircuitID_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Aptilo_LookupVendor(p, 74)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func AptiloCircuitID_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Aptilo_LookupVendor(p, 74)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func AptiloCircuitID_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Aptilo_SetVendor(p, 74, a)
+}
+
+func AptiloCircuitID_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Aptilo_SetVendor(p, 74, a)
+}
+
+func AptiloCircuitID_Del(p *radius.Packet) {
+	_Aptilo_DelVendor(p, 74)
+}
+
+func AptiloRemoteID_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Aptilo_AddVendor(p, 75, a)
+}
+
+func AptiloRemoteID_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Aptilo_AddVendor(p, 75, a)
+}
+
+func AptiloRemoteID_Get(p *radius.Packet) (value []byte) {
+	value, _ = AptiloRemoteID_Lookup(p)
+	return
+}
+
+func AptiloRemoteID_GetString(p *radius.Packet) (value string) {
+	value, _ = AptiloRemoteID_LookupString(p)
+	return
+}
+
+func AptiloRemoteID_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Aptilo_GetsVendor(p, 75) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func AptiloRemoteID_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Aptilo_GetsVendor(p, 75) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func AptiloRemoteID_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Aptilo_LookupVendor(p, 75)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func AptiloRemoteID_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Aptilo_LookupVendor(p, 75)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func AptiloRemoteID_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Aptilo_SetVendor(p, 75, a)
+}
+
+func AptiloRemoteID_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Aptilo_SetVendor(p, 75, a)
+}
+
+func AptiloRemoteID_Del(p *radius.Packet) {
+	_Aptilo_DelVendor(p, 75)
+}
+
+func AptiloLocationName_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Aptilo_AddVendor(p, 76, a)
+}
+
+func AptiloLocationName_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Aptilo_AddVendor(p, 76, a)
+}
+
+func AptiloLocationName_Get(p *radius.Packet) (value []byte) {
+	value, _ = AptiloLocationName_Lookup(p)
+	return
+}
+
+func AptiloLocationName_GetString(p *radius.Packet) (value string) {
+	value, _ = AptiloLocationName_LookupString(p)
+	return
+}
+
+func AptiloLocationName_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Aptilo_GetsVendor(p, 76) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func AptiloLocationName_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Aptilo_GetsVendor(p, 76) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func AptiloLocationName_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Aptilo_LookupVendor(p, 76)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func AptiloLocationName_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Aptilo_LookupVendor(p, 76)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func AptiloLocationName_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Aptilo_SetVendor(p, 76, a)
+}
+
+func AptiloLocationName_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Aptilo_SetVendor(p, 76, a)
+}
+
+func AptiloLocationName_Del(p *radius.Packet) {
+	_Aptilo_DelVendor(p, 76)
+}
+
+func AptiloKeyIPv61_Add(p *radius.Packet, value net.IP) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewIPv6Addr(value)
+	if err != nil {
+		return
+	}
+	return _Aptilo_AddVendor(p, 231, a)
+}
+
+func AptiloKeyIPv61_Get(p *radius.Packet) (value net.IP) {
+	value, _ = AptiloKeyIPv61_Lookup(p)
+	return
+}
+
+func AptiloKeyIPv61_Gets(p *radius.Packet) (values []net.IP, err error) {
+	var i net.IP
+	for _, attr := range _Aptilo_GetsVendor(p, 231) {
+		i, err = radius.IPv6Addr(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func AptiloKeyIPv61_Lookup(p *radius.Packet) (value net.IP, err error) {
+	a, ok := _Aptilo_LookupVendor(p, 231)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value, err = radius.IPv6Addr(a)
+	return
+}
+
+func AptiloKeyIPv61_Set(p *radius.Packet, value net.IP) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewIPv6Addr(value)
+	if err != nil {
+		return
+	}
+	return _Aptilo_SetVendor(p, 231, a)
+}
+
+func AptiloKeyIPv61_Del(p *radius.Packet) {
+	_Aptilo_DelVendor(p, 231)
+}
+
+func AptiloKeyIPv62_Add(p *radius.Packet, value net.IP) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewIPv6Addr(value)
+	if err != nil {
+		return
+	}
+	return _Aptilo_AddVendor(p, 232, a)
+}
+
+func AptiloKeyIPv62_Get(p *radius.Packet) (value net.IP) {
+	value, _ = AptiloKeyIPv62_Lookup(p)
+	return
+}
+
+func AptiloKeyIPv62_Gets(p *radius.Packet) (values []net.IP, err error) {
+	var i net.IP
+	for _, attr := range _Aptilo_GetsVendor(p, 232) {
+		i, err = radius.IPv6Addr(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func AptiloKeyIPv62_Lookup(p *radius.Packet) (value net.IP, err error) {
+	a, ok := _Aptilo_LookupVendor(p, 232)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value, err = radius.IPv6Addr(a)
+	return
+}
+
+func AptiloKeyIPv62_Set(p *radius.Packet, value net.IP) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewIPv6Addr(value)
+	if err != nil {
+		return
+	}
+	return _Aptilo_SetVendor(p, 232, a)
+}
+
+func AptiloKeyIPv62_Del(p *radius.Packet) {
+	_Aptilo_DelVendor(p, 232)
+}
+
+func AptiloKeyIPv63_Add(p *radius.Packet, value net.IP) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewIPv6Addr(value)
+	if err != nil {
+		return
+	}
+	return _Aptilo_AddVendor(p, 233, a)
+}
+
+func AptiloKeyIPv63_Get(p *radius.Packet) (value net.IP) {
+	value, _ = AptiloKeyIPv63_Lookup(p)
+	return
+}
+
+func AptiloKeyIPv63_Gets(p *radius.Packet) (values []net.IP, err error) {
+	var i net.IP
+	for _, attr := range _Aptilo_GetsVendor(p, 233) {
+		i, err = radius.IPv6Addr(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func AptiloKeyIPv63_Lookup(p *radius.Packet) (value net.IP, err error) {
+	a, ok := _Aptilo_LookupVendor(p, 233)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value, err = radius.IPv6Addr(a)
+	return
+}
+
+func AptiloKeyIPv63_Set(p *radius.Packet, value net.IP) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewIPv6Addr(value)
+	if err != nil {
+		return
+	}
+	return _Aptilo_SetVendor(p, 233, a)
+}
+
+func AptiloKeyIPv63_Del(p *radius.Packet) {
+	_Aptilo_DelVendor(p, 233)
+}
+
+func AptiloKeyIPv64_Add(p *radius.Packet, value net.IP) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewIPv6Addr(value)
+	if err != nil {
+		return
+	}
+	return _Aptilo_AddVendor(p, 234, a)
+}
+
+func AptiloKeyIPv64_Get(p *radius.Packet) (value net.IP) {
+	value, _ = AptiloKeyIPv64_Lookup(p)
+	return
+}
+
+func AptiloKeyIPv64_Gets(p *radius.Packet) (values []net.IP, err error) {
+	var i net.IP
+	for _, attr := range _Aptilo_GetsVendor(p, 234) {
+		i, err = radius.IPv6Addr(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func AptiloKeyIPv64_Lookup(p *radius.Packet) (value net.IP, err error) {
+	a, ok := _Aptilo_LookupVendor(p, 234)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value, err = radius.IPv6Addr(a)
+	return
+}
+
+func AptiloKeyIPv64_Set(p *radius.Packet, value net.IP) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewIPv6Addr(value)
+	if err != nil {
+		return
+	}
+	return _Aptilo_SetVendor(p, 234, a)
+}
+
+func AptiloKeyIPv64_Del(p *radius.Packet) {
+	_Aptilo_DelVendor(p, 234)
+}
+
+func AptiloKeyIPv65_Add(p *radius.Packet, value net.IP) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewIPv6Addr(value)
+	if err != nil {
+		return
+	}
+	return _Aptilo_AddVendor(p, 235, a)
+}
+
+func AptiloKeyIPv65_Get(p *radius.Packet) (value net.IP) {
+	value, _ = AptiloKeyIPv65_Lookup(p)
+	return
+}
+
+func AptiloKeyIPv65_Gets(p *radius.Packet) (values []net.IP, err error) {
+	var i net.IP
+	for _, attr := range _Aptilo_GetsVendor(p, 235) {
+		i, err = radius.IPv6Addr(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func AptiloKeyIPv65_Lookup(p *radius.Packet) (value net.IP, err error) {
+	a, ok := _Aptilo_LookupVendor(p, 235)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value, err = radius.IPv6Addr(a)
+	return
+}
+
+func AptiloKeyIPv65_Set(p *radius.Packet, value net.IP) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewIPv6Addr(value)
+	if err != nil {
+		return
+	}
+	return _Aptilo_SetVendor(p, 235, a)
+}
+
+func AptiloKeyIPv65_Del(p *radius.Packet) {
+	_Aptilo_DelVendor(p, 235)
+}
+
+func AptiloKeyOctets1_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Aptilo_AddVendor(p, 236, a)
+}
+
+func AptiloKeyOctets1_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Aptilo_AddVendor(p, 236, a)
+}
+
+func AptiloKeyOctets1_Get(p *radius.Packet) (value []byte) {
+	value, _ = AptiloKeyOctets1_Lookup(p)
+	return
+}
+
+func AptiloKeyOctets1_GetString(p *radius.Packet) (value string) {
+	value, _ = AptiloKeyOctets1_LookupString(p)
+	return
+}
+
+func AptiloKeyOctets1_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Aptilo_GetsVendor(p, 236) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func AptiloKeyOctets1_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Aptilo_GetsVendor(p, 236) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func AptiloKeyOctets1_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Aptilo_LookupVendor(p, 236)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func AptiloKeyOctets1_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Aptilo_LookupVendor(p, 236)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func AptiloKeyOctets1_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Aptilo_SetVendor(p, 236, a)
+}
+
+func AptiloKeyOctets1_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Aptilo_SetVendor(p, 236, a)
+}
+
+func AptiloKeyOctets1_Del(p *radius.Packet) {
+	_Aptilo_DelVendor(p, 236)
+}
+
+func AptiloKeyOctets2_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Aptilo_AddVendor(p, 237, a)
+}
+
+func AptiloKeyOctets2_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Aptilo_AddVendor(p, 237, a)
+}
+
+func AptiloKeyOctets2_Get(p *radius.Packet) (value []byte) {
+	value, _ = AptiloKeyOctets2_Lookup(p)
+	return
+}
+
+func AptiloKeyOctets2_GetString(p *radius.Packet) (value string) {
+	value, _ = AptiloKeyOctets2_LookupString(p)
+	return
+}
+
+func AptiloKeyOctets2_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Aptilo_GetsVendor(p, 237) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func AptiloKeyOctets2_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Aptilo_GetsVendor(p, 237) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func AptiloKeyOctets2_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Aptilo_LookupVendor(p, 237)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func AptiloKeyOctets2_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Aptilo_LookupVendor(p, 237)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func AptiloKeyOctets2_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Aptilo_SetVendor(p, 237, a)
+}
+
+func AptiloKeyOctets2_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Aptilo_SetVendor(p, 237, a)
+}
+
+func AptiloKeyOctets2_Del(p *radius.Packet) {
+	_Aptilo_DelVendor(p, 237)
+}
+
+func AptiloKeyOctets3_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Aptilo_AddVendor(p, 238, a)
+}
+
+func AptiloKeyOctets3_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Aptilo_AddVendor(p, 238, a)
+}
+
+func AptiloKeyOctets3_Get(p *radius.Packet) (value []byte) {
+	value, _ = AptiloKeyOctets3_Lookup(p)
+	return
+}
+
+func AptiloKeyOctets3_GetString(p *radius.Packet) (value string) {
+	value, _ = AptiloKeyOctets3_LookupString(p)
+	return
+}
+
+func AptiloKeyOctets3_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Aptilo_GetsVendor(p, 238) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func AptiloKeyOctets3_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Aptilo_GetsVendor(p, 238) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func AptiloKeyOctets3_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Aptilo_LookupVendor(p, 238)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func AptiloKeyOctets3_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Aptilo_LookupVendor(p, 238)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func AptiloKeyOctets3_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Aptilo_SetVendor(p, 238, a)
+}
+
+func AptiloKeyOctets3_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Aptilo_SetVendor(p, 238, a)
+}
+
+func AptiloKeyOctets3_Del(p *radius.Packet) {
+	_Aptilo_DelVendor(p, 238)
+}
+
+func AptiloKeyOctets4_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Aptilo_AddVendor(p, 239, a)
+}
+
+func AptiloKeyOctets4_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Aptilo_AddVendor(p, 239, a)
+}
+
+func AptiloKeyOctets4_Get(p *radius.Packet) (value []byte) {
+	value, _ = AptiloKeyOctets4_Lookup(p)
+	return
+}
+
+func AptiloKeyOctets4_GetString(p *radius.Packet) (value string) {
+	value, _ = AptiloKeyOctets4_LookupString(p)
+	return
+}
+
+func AptiloKeyOctets4_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Aptilo_GetsVendor(p, 239) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func AptiloKeyOctets4_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Aptilo_GetsVendor(p, 239) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func AptiloKeyOctets4_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Aptilo_LookupVendor(p, 239)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func AptiloKeyOctets4_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Aptilo_LookupVendor(p, 239)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func AptiloKeyOctets4_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Aptilo_SetVendor(p, 239, a)
+}
+
+func AptiloKeyOctets4_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Aptilo_SetVendor(p, 239, a)
+}
+
+func AptiloKeyOctets4_Del(p *radius.Packet) {
+	_Aptilo_DelVendor(p, 239)
+}
+
+func AptiloKeyOctets5_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Aptilo_AddVendor(p, 240, a)
+}
+
+func AptiloKeyOctets5_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Aptilo_AddVendor(p, 240, a)
+}
+
+func AptiloKeyOctets5_Get(p *radius.Packet) (value []byte) {
+	value, _ = AptiloKeyOctets5_Lookup(p)
+	return
+}
+
+func AptiloKeyOctets5_GetString(p *radius.Packet) (value string) {
+	value, _ = AptiloKeyOctets5_LookupString(p)
+	return
+}
+
+func AptiloKeyOctets5_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Aptilo_GetsVendor(p, 240) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func AptiloKeyOctets5_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Aptilo_GetsVendor(p, 240) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func AptiloKeyOctets5_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Aptilo_LookupVendor(p, 240)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func AptiloKeyOctets5_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Aptilo_LookupVendor(p, 240)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func AptiloKeyOctets5_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Aptilo_SetVendor(p, 240, a)
+}
+
+func AptiloKeyOctets5_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Aptilo_SetVendor(p, 240, a)
+}
+
+func AptiloKeyOctets5_Del(p *radius.Packet) {
+	_Aptilo_DelVendor(p, 240)
 }
 
 func AptiloKeyString1_Add(p *radius.Packet, value []byte) (err error) {

@@ -1,1 +1,1 @@
-radius-dict-gen: dictionarygen: unknown attribute Termination-Action
+radius-dict-gen: 3:12: expected ';', found '.'

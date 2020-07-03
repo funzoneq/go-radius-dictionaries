@@ -3597,40 +3597,40 @@ func TPCAPWAPWWANCellID_Del(p *radius.Packet) {
 	_Travelping_DelVendor(p, 45)
 }
 
-type TPCAPWAPPOWERSAVEIDLETIMEOUT uint32
+type TPCAPWAPPowerSaveIdleTimeout uint32
 
-var TPCAPWAPPOWERSAVEIDLETIMEOUT_Strings = map[TPCAPWAPPOWERSAVEIDLETIMEOUT]string{}
+var TPCAPWAPPowerSaveIdleTimeout_Strings = map[TPCAPWAPPowerSaveIdleTimeout]string{}
 
-func (a TPCAPWAPPOWERSAVEIDLETIMEOUT) String() string {
-	if str, ok := TPCAPWAPPOWERSAVEIDLETIMEOUT_Strings[a]; ok {
+func (a TPCAPWAPPowerSaveIdleTimeout) String() string {
+	if str, ok := TPCAPWAPPowerSaveIdleTimeout_Strings[a]; ok {
 		return str
 	}
-	return "TPCAPWAPPOWERSAVEIDLETIMEOUT(" + strconv.FormatUint(uint64(a), 10) + ")"
+	return "TPCAPWAPPowerSaveIdleTimeout(" + strconv.FormatUint(uint64(a), 10) + ")"
 }
 
-func TPCAPWAPPOWERSAVEIDLETIMEOUT_Add(p *radius.Packet, value TPCAPWAPPOWERSAVEIDLETIMEOUT) (err error) {
+func TPCAPWAPPowerSaveIdleTimeout_Add(p *radius.Packet, value TPCAPWAPPowerSaveIdleTimeout) (err error) {
 	a := radius.NewInteger(uint32(value))
 	return _Travelping_AddVendor(p, 46, a)
 }
 
-func TPCAPWAPPOWERSAVEIDLETIMEOUT_Get(p *radius.Packet) (value TPCAPWAPPOWERSAVEIDLETIMEOUT) {
-	value, _ = TPCAPWAPPOWERSAVEIDLETIMEOUT_Lookup(p)
+func TPCAPWAPPowerSaveIdleTimeout_Get(p *radius.Packet) (value TPCAPWAPPowerSaveIdleTimeout) {
+	value, _ = TPCAPWAPPowerSaveIdleTimeout_Lookup(p)
 	return
 }
 
-func TPCAPWAPPOWERSAVEIDLETIMEOUT_Gets(p *radius.Packet) (values []TPCAPWAPPOWERSAVEIDLETIMEOUT, err error) {
+func TPCAPWAPPowerSaveIdleTimeout_Gets(p *radius.Packet) (values []TPCAPWAPPowerSaveIdleTimeout, err error) {
 	var i uint32
 	for _, attr := range _Travelping_GetsVendor(p, 46) {
 		i, err = radius.Integer(attr)
 		if err != nil {
 			return
 		}
-		values = append(values, TPCAPWAPPOWERSAVEIDLETIMEOUT(i))
+		values = append(values, TPCAPWAPPowerSaveIdleTimeout(i))
 	}
 	return
 }
 
-func TPCAPWAPPOWERSAVEIDLETIMEOUT_Lookup(p *radius.Packet) (value TPCAPWAPPOWERSAVEIDLETIMEOUT, err error) {
+func TPCAPWAPPowerSaveIdleTimeout_Lookup(p *radius.Packet) (value TPCAPWAPPowerSaveIdleTimeout, err error) {
 	a, ok := _Travelping_LookupVendor(p, 46)
 	if !ok {
 		err = radius.ErrNoAttribute
@@ -3641,53 +3641,53 @@ func TPCAPWAPPOWERSAVEIDLETIMEOUT_Lookup(p *radius.Packet) (value TPCAPWAPPOWERS
 	if err != nil {
 		return
 	}
-	value = TPCAPWAPPOWERSAVEIDLETIMEOUT(i)
+	value = TPCAPWAPPowerSaveIdleTimeout(i)
 	return
 }
 
-func TPCAPWAPPOWERSAVEIDLETIMEOUT_Set(p *radius.Packet, value TPCAPWAPPOWERSAVEIDLETIMEOUT) (err error) {
+func TPCAPWAPPowerSaveIdleTimeout_Set(p *radius.Packet, value TPCAPWAPPowerSaveIdleTimeout) (err error) {
 	a := radius.NewInteger(uint32(value))
 	return _Travelping_SetVendor(p, 46, a)
 }
 
-func TPCAPWAPPOWERSAVEIDLETIMEOUT_Del(p *radius.Packet) {
+func TPCAPWAPPowerSaveIdleTimeout_Del(p *radius.Packet) {
 	_Travelping_DelVendor(p, 46)
 }
 
-type TPCAPWAPPOWERSAVEBUSYTIMEOUT uint32
+type TPCAPWAPPowerSaveBusyTimeout uint32
 
-var TPCAPWAPPOWERSAVEBUSYTIMEOUT_Strings = map[TPCAPWAPPOWERSAVEBUSYTIMEOUT]string{}
+var TPCAPWAPPowerSaveBusyTimeout_Strings = map[TPCAPWAPPowerSaveBusyTimeout]string{}
 
-func (a TPCAPWAPPOWERSAVEBUSYTIMEOUT) String() string {
-	if str, ok := TPCAPWAPPOWERSAVEBUSYTIMEOUT_Strings[a]; ok {
+func (a TPCAPWAPPowerSaveBusyTimeout) String() string {
+	if str, ok := TPCAPWAPPowerSaveBusyTimeout_Strings[a]; ok {
 		return str
 	}
-	return "TPCAPWAPPOWERSAVEBUSYTIMEOUT(" + strconv.FormatUint(uint64(a), 10) + ")"
+	return "TPCAPWAPPowerSaveBusyTimeout(" + strconv.FormatUint(uint64(a), 10) + ")"
 }
 
-func TPCAPWAPPOWERSAVEBUSYTIMEOUT_Add(p *radius.Packet, value TPCAPWAPPOWERSAVEBUSYTIMEOUT) (err error) {
+func TPCAPWAPPowerSaveBusyTimeout_Add(p *radius.Packet, value TPCAPWAPPowerSaveBusyTimeout) (err error) {
 	a := radius.NewInteger(uint32(value))
 	return _Travelping_AddVendor(p, 47, a)
 }
 
-func TPCAPWAPPOWERSAVEBUSYTIMEOUT_Get(p *radius.Packet) (value TPCAPWAPPOWERSAVEBUSYTIMEOUT) {
-	value, _ = TPCAPWAPPOWERSAVEBUSYTIMEOUT_Lookup(p)
+func TPCAPWAPPowerSaveBusyTimeout_Get(p *radius.Packet) (value TPCAPWAPPowerSaveBusyTimeout) {
+	value, _ = TPCAPWAPPowerSaveBusyTimeout_Lookup(p)
 	return
 }
 
-func TPCAPWAPPOWERSAVEBUSYTIMEOUT_Gets(p *radius.Packet) (values []TPCAPWAPPOWERSAVEBUSYTIMEOUT, err error) {
+func TPCAPWAPPowerSaveBusyTimeout_Gets(p *radius.Packet) (values []TPCAPWAPPowerSaveBusyTimeout, err error) {
 	var i uint32
 	for _, attr := range _Travelping_GetsVendor(p, 47) {
 		i, err = radius.Integer(attr)
 		if err != nil {
 			return
 		}
-		values = append(values, TPCAPWAPPOWERSAVEBUSYTIMEOUT(i))
+		values = append(values, TPCAPWAPPowerSaveBusyTimeout(i))
 	}
 	return
 }
 
-func TPCAPWAPPOWERSAVEBUSYTIMEOUT_Lookup(p *radius.Packet) (value TPCAPWAPPOWERSAVEBUSYTIMEOUT, err error) {
+func TPCAPWAPPowerSaveBusyTimeout_Lookup(p *radius.Packet) (value TPCAPWAPPowerSaveBusyTimeout, err error) {
 	a, ok := _Travelping_LookupVendor(p, 47)
 	if !ok {
 		err = radius.ErrNoAttribute
@@ -3698,16 +3698,16 @@ func TPCAPWAPPOWERSAVEBUSYTIMEOUT_Lookup(p *radius.Packet) (value TPCAPWAPPOWERS
 	if err != nil {
 		return
 	}
-	value = TPCAPWAPPOWERSAVEBUSYTIMEOUT(i)
+	value = TPCAPWAPPowerSaveBusyTimeout(i)
 	return
 }
 
-func TPCAPWAPPOWERSAVEBUSYTIMEOUT_Set(p *radius.Packet, value TPCAPWAPPOWERSAVEBUSYTIMEOUT) (err error) {
+func TPCAPWAPPowerSaveBusyTimeout_Set(p *radius.Packet, value TPCAPWAPPowerSaveBusyTimeout) (err error) {
 	a := radius.NewInteger(uint32(value))
 	return _Travelping_SetVendor(p, 47, a)
 }
 
-func TPCAPWAPPOWERSAVEBUSYTIMEOUT_Del(p *radius.Packet) {
+func TPCAPWAPPowerSaveBusyTimeout_Del(p *radius.Packet) {
 	_Travelping_DelVendor(p, 47)
 }
 
@@ -4800,4 +4800,269 @@ func TPCAPWAPOtherSoftwareVersion_SetString(p *radius.Packet, value string) (err
 
 func TPCAPWAPOtherSoftwareVersion_Del(p *radius.Packet) {
 	_Travelping_DelVendor(p, 59)
+}
+
+type TPExcessInputOctets uint64
+
+var TPExcessInputOctets_Strings = map[TPExcessInputOctets]string{}
+
+func (a TPExcessInputOctets) String() string {
+	if str, ok := TPExcessInputOctets_Strings[a]; ok {
+		return str
+	}
+	return "TPExcessInputOctets(" + strconv.FormatUint(uint64(a), 10) + ")"
+}
+
+func TPExcessInputOctets_Add(p *radius.Packet, value TPExcessInputOctets) (err error) {
+	a := radius.NewInteger64(uint64(value))
+	return _Travelping_AddVendor(p, 60, a)
+}
+
+func TPExcessInputOctets_Get(p *radius.Packet) (value TPExcessInputOctets) {
+	value, _ = TPExcessInputOctets_Lookup(p)
+	return
+}
+
+func TPExcessInputOctets_Gets(p *radius.Packet) (values []TPExcessInputOctets, err error) {
+	var i uint64
+	for _, attr := range _Travelping_GetsVendor(p, 60) {
+		i, err = radius.Integer64(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, TPExcessInputOctets(i))
+	}
+	return
+}
+
+func TPExcessInputOctets_Lookup(p *radius.Packet) (value TPExcessInputOctets, err error) {
+	a, ok := _Travelping_LookupVendor(p, 60)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	var i uint64
+	i, err = radius.Integer64(a)
+	if err != nil {
+		return
+	}
+	value = TPExcessInputOctets(i)
+	return
+}
+
+func TPExcessInputOctets_Set(p *radius.Packet, value TPExcessInputOctets) (err error) {
+	a := radius.NewInteger64(uint64(value))
+	return _Travelping_SetVendor(p, 60, a)
+}
+
+func TPExcessInputOctets_Del(p *radius.Packet) {
+	_Travelping_DelVendor(p, 60)
+}
+
+type TPExcessOutputOctets uint64
+
+var TPExcessOutputOctets_Strings = map[TPExcessOutputOctets]string{}
+
+func (a TPExcessOutputOctets) String() string {
+	if str, ok := TPExcessOutputOctets_Strings[a]; ok {
+		return str
+	}
+	return "TPExcessOutputOctets(" + strconv.FormatUint(uint64(a), 10) + ")"
+}
+
+func TPExcessOutputOctets_Add(p *radius.Packet, value TPExcessOutputOctets) (err error) {
+	a := radius.NewInteger64(uint64(value))
+	return _Travelping_AddVendor(p, 61, a)
+}
+
+func TPExcessOutputOctets_Get(p *radius.Packet) (value TPExcessOutputOctets) {
+	value, _ = TPExcessOutputOctets_Lookup(p)
+	return
+}
+
+func TPExcessOutputOctets_Gets(p *radius.Packet) (values []TPExcessOutputOctets, err error) {
+	var i uint64
+	for _, attr := range _Travelping_GetsVendor(p, 61) {
+		i, err = radius.Integer64(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, TPExcessOutputOctets(i))
+	}
+	return
+}
+
+func TPExcessOutputOctets_Lookup(p *radius.Packet) (value TPExcessOutputOctets, err error) {
+	a, ok := _Travelping_LookupVendor(p, 61)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	var i uint64
+	i, err = radius.Integer64(a)
+	if err != nil {
+		return
+	}
+	value = TPExcessOutputOctets(i)
+	return
+}
+
+func TPExcessOutputOctets_Set(p *radius.Packet, value TPExcessOutputOctets) (err error) {
+	a := radius.NewInteger64(uint64(value))
+	return _Travelping_SetVendor(p, 61, a)
+}
+
+func TPExcessOutputOctets_Del(p *radius.Packet) {
+	_Travelping_DelVendor(p, 61)
+}
+
+type TPExcessTotalOctets uint64
+
+var TPExcessTotalOctets_Strings = map[TPExcessTotalOctets]string{}
+
+func (a TPExcessTotalOctets) String() string {
+	if str, ok := TPExcessTotalOctets_Strings[a]; ok {
+		return str
+	}
+	return "TPExcessTotalOctets(" + strconv.FormatUint(uint64(a), 10) + ")"
+}
+
+func TPExcessTotalOctets_Add(p *radius.Packet, value TPExcessTotalOctets) (err error) {
+	a := radius.NewInteger64(uint64(value))
+	return _Travelping_AddVendor(p, 62, a)
+}
+
+func TPExcessTotalOctets_Get(p *radius.Packet) (value TPExcessTotalOctets) {
+	value, _ = TPExcessTotalOctets_Lookup(p)
+	return
+}
+
+func TPExcessTotalOctets_Gets(p *radius.Packet) (values []TPExcessTotalOctets, err error) {
+	var i uint64
+	for _, attr := range _Travelping_GetsVendor(p, 62) {
+		i, err = radius.Integer64(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, TPExcessTotalOctets(i))
+	}
+	return
+}
+
+func TPExcessTotalOctets_Lookup(p *radius.Packet) (value TPExcessTotalOctets, err error) {
+	a, ok := _Travelping_LookupVendor(p, 62)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	var i uint64
+	i, err = radius.Integer64(a)
+	if err != nil {
+		return
+	}
+	value = TPExcessTotalOctets(i)
+	return
+}
+
+func TPExcessTotalOctets_Set(p *radius.Packet, value TPExcessTotalOctets) (err error) {
+	a := radius.NewInteger64(uint64(value))
+	return _Travelping_SetVendor(p, 62, a)
+}
+
+func TPExcessTotalOctets_Del(p *radius.Packet) {
+	_Travelping_DelVendor(p, 62)
+}
+
+func TPTraceID_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Travelping_AddVendor(p, 63, a)
+}
+
+func TPTraceID_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Travelping_AddVendor(p, 63, a)
+}
+
+func TPTraceID_Get(p *radius.Packet) (value []byte) {
+	value, _ = TPTraceID_Lookup(p)
+	return
+}
+
+func TPTraceID_GetString(p *radius.Packet) (value string) {
+	value, _ = TPTraceID_LookupString(p)
+	return
+}
+
+func TPTraceID_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Travelping_GetsVendor(p, 63) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func TPTraceID_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Travelping_GetsVendor(p, 63) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func TPTraceID_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Travelping_LookupVendor(p, 63)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func TPTraceID_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Travelping_LookupVendor(p, 63)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func TPTraceID_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Travelping_SetVendor(p, 63, a)
+}
+
+func TPTraceID_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Travelping_SetVendor(p, 63, a)
+}
+
+func TPTraceID_Del(p *radius.Packet) {
+	_Travelping_DelVendor(p, 63)
 }

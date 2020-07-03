@@ -3339,6 +3339,1604 @@ func CiscoPolicyDown_Del(p *radius.Packet) {
 	_Cisco_DelVendor(p, 38)
 }
 
+func CiscoRelayInformationOption_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_AddVendor(p, 46, a)
+}
+
+func CiscoRelayInformationOption_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_AddVendor(p, 46, a)
+}
+
+func CiscoRelayInformationOption_Get(p *radius.Packet) (value []byte) {
+	value, _ = CiscoRelayInformationOption_Lookup(p)
+	return
+}
+
+func CiscoRelayInformationOption_GetString(p *radius.Packet) (value string) {
+	value, _ = CiscoRelayInformationOption_LookupString(p)
+	return
+}
+
+func CiscoRelayInformationOption_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Cisco_GetsVendor(p, 46) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func CiscoRelayInformationOption_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Cisco_GetsVendor(p, 46) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func CiscoRelayInformationOption_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Cisco_LookupVendor(p, 46)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func CiscoRelayInformationOption_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Cisco_LookupVendor(p, 46)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func CiscoRelayInformationOption_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_SetVendor(p, 46, a)
+}
+
+func CiscoRelayInformationOption_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_SetVendor(p, 46, a)
+}
+
+func CiscoRelayInformationOption_Del(p *radius.Packet) {
+	_Cisco_DelVendor(p, 46)
+}
+
+func CiscoDHCPUserClass_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_AddVendor(p, 47, a)
+}
+
+func CiscoDHCPUserClass_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_AddVendor(p, 47, a)
+}
+
+func CiscoDHCPUserClass_Get(p *radius.Packet) (value []byte) {
+	value, _ = CiscoDHCPUserClass_Lookup(p)
+	return
+}
+
+func CiscoDHCPUserClass_GetString(p *radius.Packet) (value string) {
+	value, _ = CiscoDHCPUserClass_LookupString(p)
+	return
+}
+
+func CiscoDHCPUserClass_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Cisco_GetsVendor(p, 47) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func CiscoDHCPUserClass_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Cisco_GetsVendor(p, 47) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func CiscoDHCPUserClass_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Cisco_LookupVendor(p, 47)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func CiscoDHCPUserClass_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Cisco_LookupVendor(p, 47)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func CiscoDHCPUserClass_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_SetVendor(p, 47, a)
+}
+
+func CiscoDHCPUserClass_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_SetVendor(p, 47, a)
+}
+
+func CiscoDHCPUserClass_Del(p *radius.Packet) {
+	_Cisco_DelVendor(p, 47)
+}
+
+func CiscoDHCPVendorClass_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_AddVendor(p, 48, a)
+}
+
+func CiscoDHCPVendorClass_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_AddVendor(p, 48, a)
+}
+
+func CiscoDHCPVendorClass_Get(p *radius.Packet) (value []byte) {
+	value, _ = CiscoDHCPVendorClass_Lookup(p)
+	return
+}
+
+func CiscoDHCPVendorClass_GetString(p *radius.Packet) (value string) {
+	value, _ = CiscoDHCPVendorClass_LookupString(p)
+	return
+}
+
+func CiscoDHCPVendorClass_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Cisco_GetsVendor(p, 48) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func CiscoDHCPVendorClass_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Cisco_GetsVendor(p, 48) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func CiscoDHCPVendorClass_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Cisco_LookupVendor(p, 48)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func CiscoDHCPVendorClass_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Cisco_LookupVendor(p, 48)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func CiscoDHCPVendorClass_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_SetVendor(p, 48, a)
+}
+
+func CiscoDHCPVendorClass_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_SetVendor(p, 48, a)
+}
+
+func CiscoDHCPVendorClass_Del(p *radius.Packet) {
+	_Cisco_DelVendor(p, 48)
+}
+
+func CiscoDHCPRelayGiAddr_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_AddVendor(p, 50, a)
+}
+
+func CiscoDHCPRelayGiAddr_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_AddVendor(p, 50, a)
+}
+
+func CiscoDHCPRelayGiAddr_Get(p *radius.Packet) (value []byte) {
+	value, _ = CiscoDHCPRelayGiAddr_Lookup(p)
+	return
+}
+
+func CiscoDHCPRelayGiAddr_GetString(p *radius.Packet) (value string) {
+	value, _ = CiscoDHCPRelayGiAddr_LookupString(p)
+	return
+}
+
+func CiscoDHCPRelayGiAddr_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Cisco_GetsVendor(p, 50) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func CiscoDHCPRelayGiAddr_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Cisco_GetsVendor(p, 50) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func CiscoDHCPRelayGiAddr_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Cisco_LookupVendor(p, 50)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func CiscoDHCPRelayGiAddr_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Cisco_LookupVendor(p, 50)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func CiscoDHCPRelayGiAddr_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_SetVendor(p, 50, a)
+}
+
+func CiscoDHCPRelayGiAddr_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_SetVendor(p, 50, a)
+}
+
+func CiscoDHCPRelayGiAddr_Del(p *radius.Packet) {
+	_Cisco_DelVendor(p, 50)
+}
+
+func CiscoServiceName_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_AddVendor(p, 51, a)
+}
+
+func CiscoServiceName_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_AddVendor(p, 51, a)
+}
+
+func CiscoServiceName_Get(p *radius.Packet) (value []byte) {
+	value, _ = CiscoServiceName_Lookup(p)
+	return
+}
+
+func CiscoServiceName_GetString(p *radius.Packet) (value string) {
+	value, _ = CiscoServiceName_LookupString(p)
+	return
+}
+
+func CiscoServiceName_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Cisco_GetsVendor(p, 51) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func CiscoServiceName_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Cisco_GetsVendor(p, 51) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func CiscoServiceName_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Cisco_LookupVendor(p, 51)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func CiscoServiceName_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Cisco_LookupVendor(p, 51)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func CiscoServiceName_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_SetVendor(p, 51, a)
+}
+
+func CiscoServiceName_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_SetVendor(p, 51, a)
+}
+
+func CiscoServiceName_Del(p *radius.Packet) {
+	_Cisco_DelVendor(p, 51)
+}
+
+func CiscoParentSessionID_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_AddVendor(p, 52, a)
+}
+
+func CiscoParentSessionID_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_AddVendor(p, 52, a)
+}
+
+func CiscoParentSessionID_Get(p *radius.Packet) (value []byte) {
+	value, _ = CiscoParentSessionID_Lookup(p)
+	return
+}
+
+func CiscoParentSessionID_GetString(p *radius.Packet) (value string) {
+	value, _ = CiscoParentSessionID_LookupString(p)
+	return
+}
+
+func CiscoParentSessionID_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Cisco_GetsVendor(p, 52) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func CiscoParentSessionID_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Cisco_GetsVendor(p, 52) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func CiscoParentSessionID_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Cisco_LookupVendor(p, 52)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func CiscoParentSessionID_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Cisco_LookupVendor(p, 52)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func CiscoParentSessionID_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_SetVendor(p, 52, a)
+}
+
+func CiscoParentSessionID_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_SetVendor(p, 52, a)
+}
+
+func CiscoParentSessionID_Del(p *radius.Packet) {
+	_Cisco_DelVendor(p, 52)
+}
+
+func CiscoSubQoSPolIn_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_AddVendor(p, 55, a)
+}
+
+func CiscoSubQoSPolIn_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_AddVendor(p, 55, a)
+}
+
+func CiscoSubQoSPolIn_Get(p *radius.Packet) (value []byte) {
+	value, _ = CiscoSubQoSPolIn_Lookup(p)
+	return
+}
+
+func CiscoSubQoSPolIn_GetString(p *radius.Packet) (value string) {
+	value, _ = CiscoSubQoSPolIn_LookupString(p)
+	return
+}
+
+func CiscoSubQoSPolIn_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Cisco_GetsVendor(p, 55) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func CiscoSubQoSPolIn_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Cisco_GetsVendor(p, 55) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func CiscoSubQoSPolIn_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Cisco_LookupVendor(p, 55)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func CiscoSubQoSPolIn_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Cisco_LookupVendor(p, 55)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func CiscoSubQoSPolIn_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_SetVendor(p, 55, a)
+}
+
+func CiscoSubQoSPolIn_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_SetVendor(p, 55, a)
+}
+
+func CiscoSubQoSPolIn_Del(p *radius.Packet) {
+	_Cisco_DelVendor(p, 55)
+}
+
+func CiscoSubQoSPolOut_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_AddVendor(p, 56, a)
+}
+
+func CiscoSubQoSPolOut_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_AddVendor(p, 56, a)
+}
+
+func CiscoSubQoSPolOut_Get(p *radius.Packet) (value []byte) {
+	value, _ = CiscoSubQoSPolOut_Lookup(p)
+	return
+}
+
+func CiscoSubQoSPolOut_GetString(p *radius.Packet) (value string) {
+	value, _ = CiscoSubQoSPolOut_LookupString(p)
+	return
+}
+
+func CiscoSubQoSPolOut_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Cisco_GetsVendor(p, 56) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func CiscoSubQoSPolOut_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Cisco_GetsVendor(p, 56) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func CiscoSubQoSPolOut_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Cisco_LookupVendor(p, 56)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func CiscoSubQoSPolOut_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Cisco_LookupVendor(p, 56)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func CiscoSubQoSPolOut_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_SetVendor(p, 56, a)
+}
+
+func CiscoSubQoSPolOut_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_SetVendor(p, 56, a)
+}
+
+func CiscoSubQoSPolOut_Del(p *radius.Packet) {
+	_Cisco_DelVendor(p, 56)
+}
+
+func CiscoInACL_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_AddVendor(p, 57, a)
+}
+
+func CiscoInACL_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_AddVendor(p, 57, a)
+}
+
+func CiscoInACL_Get(p *radius.Packet) (value []byte) {
+	value, _ = CiscoInACL_Lookup(p)
+	return
+}
+
+func CiscoInACL_GetString(p *radius.Packet) (value string) {
+	value, _ = CiscoInACL_LookupString(p)
+	return
+}
+
+func CiscoInACL_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Cisco_GetsVendor(p, 57) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func CiscoInACL_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Cisco_GetsVendor(p, 57) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func CiscoInACL_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Cisco_LookupVendor(p, 57)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func CiscoInACL_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Cisco_LookupVendor(p, 57)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func CiscoInACL_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_SetVendor(p, 57, a)
+}
+
+func CiscoInACL_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_SetVendor(p, 57, a)
+}
+
+func CiscoInACL_Del(p *radius.Packet) {
+	_Cisco_DelVendor(p, 57)
+}
+
+func CiscoOutACL_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_AddVendor(p, 58, a)
+}
+
+func CiscoOutACL_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_AddVendor(p, 58, a)
+}
+
+func CiscoOutACL_Get(p *radius.Packet) (value []byte) {
+	value, _ = CiscoOutACL_Lookup(p)
+	return
+}
+
+func CiscoOutACL_GetString(p *radius.Packet) (value string) {
+	value, _ = CiscoOutACL_LookupString(p)
+	return
+}
+
+func CiscoOutACL_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Cisco_GetsVendor(p, 58) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func CiscoOutACL_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Cisco_GetsVendor(p, 58) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func CiscoOutACL_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Cisco_LookupVendor(p, 58)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func CiscoOutACL_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Cisco_LookupVendor(p, 58)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func CiscoOutACL_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_SetVendor(p, 58, a)
+}
+
+func CiscoOutACL_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_SetVendor(p, 58, a)
+}
+
+func CiscoOutACL_Del(p *radius.Packet) {
+	_Cisco_DelVendor(p, 58)
+}
+
+func CiscoSubPBRPolicyIn_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_AddVendor(p, 59, a)
+}
+
+func CiscoSubPBRPolicyIn_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_AddVendor(p, 59, a)
+}
+
+func CiscoSubPBRPolicyIn_Get(p *radius.Packet) (value []byte) {
+	value, _ = CiscoSubPBRPolicyIn_Lookup(p)
+	return
+}
+
+func CiscoSubPBRPolicyIn_GetString(p *radius.Packet) (value string) {
+	value, _ = CiscoSubPBRPolicyIn_LookupString(p)
+	return
+}
+
+func CiscoSubPBRPolicyIn_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Cisco_GetsVendor(p, 59) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func CiscoSubPBRPolicyIn_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Cisco_GetsVendor(p, 59) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func CiscoSubPBRPolicyIn_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Cisco_LookupVendor(p, 59)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func CiscoSubPBRPolicyIn_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Cisco_LookupVendor(p, 59)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func CiscoSubPBRPolicyIn_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_SetVendor(p, 59, a)
+}
+
+func CiscoSubPBRPolicyIn_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_SetVendor(p, 59, a)
+}
+
+func CiscoSubPBRPolicyIn_Del(p *radius.Packet) {
+	_Cisco_DelVendor(p, 59)
+}
+
+func CiscoSubActivateService_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_AddVendor(p, 60, a)
+}
+
+func CiscoSubActivateService_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_AddVendor(p, 60, a)
+}
+
+func CiscoSubActivateService_Get(p *radius.Packet) (value []byte) {
+	value, _ = CiscoSubActivateService_Lookup(p)
+	return
+}
+
+func CiscoSubActivateService_GetString(p *radius.Packet) (value string) {
+	value, _ = CiscoSubActivateService_LookupString(p)
+	return
+}
+
+func CiscoSubActivateService_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Cisco_GetsVendor(p, 60) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func CiscoSubActivateService_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Cisco_GetsVendor(p, 60) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func CiscoSubActivateService_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Cisco_LookupVendor(p, 60)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func CiscoSubActivateService_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Cisco_LookupVendor(p, 60)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func CiscoSubActivateService_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_SetVendor(p, 60, a)
+}
+
+func CiscoSubActivateService_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_SetVendor(p, 60, a)
+}
+
+func CiscoSubActivateService_Del(p *radius.Packet) {
+	_Cisco_DelVendor(p, 60)
+}
+
+func CiscoIPv6InACL_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_AddVendor(p, 61, a)
+}
+
+func CiscoIPv6InACL_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_AddVendor(p, 61, a)
+}
+
+func CiscoIPv6InACL_Get(p *radius.Packet) (value []byte) {
+	value, _ = CiscoIPv6InACL_Lookup(p)
+	return
+}
+
+func CiscoIPv6InACL_GetString(p *radius.Packet) (value string) {
+	value, _ = CiscoIPv6InACL_LookupString(p)
+	return
+}
+
+func CiscoIPv6InACL_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Cisco_GetsVendor(p, 61) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func CiscoIPv6InACL_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Cisco_GetsVendor(p, 61) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func CiscoIPv6InACL_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Cisco_LookupVendor(p, 61)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func CiscoIPv6InACL_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Cisco_LookupVendor(p, 61)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func CiscoIPv6InACL_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_SetVendor(p, 61, a)
+}
+
+func CiscoIPv6InACL_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_SetVendor(p, 61, a)
+}
+
+func CiscoIPv6InACL_Del(p *radius.Packet) {
+	_Cisco_DelVendor(p, 61)
+}
+
+func CiscoIPv6OutACL_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_AddVendor(p, 62, a)
+}
+
+func CiscoIPv6OutACL_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_AddVendor(p, 62, a)
+}
+
+func CiscoIPv6OutACL_Get(p *radius.Packet) (value []byte) {
+	value, _ = CiscoIPv6OutACL_Lookup(p)
+	return
+}
+
+func CiscoIPv6OutACL_GetString(p *radius.Packet) (value string) {
+	value, _ = CiscoIPv6OutACL_LookupString(p)
+	return
+}
+
+func CiscoIPv6OutACL_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Cisco_GetsVendor(p, 62) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func CiscoIPv6OutACL_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Cisco_GetsVendor(p, 62) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func CiscoIPv6OutACL_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Cisco_LookupVendor(p, 62)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func CiscoIPv6OutACL_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Cisco_LookupVendor(p, 62)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func CiscoIPv6OutACL_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_SetVendor(p, 62, a)
+}
+
+func CiscoIPv6OutACL_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_SetVendor(p, 62, a)
+}
+
+func CiscoIPv6OutACL_Del(p *radius.Packet) {
+	_Cisco_DelVendor(p, 62)
+}
+
+func CiscoSubDeactivateService_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_AddVendor(p, 63, a)
+}
+
+func CiscoSubDeactivateService_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_AddVendor(p, 63, a)
+}
+
+func CiscoSubDeactivateService_Get(p *radius.Packet) (value []byte) {
+	value, _ = CiscoSubDeactivateService_Lookup(p)
+	return
+}
+
+func CiscoSubDeactivateService_GetString(p *radius.Packet) (value string) {
+	value, _ = CiscoSubDeactivateService_LookupString(p)
+	return
+}
+
+func CiscoSubDeactivateService_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Cisco_GetsVendor(p, 63) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func CiscoSubDeactivateService_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Cisco_GetsVendor(p, 63) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func CiscoSubDeactivateService_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Cisco_LookupVendor(p, 63)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func CiscoSubDeactivateService_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Cisco_LookupVendor(p, 63)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func CiscoSubDeactivateService_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_SetVendor(p, 63, a)
+}
+
+func CiscoSubDeactivateService_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_SetVendor(p, 63, a)
+}
+
+func CiscoSubDeactivateService_Del(p *radius.Packet) {
+	_Cisco_DelVendor(p, 63)
+}
+
+func CiscoDHCPSubscriberID_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_AddVendor(p, 65, a)
+}
+
+func CiscoDHCPSubscriberID_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_AddVendor(p, 65, a)
+}
+
+func CiscoDHCPSubscriberID_Get(p *radius.Packet) (value []byte) {
+	value, _ = CiscoDHCPSubscriberID_Lookup(p)
+	return
+}
+
+func CiscoDHCPSubscriberID_GetString(p *radius.Packet) (value string) {
+	value, _ = CiscoDHCPSubscriberID_LookupString(p)
+	return
+}
+
+func CiscoDHCPSubscriberID_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Cisco_GetsVendor(p, 65) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func CiscoDHCPSubscriberID_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Cisco_GetsVendor(p, 65) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func CiscoDHCPSubscriberID_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Cisco_LookupVendor(p, 65)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func CiscoDHCPSubscriberID_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Cisco_LookupVendor(p, 65)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func CiscoDHCPSubscriberID_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_SetVendor(p, 65, a)
+}
+
+func CiscoDHCPSubscriberID_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_SetVendor(p, 65, a)
+}
+
+func CiscoDHCPSubscriberID_Del(p *radius.Packet) {
+	_Cisco_DelVendor(p, 65)
+}
+
+func CiscoDHCPv6LinkAddress_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_AddVendor(p, 66, a)
+}
+
+func CiscoDHCPv6LinkAddress_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_AddVendor(p, 66, a)
+}
+
+func CiscoDHCPv6LinkAddress_Get(p *radius.Packet) (value []byte) {
+	value, _ = CiscoDHCPv6LinkAddress_Lookup(p)
+	return
+}
+
+func CiscoDHCPv6LinkAddress_GetString(p *radius.Packet) (value string) {
+	value, _ = CiscoDHCPv6LinkAddress_LookupString(p)
+	return
+}
+
+func CiscoDHCPv6LinkAddress_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Cisco_GetsVendor(p, 66) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func CiscoDHCPv6LinkAddress_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Cisco_GetsVendor(p, 66) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func CiscoDHCPv6LinkAddress_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Cisco_LookupVendor(p, 66)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func CiscoDHCPv6LinkAddress_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Cisco_LookupVendor(p, 66)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func CiscoDHCPv6LinkAddress_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_SetVendor(p, 66, a)
+}
+
+func CiscoDHCPv6LinkAddress_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Cisco_SetVendor(p, 66, a)
+}
+
+func CiscoDHCPv6LinkAddress_Del(p *radius.Packet) {
+	_Cisco_DelVendor(p, 66)
+}
+
 func SipConfID_Add(p *radius.Packet, value []byte) (err error) {
 	var a radius.Attribute
 	a, err = radius.NewBytes(value)

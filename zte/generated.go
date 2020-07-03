@@ -143,56 +143,93 @@ vsaLoop:
 	return
 }
 
-type ZTEClientDNSPri uint32
-
-var ZTEClientDNSPri_Strings = map[ZTEClientDNSPri]string{}
-
-func (a ZTEClientDNSPri) String() string {
-	if str, ok := ZTEClientDNSPri_Strings[a]; ok {
-		return str
+func ZTEClientDNSPri_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
 	}
-	return "ZTEClientDNSPri(" + strconv.FormatUint(uint64(a), 10) + ")"
-}
-
-func ZTEClientDNSPri_Add(p *radius.Packet, value ZTEClientDNSPri) (err error) {
-	a := radius.NewInteger(uint32(value))
 	return _ZTE_AddVendor(p, 1, a)
 }
 
-func ZTEClientDNSPri_Get(p *radius.Packet) (value ZTEClientDNSPri) {
+func ZTEClientDNSPri_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _ZTE_AddVendor(p, 1, a)
+}
+
+func ZTEClientDNSPri_Get(p *radius.Packet) (value []byte) {
 	value, _ = ZTEClientDNSPri_Lookup(p)
 	return
 }
 
-func ZTEClientDNSPri_Gets(p *radius.Packet) (values []ZTEClientDNSPri, err error) {
-	var i uint32
+func ZTEClientDNSPri_GetString(p *radius.Packet) (value string) {
+	value, _ = ZTEClientDNSPri_LookupString(p)
+	return
+}
+
+func ZTEClientDNSPri_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
 	for _, attr := range _ZTE_GetsVendor(p, 1) {
-		i, err = radius.Integer(attr)
+		i = radius.Bytes(attr)
 		if err != nil {
 			return
 		}
-		values = append(values, ZTEClientDNSPri(i))
+		values = append(values, i)
 	}
 	return
 }
 
-func ZTEClientDNSPri_Lookup(p *radius.Packet) (value ZTEClientDNSPri, err error) {
+func ZTEClientDNSPri_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _ZTE_GetsVendor(p, 1) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func ZTEClientDNSPri_Lookup(p *radius.Packet) (value []byte, err error) {
 	a, ok := _ZTE_LookupVendor(p, 1)
 	if !ok {
 		err = radius.ErrNoAttribute
 		return
 	}
-	var i uint32
-	i, err = radius.Integer(a)
-	if err != nil {
-		return
-	}
-	value = ZTEClientDNSPri(i)
+	value = radius.Bytes(a)
 	return
 }
 
-func ZTEClientDNSPri_Set(p *radius.Packet, value ZTEClientDNSPri) (err error) {
-	a := radius.NewInteger(uint32(value))
+func ZTEClientDNSPri_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _ZTE_LookupVendor(p, 1)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func ZTEClientDNSPri_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _ZTE_SetVendor(p, 1, a)
+}
+
+func ZTEClientDNSPri_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
 	return _ZTE_SetVendor(p, 1, a)
 }
 
@@ -200,56 +237,93 @@ func ZTEClientDNSPri_Del(p *radius.Packet) {
 	_ZTE_DelVendor(p, 1)
 }
 
-type ZTEClientDNSSec uint32
-
-var ZTEClientDNSSec_Strings = map[ZTEClientDNSSec]string{}
-
-func (a ZTEClientDNSSec) String() string {
-	if str, ok := ZTEClientDNSSec_Strings[a]; ok {
-		return str
+func ZTEClientDNSSec_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
 	}
-	return "ZTEClientDNSSec(" + strconv.FormatUint(uint64(a), 10) + ")"
-}
-
-func ZTEClientDNSSec_Add(p *radius.Packet, value ZTEClientDNSSec) (err error) {
-	a := radius.NewInteger(uint32(value))
 	return _ZTE_AddVendor(p, 2, a)
 }
 
-func ZTEClientDNSSec_Get(p *radius.Packet) (value ZTEClientDNSSec) {
+func ZTEClientDNSSec_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _ZTE_AddVendor(p, 2, a)
+}
+
+func ZTEClientDNSSec_Get(p *radius.Packet) (value []byte) {
 	value, _ = ZTEClientDNSSec_Lookup(p)
 	return
 }
 
-func ZTEClientDNSSec_Gets(p *radius.Packet) (values []ZTEClientDNSSec, err error) {
-	var i uint32
+func ZTEClientDNSSec_GetString(p *radius.Packet) (value string) {
+	value, _ = ZTEClientDNSSec_LookupString(p)
+	return
+}
+
+func ZTEClientDNSSec_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
 	for _, attr := range _ZTE_GetsVendor(p, 2) {
-		i, err = radius.Integer(attr)
+		i = radius.Bytes(attr)
 		if err != nil {
 			return
 		}
-		values = append(values, ZTEClientDNSSec(i))
+		values = append(values, i)
 	}
 	return
 }
 
-func ZTEClientDNSSec_Lookup(p *radius.Packet) (value ZTEClientDNSSec, err error) {
+func ZTEClientDNSSec_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _ZTE_GetsVendor(p, 2) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func ZTEClientDNSSec_Lookup(p *radius.Packet) (value []byte, err error) {
 	a, ok := _ZTE_LookupVendor(p, 2)
 	if !ok {
 		err = radius.ErrNoAttribute
 		return
 	}
-	var i uint32
-	i, err = radius.Integer(a)
-	if err != nil {
-		return
-	}
-	value = ZTEClientDNSSec(i)
+	value = radius.Bytes(a)
 	return
 }
 
-func ZTEClientDNSSec_Set(p *radius.Packet, value ZTEClientDNSSec) (err error) {
-	a := radius.NewInteger(uint32(value))
+func ZTEClientDNSSec_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _ZTE_LookupVendor(p, 2)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func ZTEClientDNSSec_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _ZTE_SetVendor(p, 2, a)
+}
+
+func ZTEClientDNSSec_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
 	return _ZTE_SetVendor(p, 2, a)
 }
 
@@ -2150,6 +2224,63 @@ func ZTEPPPSserviceType_Set(p *radius.Packet, value ZTEPPPSserviceType) (err err
 
 func ZTEPPPSserviceType_Del(p *radius.Packet) {
 	_ZTE_DelVendor(p, 101)
+}
+
+type ZTESWPrivilege uint32
+
+var ZTESWPrivilege_Strings = map[ZTESWPrivilege]string{}
+
+func (a ZTESWPrivilege) String() string {
+	if str, ok := ZTESWPrivilege_Strings[a]; ok {
+		return str
+	}
+	return "ZTESWPrivilege(" + strconv.FormatUint(uint64(a), 10) + ")"
+}
+
+func ZTESWPrivilege_Add(p *radius.Packet, value ZTESWPrivilege) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _ZTE_AddVendor(p, 104, a)
+}
+
+func ZTESWPrivilege_Get(p *radius.Packet) (value ZTESWPrivilege) {
+	value, _ = ZTESWPrivilege_Lookup(p)
+	return
+}
+
+func ZTESWPrivilege_Gets(p *radius.Packet) (values []ZTESWPrivilege, err error) {
+	var i uint32
+	for _, attr := range _ZTE_GetsVendor(p, 104) {
+		i, err = radius.Integer(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, ZTESWPrivilege(i))
+	}
+	return
+}
+
+func ZTESWPrivilege_Lookup(p *radius.Packet) (value ZTESWPrivilege, err error) {
+	a, ok := _ZTE_LookupVendor(p, 104)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	var i uint32
+	i, err = radius.Integer(a)
+	if err != nil {
+		return
+	}
+	value = ZTESWPrivilege(i)
+	return
+}
+
+func ZTESWPrivilege_Set(p *radius.Packet, value ZTESWPrivilege) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _ZTE_SetVendor(p, 104, a)
+}
+
+func ZTESWPrivilege_Del(p *radius.Packet) {
+	_ZTE_DelVendor(p, 104)
 }
 
 func ZTEAccessDomain_Add(p *radius.Packet, value []byte) (err error) {

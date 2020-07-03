@@ -660,6 +660,71 @@ func HPPortAuthModeDot1x_Del(p *radius.Packet) {
 	_HP_DelVendor(p, 13)
 }
 
+type HPPortMAPortMode uint32
+
+const (
+	HPPortMAPortMode_Value_UserBased HPPortMAPortMode = 0
+	HPPortMAPortMode_Value_PortBased HPPortMAPortMode = 1
+)
+
+var HPPortMAPortMode_Strings = map[HPPortMAPortMode]string{
+	HPPortMAPortMode_Value_UserBased: "User-Based",
+	HPPortMAPortMode_Value_PortBased: "Port-Based",
+}
+
+func (a HPPortMAPortMode) String() string {
+	if str, ok := HPPortMAPortMode_Strings[a]; ok {
+		return str
+	}
+	return "HPPortMAPortMode(" + strconv.FormatUint(uint64(a), 10) + ")"
+}
+
+func HPPortMAPortMode_Add(p *radius.Packet, value HPPortMAPortMode) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _HP_AddVendor(p, 14, a)
+}
+
+func HPPortMAPortMode_Get(p *radius.Packet) (value HPPortMAPortMode) {
+	value, _ = HPPortMAPortMode_Lookup(p)
+	return
+}
+
+func HPPortMAPortMode_Gets(p *radius.Packet) (values []HPPortMAPortMode, err error) {
+	var i uint32
+	for _, attr := range _HP_GetsVendor(p, 14) {
+		i, err = radius.Integer(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, HPPortMAPortMode(i))
+	}
+	return
+}
+
+func HPPortMAPortMode_Lookup(p *radius.Packet) (value HPPortMAPortMode, err error) {
+	a, ok := _HP_LookupVendor(p, 14)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	var i uint32
+	i, err = radius.Integer(a)
+	if err != nil {
+		return
+	}
+	value = HPPortMAPortMode(i)
+	return
+}
+
+func HPPortMAPortMode_Set(p *radius.Packet, value HPPortMAPortMode) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _HP_SetVendor(p, 14, a)
+}
+
+func HPPortMAPortMode_Del(p *radius.Packet) {
+	_HP_DelVendor(p, 14)
+}
+
 type HPPortBounceHost uint32
 
 var HPPortBounceHost_Strings = map[HPPortBounceHost]string{}
@@ -809,6 +874,288 @@ func HPCaptivePortalURL_SetString(p *radius.Packet, value string) (err error) {
 
 func HPCaptivePortalURL_Del(p *radius.Packet) {
 	_HP_DelVendor(p, 24)
+}
+
+func HPUserRole_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _HP_AddVendor(p, 25, a)
+}
+
+func HPUserRole_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _HP_AddVendor(p, 25, a)
+}
+
+func HPUserRole_Get(p *radius.Packet) (value []byte) {
+	value, _ = HPUserRole_Lookup(p)
+	return
+}
+
+func HPUserRole_GetString(p *radius.Packet) (value string) {
+	value, _ = HPUserRole_LookupString(p)
+	return
+}
+
+func HPUserRole_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _HP_GetsVendor(p, 25) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func HPUserRole_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _HP_GetsVendor(p, 25) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func HPUserRole_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _HP_LookupVendor(p, 25)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func HPUserRole_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _HP_LookupVendor(p, 25)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func HPUserRole_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _HP_SetVendor(p, 25, a)
+}
+
+func HPUserRole_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _HP_SetVendor(p, 25, a)
+}
+
+func HPUserRole_Del(p *radius.Packet) {
+	_HP_DelVendor(p, 25)
+}
+
+func HPCPPMRole_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _HP_AddVendor(p, 27, a)
+}
+
+func HPCPPMRole_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _HP_AddVendor(p, 27, a)
+}
+
+func HPCPPMRole_Get(p *radius.Packet) (value []byte) {
+	value, _ = HPCPPMRole_Lookup(p)
+	return
+}
+
+func HPCPPMRole_GetString(p *radius.Packet) (value string) {
+	value, _ = HPCPPMRole_LookupString(p)
+	return
+}
+
+func HPCPPMRole_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _HP_GetsVendor(p, 27) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func HPCPPMRole_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _HP_GetsVendor(p, 27) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func HPCPPMRole_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _HP_LookupVendor(p, 27)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func HPCPPMRole_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _HP_LookupVendor(p, 27)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func HPCPPMRole_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _HP_SetVendor(p, 27, a)
+}
+
+func HPCPPMRole_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _HP_SetVendor(p, 27, a)
+}
+
+func HPCPPMRole_Del(p *radius.Packet) {
+	_HP_DelVendor(p, 27)
+}
+
+func HPCPPMSecondaryRole_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _HP_AddVendor(p, 28, a)
+}
+
+func HPCPPMSecondaryRole_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _HP_AddVendor(p, 28, a)
+}
+
+func HPCPPMSecondaryRole_Get(p *radius.Packet) (value []byte) {
+	value, _ = HPCPPMSecondaryRole_Lookup(p)
+	return
+}
+
+func HPCPPMSecondaryRole_GetString(p *radius.Packet) (value string) {
+	value, _ = HPCPPMSecondaryRole_LookupString(p)
+	return
+}
+
+func HPCPPMSecondaryRole_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _HP_GetsVendor(p, 28) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func HPCPPMSecondaryRole_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _HP_GetsVendor(p, 28) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func HPCPPMSecondaryRole_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _HP_LookupVendor(p, 28)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func HPCPPMSecondaryRole_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _HP_LookupVendor(p, 28)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func HPCPPMSecondaryRole_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _HP_SetVendor(p, 28, a)
+}
+
+func HPCPPMSecondaryRole_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _HP_SetVendor(p, 28, a)
+}
+
+func HPCPPMSecondaryRole_Del(p *radius.Packet) {
+	_HP_DelVendor(p, 28)
 }
 
 func HPPortPriorityRegenerationTable_Add(p *radius.Packet, value []byte) (err error) {
@@ -1301,6 +1648,100 @@ func HPNasFilterRule_Del(p *radius.Packet) {
 	_HP_DelVendor(p, 61)
 }
 
+func HPAccessProfile_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _HP_AddVendor(p, 62, a)
+}
+
+func HPAccessProfile_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _HP_AddVendor(p, 62, a)
+}
+
+func HPAccessProfile_Get(p *radius.Packet) (value []byte) {
+	value, _ = HPAccessProfile_Lookup(p)
+	return
+}
+
+func HPAccessProfile_GetString(p *radius.Packet) (value string) {
+	value, _ = HPAccessProfile_LookupString(p)
+	return
+}
+
+func HPAccessProfile_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _HP_GetsVendor(p, 62) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func HPAccessProfile_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _HP_GetsVendor(p, 62) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func HPAccessProfile_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _HP_LookupVendor(p, 62)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func HPAccessProfile_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _HP_LookupVendor(p, 62)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func HPAccessProfile_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _HP_SetVendor(p, 62, a)
+}
+
+func HPAccessProfile_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _HP_SetVendor(p, 62, a)
+}
+
+func HPAccessProfile_Del(p *radius.Packet) {
+	_HP_DelVendor(p, 62)
+}
+
 type HPNasRulesIPv6 uint32
 
 var HPNasRulesIPv6_Strings = map[HPNasRulesIPv6]string{}
@@ -1507,6 +1948,627 @@ func HPEgressVLANName_SetString(p *radius.Packet, value string) (err error) {
 
 func HPEgressVLANName_Del(p *radius.Packet) {
 	_HP_DelVendor(p, 65)
+}
+
+func HPBonjourInboundProfile_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _HP_AddVendor(p, 66, a)
+}
+
+func HPBonjourInboundProfile_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _HP_AddVendor(p, 66, a)
+}
+
+func HPBonjourInboundProfile_Get(p *radius.Packet) (value []byte) {
+	value, _ = HPBonjourInboundProfile_Lookup(p)
+	return
+}
+
+func HPBonjourInboundProfile_GetString(p *radius.Packet) (value string) {
+	value, _ = HPBonjourInboundProfile_LookupString(p)
+	return
+}
+
+func HPBonjourInboundProfile_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _HP_GetsVendor(p, 66) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func HPBonjourInboundProfile_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _HP_GetsVendor(p, 66) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func HPBonjourInboundProfile_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _HP_LookupVendor(p, 66)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func HPBonjourInboundProfile_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _HP_LookupVendor(p, 66)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func HPBonjourInboundProfile_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _HP_SetVendor(p, 66, a)
+}
+
+func HPBonjourInboundProfile_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _HP_SetVendor(p, 66, a)
+}
+
+func HPBonjourInboundProfile_Del(p *radius.Packet) {
+	_HP_DelVendor(p, 66)
+}
+
+func HPBonjourOutboundProfile_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _HP_AddVendor(p, 67, a)
+}
+
+func HPBonjourOutboundProfile_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _HP_AddVendor(p, 67, a)
+}
+
+func HPBonjourOutboundProfile_Get(p *radius.Packet) (value []byte) {
+	value, _ = HPBonjourOutboundProfile_Lookup(p)
+	return
+}
+
+func HPBonjourOutboundProfile_GetString(p *radius.Packet) (value string) {
+	value, _ = HPBonjourOutboundProfile_LookupString(p)
+	return
+}
+
+func HPBonjourOutboundProfile_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _HP_GetsVendor(p, 67) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func HPBonjourOutboundProfile_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _HP_GetsVendor(p, 67) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func HPBonjourOutboundProfile_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _HP_LookupVendor(p, 67)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func HPBonjourOutboundProfile_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _HP_LookupVendor(p, 67)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func HPBonjourOutboundProfile_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _HP_SetVendor(p, 67, a)
+}
+
+func HPBonjourOutboundProfile_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _HP_SetVendor(p, 67, a)
+}
+
+func HPBonjourOutboundProfile_Del(p *radius.Packet) {
+	_HP_DelVendor(p, 67)
+}
+
+func HPURIString_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _HP_AddVendor(p, 80, a)
+}
+
+func HPURIString_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _HP_AddVendor(p, 80, a)
+}
+
+func HPURIString_Get(p *radius.Packet) (value []byte) {
+	value, _ = HPURIString_Lookup(p)
+	return
+}
+
+func HPURIString_GetString(p *radius.Packet) (value string) {
+	value, _ = HPURIString_LookupString(p)
+	return
+}
+
+func HPURIString_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _HP_GetsVendor(p, 80) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func HPURIString_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _HP_GetsVendor(p, 80) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func HPURIString_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _HP_LookupVendor(p, 80)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func HPURIString_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _HP_LookupVendor(p, 80)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func HPURIString_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _HP_SetVendor(p, 80, a)
+}
+
+func HPURIString_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _HP_SetVendor(p, 80, a)
+}
+
+func HPURIString_Del(p *radius.Packet) {
+	_HP_DelVendor(p, 80)
+}
+
+func HPURIJSONString_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _HP_AddVendor(p, 81, a)
+}
+
+func HPURIJSONString_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _HP_AddVendor(p, 81, a)
+}
+
+func HPURIJSONString_Get(p *radius.Packet) (value []byte) {
+	value, _ = HPURIJSONString_Lookup(p)
+	return
+}
+
+func HPURIJSONString_GetString(p *radius.Packet) (value string) {
+	value, _ = HPURIJSONString_LookupString(p)
+	return
+}
+
+func HPURIJSONString_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _HP_GetsVendor(p, 81) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func HPURIJSONString_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _HP_GetsVendor(p, 81) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func HPURIJSONString_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _HP_LookupVendor(p, 81)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func HPURIJSONString_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _HP_LookupVendor(p, 81)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func HPURIJSONString_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _HP_SetVendor(p, 81, a)
+}
+
+func HPURIJSONString_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _HP_SetVendor(p, 81, a)
+}
+
+func HPURIJSONString_Del(p *radius.Packet) {
+	_HP_DelVendor(p, 81)
+}
+
+func HPURIAccess_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _HP_AddVendor(p, 82, a)
+}
+
+func HPURIAccess_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _HP_AddVendor(p, 82, a)
+}
+
+func HPURIAccess_Get(p *radius.Packet) (value []byte) {
+	value, _ = HPURIAccess_Lookup(p)
+	return
+}
+
+func HPURIAccess_GetString(p *radius.Packet) (value string) {
+	value, _ = HPURIAccess_LookupString(p)
+	return
+}
+
+func HPURIAccess_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _HP_GetsVendor(p, 82) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func HPURIAccess_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _HP_GetsVendor(p, 82) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func HPURIAccess_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _HP_LookupVendor(p, 82)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func HPURIAccess_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _HP_LookupVendor(p, 82)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func HPURIAccess_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _HP_SetVendor(p, 82, a)
+}
+
+func HPURIAccess_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _HP_SetVendor(p, 82, a)
+}
+
+func HPURIAccess_Del(p *radius.Packet) {
+	_HP_DelVendor(p, 82)
+}
+
+type HPURIException uint32
+
+var HPURIException_Strings = map[HPURIException]string{}
+
+func (a HPURIException) String() string {
+	if str, ok := HPURIException_Strings[a]; ok {
+		return str
+	}
+	return "HPURIException(" + strconv.FormatUint(uint64(a), 10) + ")"
+}
+
+func HPURIException_Add(p *radius.Packet, value HPURIException) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _HP_AddVendor(p, 83, a)
+}
+
+func HPURIException_Get(p *radius.Packet) (value HPURIException) {
+	value, _ = HPURIException_Lookup(p)
+	return
+}
+
+func HPURIException_Gets(p *radius.Packet) (values []HPURIException, err error) {
+	var i uint32
+	for _, attr := range _HP_GetsVendor(p, 83) {
+		i, err = radius.Integer(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, HPURIException(i))
+	}
+	return
+}
+
+func HPURIException_Lookup(p *radius.Packet) (value HPURIException, err error) {
+	a, ok := _HP_LookupVendor(p, 83)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	var i uint32
+	i, err = radius.Integer(a)
+	if err != nil {
+		return
+	}
+	value = HPURIException(i)
+	return
+}
+
+func HPURIException_Set(p *radius.Packet, value HPURIException) (err error) {
+	a := radius.NewInteger(uint32(value))
+	return _HP_SetVendor(p, 83, a)
+}
+
+func HPURIException_Del(p *radius.Packet) {
+	_HP_DelVendor(p, 83)
+}
+
+func HPVCGroups_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _HP_AddVendor(p, 192, a)
+}
+
+func HPVCGroups_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _HP_AddVendor(p, 192, a)
+}
+
+func HPVCGroups_Get(p *radius.Packet) (value []byte) {
+	value, _ = HPVCGroups_Lookup(p)
+	return
+}
+
+func HPVCGroups_GetString(p *radius.Packet) (value string) {
+	value, _ = HPVCGroups_LookupString(p)
+	return
+}
+
+func HPVCGroups_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _HP_GetsVendor(p, 192) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func HPVCGroups_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _HP_GetsVendor(p, 192) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func HPVCGroups_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _HP_LookupVendor(p, 192)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func HPVCGroups_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _HP_LookupVendor(p, 192)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func HPVCGroups_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _HP_SetVendor(p, 192, a)
+}
+
+func HPVCGroups_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _HP_SetVendor(p, 192, a)
+}
+
+func HPVCGroups_Del(p *radius.Packet) {
+	_HP_DelVendor(p, 192)
 }
 
 func HPCapabilityAdvert_Add(p *radius.Packet, value []byte) (err error) {

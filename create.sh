@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FILES=dictionary/*
+FILES=dictionary-new/*
 
 for f in $FILES
 do
@@ -8,5 +8,5 @@ do
 	VENDOR=${f#*.}
 
 	mkdir $VENDOR
-	$GOPATH/bin/radius-dict-gen -package $VENDOR $f > $VENDOR/generated.go
+	./radius-dict-gen -package $VENDOR $f > $VENDOR/generated.go
 done

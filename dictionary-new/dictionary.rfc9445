@@ -1,0 +1,12 @@
+# -*- text -*-
+# Copyright (C) 2023 The FreeRADIUS Server project and contributors
+# This work is licensed under CC-BY version 4.0 https://creativecommons.org/licenses/by/4.0
+# Version $Id: efd3ecd3697393ca82a69dba0ca2f6f9a4fccf16 $
+#
+#	Attributes and values defined in RFC 9445.
+#	http://www.ietf.org/rfc/rfc9445.txt
+#
+#	$Id: efd3ecd3697393ca82a69dba0ca2f6f9a4fccf16 $
+#
+ATTRIBUTE	DHCPv6-Options				245.3	group ref=..DHCPv6
+ATTRIBUTE	DHCPv4-Options				245.4	group ref=..DHCPv4

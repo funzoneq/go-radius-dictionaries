@@ -1,0 +1,21 @@
+# -*- text -*-
+# Copyright (C) 2023 The FreeRADIUS Server project and contributors
+# This work is licensed under CC-BY version 4.0 https://creativecommons.org/licenses/by/4.0
+# Version $Id: e18d3bb44b98a381088d85835c2652781f6f621a $
+#
+## Centec Packet RADIUS Dictionary
+#
+# http://www.centecnetworks.com
+#
+#
+
+VENDOR		Centec				27975
+BEGIN-VENDOR	Centec
+
+#
+# Centec Privilege Attributes
+#
+ATTRIBUTE	Exec-Privilege				1	integer
+
+END-VENDOR      Centec
+ALIAS		Centec					Vendor-Specific.Centec

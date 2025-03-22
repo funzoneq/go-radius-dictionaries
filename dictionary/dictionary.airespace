@@ -21,6 +21,7 @@ ATTRIBUTE	Airespace-Real-Time-Bandwidth-Average-Contract 8	integer
 ATTRIBUTE	Airespace-Data-Bandwidth-Burst-Contract	9	integer
 ATTRIBUTE	Airespace-Real-Time-Bandwidth-Burst-Contract 10	integer
 ATTRIBUTE	Airespace-Guest-Role-Name		11	string
+ATTRIBUTE	Airespace-IPv6-ACL-Name			12	string
 ATTRIBUTE	Airespace-Data-Bandwidth-Average-Contract-Upstream 13	integer
 ATTRIBUTE	Airespace-Real-Time-Bandwidth-Average-Contract-Upstream 14	integer
 ATTRIBUTE	Airespace-Data-Bandwidth-Burst-Contract-Upstream 15	integer

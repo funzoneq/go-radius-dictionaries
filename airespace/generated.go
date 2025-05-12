@@ -893,6 +893,100 @@ func AirespaceGuestRoleName_Del(p *radius.Packet) {
 	_Airespace_DelVendor(p, 11)
 }
 
+func AirespaceIPv6ACLName_Add(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Airespace_AddVendor(p, 12, a)
+}
+
+func AirespaceIPv6ACLName_AddString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Airespace_AddVendor(p, 12, a)
+}
+
+func AirespaceIPv6ACLName_Get(p *radius.Packet) (value []byte) {
+	value, _ = AirespaceIPv6ACLName_Lookup(p)
+	return
+}
+
+func AirespaceIPv6ACLName_GetString(p *radius.Packet) (value string) {
+	value, _ = AirespaceIPv6ACLName_LookupString(p)
+	return
+}
+
+func AirespaceIPv6ACLName_Gets(p *radius.Packet) (values [][]byte, err error) {
+	var i []byte
+	for _, attr := range _Airespace_GetsVendor(p, 12) {
+		i = radius.Bytes(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func AirespaceIPv6ACLName_GetStrings(p *radius.Packet) (values []string, err error) {
+	var i string
+	for _, attr := range _Airespace_GetsVendor(p, 12) {
+		i = radius.String(attr)
+		if err != nil {
+			return
+		}
+		values = append(values, i)
+	}
+	return
+}
+
+func AirespaceIPv6ACLName_Lookup(p *radius.Packet) (value []byte, err error) {
+	a, ok := _Airespace_LookupVendor(p, 12)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.Bytes(a)
+	return
+}
+
+func AirespaceIPv6ACLName_LookupString(p *radius.Packet) (value string, err error) {
+	a, ok := _Airespace_LookupVendor(p, 12)
+	if !ok {
+		err = radius.ErrNoAttribute
+		return
+	}
+	value = radius.String(a)
+	return
+}
+
+func AirespaceIPv6ACLName_Set(p *radius.Packet, value []byte) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewBytes(value)
+	if err != nil {
+		return
+	}
+	return _Airespace_SetVendor(p, 12, a)
+}
+
+func AirespaceIPv6ACLName_SetString(p *radius.Packet, value string) (err error) {
+	var a radius.Attribute
+	a, err = radius.NewString(value)
+	if err != nil {
+		return
+	}
+	return _Airespace_SetVendor(p, 12, a)
+}
+
+func AirespaceIPv6ACLName_Del(p *radius.Packet) {
+	_Airespace_DelVendor(p, 12)
+}
+
 type AirespaceDataBandwidthAverageContractUpstream uint32
 
 var AirespaceDataBandwidthAverageContractUpstream_Strings = map[AirespaceDataBandwidthAverageContractUpstream]string{}
